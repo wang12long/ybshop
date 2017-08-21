@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<meta name="renderer" content="webkit">
+<title></title>
+<link rel="stylesheet" href="css/pintuer.css">
+<link rel="stylesheet" href="css/admin.css">
+<link rel="stylesheet" type="text/css" href="../../css/public/bootstrap.min.css"/>
+<script src="js/jquery.js"></script>
+<script src="js/pintuer.js"></script>
+<style type="text/css">
+	.images{margin:0px 110px;}
+	.images img{width: 50px;height:50px; margin-left: 10px;}
+	.form-control{width: 200px;}
+	#subgood{margin-left: 10%;}
+</style>
+</head>
+<body>
+<div class="panel admin-panel">
+  <div class="panel-head" id="add"><strong><span class="icon-pencil-square-o"></span>增加内容</strong></div>
+  <div class="body-content">
+    <form  class="form-x" action="" id="goodform">  
+      <div class="form-group">
+        <div class="label">
+          <label>＊商品名称：</label>
+        </div>
+        <div class="field">
+          <input type="text" class="input w50" value="" name="goodName" data-validate="required:请输入商品名" />
+          <div class="tips"></div>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="label">
+          <label>＊商品图片：</label>
+        </div>
+        <div class="field">
+          <input type="file" class="button bg-blue margin-left" id="goodsImg" value="+ 上传图片"  style="float:left;">  <div id="goodimage" class="images"></div>
+        </div>
+      </div>   
+      <!--显示图片-->
+          <!--<div id="goodimage" class="images"></div>-->
+      
+      <div class="form-group">
+        <div class="label">
+          <label>＊详情图片：</label>
+        </div>
+        <div class="field">
+          <input type="file" class="button bg-blue margin-left" id="detailImg"  style="float:left;"> <div id="detailimage" class="images"></div>
+        </div>
+      </div>  
+      <!--显示图片-->
+         <!-- <div id="detailimage" class="images"></div>-->
+   
+      <if condition="$iscid eq 1">
+        <div class="form-group">
+          <div class="label">
+            <label>＊产品分类：</label>
+          </div>
+          <div class="field">
+            <div data-toggle="distpicker">
+            <div class="form-group">
+							<label class="sr-only" for="firstsort">全部分类</label>
+							<select class="form-control" id="firstsort" name="firstsort"></select>
+						</div>
+						<div class="form-group">
+							<label class="sr-only" for="secondsort">二级分类</label>
+							<select class="form-control" id="secondsort" name="secondsort"></select>
+						</div>
+						<div class="form-group">
+							<label class="sr-only" for="thirdsort">三级分类</label>
+							<select class="form-control" id="thirdsort" name="thirdsort"></select>
+						</div>
+            <div class="tips"></div>
+          </div>
+          </div>
+        </div>
+      </if>
+      <div class="form-group">
+        <div class="label">
+          <label>＊描述：</label>
+        </div>
+        <div class="field">
+          <textarea class="input" name="goodsDescribe" style=" height:60px;"></textarea>
+          <div class="tips"></div>
+        </div>
+      </div>
+     
+      <div class="clear"></div>
+
+      <div class="form-group">
+        <div class="label">
+          <label>＊市场价：</label>
+        </div>
+        <div class="field">
+          <input type="text" class="input w50" name="marketPrice" value=""  />
+          <div class="tips"></div>
+        </div>
+      </div>
+      
+      <div class="form-group">
+        <div class="label">
+          <label>＊售价：</label>
+        </div>
+        <div class="field">
+          <input type="text" class="input w50" name="price" value=""  />
+          <div class="tips"></div>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="label">
+          <label>产品规格：</label>
+        </div>
+        <div class="field">
+          <input type="text" class="input w50" name="specifications" value=""  />
+          <div class="tips"></div>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="label">
+          <label>品牌：</label>
+        </div>
+        <div class="field">
+          <input type="text" class="input w50" name="brand" value=""  />
+          <div class="tips"></div>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="label">
+          <label>库存：</label>
+        </div>
+        <div class="field">
+          <input type="text" class="input w50" name="stock" value=""  />
+          <div class="tips"></div>
+        </div>
+      </div>
+    </form>
+      <div class="form-group">
+        <div class="label">
+          <label></label>
+        </div>
+        <div class="field">
+          <button class="button bg-main icon-check-square-o" type="submit" id="subgood"> 提交</button>
+        </div>
+      </div>
+  </div>
+</div>
+
+<script src="../../js/public/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/distpicker1.data.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/distpicker1.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+//获取要修该的商品的数据getonegood.php
+var url = decodeURI(location.href);
+var STR = url.split('?')[1];
+var aa = STR.substring(4);
+//console.log(aa);
+var imgs = [];
+var imgss=[];
+$.ajax({
+	type:"get",
+	url:"http://115.28.227.1/projects/xa/php/php08/Back/backCommon.php",
+	async:true,
+	data:{
+		type:"changegoods",
+		GID:aa
+	},
+	success:function(res){
+//		console.log(JSON.parse(res[0].GoodInfo));
+		var goods=JSON.parse(res[0].GoodInfo);
+		$("input[name='goodName']").val(goods.goodName);
+		for (var i=0;i<goods.goodimgs.length;i++) {
+			$("#goodimage").append("<div style='display: inline-block;'><img src='" + 	goods.goodimgs[i] + "' alt='' class='img-circle'><div class='btn btn-default deles' style='padding: 3px 6px;'>删除</div></div>");
+			$("#goodimage").append()
+			imgs.push(goods.goodimgs[i]);
+		}
+			$(".deles").click(function(){
+				var imgurl=$(this).prev().attr("src");
+				imgs.splice($.inArray(imgurl,imgs),1);
+//				console.log(imgs);
+				$(this).parent().remove();
+			})
+		for (var i=0;i<goods.detailimgs.length;i++) {
+			$("#detailimage").append("<div style='display: inline-block;'><img src='" + 	goods.detailimgs[i] + "' alt=''  class='img-circle'><div class='btn btn-default deless' style='padding: 3px 6px;'>删除</div></div>")
+			imgss.push(goods.detailimgs[i]);
+		}
+			$(".deless").click(function(){
+				var imgurl=$(this).prev().attr("src");
+				imgss.splice($.inArray(imgurl,imgss),1);
+//				console.log(imgss);
+				$(this).parent().remove();
+			})
+		$("textarea[name='goodsDescribe']").val(goods.goodsDescribe);
+		$("input[name='marketPrice']").val(goods.marketPrice);
+		$("input[name='price']").val(goods.price);
+		$("input[name='specifications']").val(goods.specifications);
+		$("input[name='brand']").val(goods.brand);
+		$("input[name='stock']").val(goods.stock);
+	}
+});
+
+	//商品图片上传
+var fileM = document.getElementById("goodsImg");
+
+$("#goodsImg").on("change", function() {
+	var fileD = fileM.files[0];
+	var formData = new FormData();
+	formData.append("file", fileD);
+
+	var ajax = new XMLHttpRequest();
+	ajax.open("POST", "http://115.28.227.1/projects/xa/php/php08/Back/backCommon.php?type=upgoodsimg");
+	ajax.send(formData);
+	ajax.onreadystatechange = function() {
+		if(ajax.readyState == 4 && ajax.status == 200) {
+			var obj = JSON.parse(ajax.responseText);
+			if(obj.err == 0) {
+				//创建img标签显示图片
+				var img = $("<img src='" + obj.msg + "' alt='' class='img-circle'>");
+				console.log(obj.msg);
+				//添加标签
+				$("#goodimage").append(img);
+				//存储该图片的链接
+				imgs.push(obj.msg);
+				console.log(imgs);
+			}
+		}
+	}
+});
+//详情图片上传
+var fileN = document.getElementById("detailImg");
+//var imgss = [];
+$("#detailImg").on("change", function() {
+	var fileD = fileN.files[0];
+	var formData = new FormData();
+	formData.append("file", fileD);
+
+	var ajax = new XMLHttpRequest();
+	ajax.open("POST", "http://115.28.227.1/projects/xa/php/php08/Back/backCommon.php?type=upgoodsimg");
+	ajax.send(formData);
+	ajax.onreadystatechange = function() {
+		if(ajax.readyState == 4 && ajax.status == 200) {
+			var obj = JSON.parse(ajax.responseText);
+			if(obj.err == 0) {
+				//创建img标签显示图片
+				var img = $("<img src='" + obj.msg + "' alt='' class='img-circle'>");
+				console.log(obj.msg);
+				//添加标签
+				$("#detailimage").append(img);
+				//存储该图片的链接
+				imgss.push(obj.msg);
+				console.log(imgss);
+			}
+		}
+	}
+});
+var did=localStorage.getItem("DID");
+//商品信息上传
+$('#subgood').on('click', function() {
+		var info = $("#goodform").serializeArray();
+//		console.log(info);
+			var goodinfo = {};
+			for(var i = 0; i < info.length; i++) {
+				var obj = info[i];
+				goodinfo[obj.name] = obj.value;
+			}
+//			console.log(goodinfo);
+			goodinfo["goodimgs"] = imgs;
+			goodinfo["detailimgs"] = imgss;
+			goodinfo['firstImg'] = imgs[0];
+			goodinfo['detailFirstImg'] = imgss[0];
+			$.ajax({
+				type: "get",
+				url: "http://115.28.227.1/projects/xa/php/php08/Back/backCommon.php",
+				async: true,
+				data: {
+					type:"updategoodinfo",
+					parameter: JSON.stringify(goodinfo),
+					DID:did,
+					ID:aa
+				},
+				success: function(res) {
+//					console.log(res);
+					if(res.err==0){
+						alert("商品更新成功")
+						window.location.href="storegoodlist.html"
+					}else{
+						alert("商品更新失败")
+					}
+				}
+			});
+})
+
+</script>
+</body>
+</html>

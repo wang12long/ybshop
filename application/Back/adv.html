@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<meta name="renderer" content="webkit">
+		<title></title>
+		<style type="text/css">
+			.deleteNotice:after {
+				line-height: 32px;
+				content: "删除失败";
+				color: red;
+				text-align: center;
+				margin-left: 5px;
+			}
+			
+			.deleteSuccess:after {
+				line-height: 32px;
+				content: "删除成功";
+				color: red;
+				text-align: center;
+				margin-left: 5px;
+			}
+			
+			.scrollImgTable tr td:nth-child(3) {
+				text-align: left!important;
+			}
+			
+			.scrollImgTable tr td:nth-child(3) .button-group {
+				margin-left: 170px;
+			}
+			
+			.subSuccess:after {
+				line-height: 32px;
+				color: red;
+				content: "提交成功";
+				text-align: center;
+				margin-left: 5px;
+			}
+			
+			.subNotice:after {
+				line-height: 32px;
+				color: red;
+				content: "提交失败";
+				text-align: center;
+				margin-left: 5px;
+			}
+		</style>
+		<link rel="stylesheet" href="css/pintuer.css">
+		<link rel="stylesheet" href="css/admin.css">
+		<script src="js/jquery.js"></script>
+		<script src="js/pintuer.js"></script>
+	</head>
+
+	<body>
+		<div class="panel admin-panel">
+			<div class="panel-head"><strong class="icon-reorder"> 内容列表</strong></div>
+			<table class="table table-hover text-center scrollImgTable">
+				<tr>
+					<th width="10%">ID</th>
+					<th width="20%">图片</th>
+					<th width="15%">操作</th>
+				</tr>
+			</table>
+		</div>
+		<div class="panel admin-panel margin-top" id="add">
+			<div class="panel-head"><strong><span class="icon-pencil-square-o"></span> 增加内容</strong></div>
+			<div class="body-content">
+				<form method="post" class="form-x" id="scrollImgForm" action="">
+					<div class="subImgDisplay"></div>
+					<div class="form-group">
+						<div class="label">
+							<label>图片：</label>
+						</div>
+						<div class="field subImgBox">
+							<input type="file" class="button bg-blue margin-left" onchange="subImg()" id="image1" value="+ 浏览上传" style="float:left;">
+						</div>
+					</div>
+				</form>
+				<div class="subBox">
+					<button class="button bg-main icon-check-square-o" id="submit" onclick="subInfo()"> 提交</button>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript">
+		// 将图片存储到服务器
+		//定义一个图片数组方便form表单数据提交
+		var imgs = [];
+
+		var ajax = new XMLHttpRequest() || new ActiveXObject("Microsoft.XMLHTTP");
+
+		function subImg() {
+			var imgObj = document.querySelector("#image1").files[0];
+			var formData = new FormData();
+			formData.append("file", imgObj);
+			ajax.open("POST", "http://115.28.227.1/projects/xa/php/php08/Back/backCommon.php?type=scrollImg");
+			ajax.send(formData);
+			ajax.onreadystatechange = function() {
+				if(ajax.readyState == 4) {
+					if(ajax.status >= 200 && ajax.status < 300 || ajax.status == 304) {
+						console.log(ajax.responseText);
+						var obj = JSON.parse(ajax.responseText);
+						imgs.push(obj.errmsg);
+						$scrollImg = $("<img src='" + obj.errmsg + "'/>");
+						$scrollImg.css({
+							"width": "50px",
+							"height": "50px",
+							"border-radius": "100%",
+							"margin-left": "10px",
+							"border": "1px solid #eee"
+						})
+						$(".subImgDisplay").append($scrollImg);
+					}
+				}
+			}
+		}
+		// 提交表单所有数据
+		function subInfo() {
+			$.ajax({
+				type: "post",
+				url: "http://115.28.227.1/projects/xa/php/php08/Back/backCommon.php",
+				async: true,
+				data: {
+					type: "subImgInfo",
+					imgs: JSON.stringify(imgs)
+				},
+				success: function(res) {
+					console.log(res);
+					if(res.errcode == "0") {
+						$(".subBox").addClass("subSuccess");
+						setTimeout(function() {
+							window.location.href = "adv.html";
+						}, 1000)
+					} else {
+						$(".subBox").addClass("subNotice");
+					}
+				}
+			});
+		}
+		// 显示六张图片到轮播管理页面
+		var type = "type=showScrollImg";
+		ajax.open("POST", "http://115.28.227.1/projects/xa/php/php08/Back/backCommon.php");
+		ajax.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+		ajax.send(type);
+		ajax.onreadystatechange = function() {
+			if(ajax.readyState == 4) {
+				if(ajax.status >= 200 && ajax.status < 300 || ajax.status == 304) {
+					var obj = JSON.parse(ajax.responseText);
+//					console.log(obj.length);
+					for(var i = 0; i < obj.length; i++) {
+						var scrollImgId = obj[i].id;
+//						console.log(scrollImgId);
+						$scrollItem = $('<tr><td>' + scrollImgId + '</td><td><img src="' + obj[i].url + '" alt="" width="120" height="50" /></td><td><div class="button-group deleteImgBtn" onclick="deleteImgClick(this)"><a class="button border-main" href="#add"><span class="icon-edit"></span> 删除</a></div></td></tr>');
+						$(".scrollImgTable").append($scrollItem);
+					}
+
+				}
+			}
+		}
+
+		function deleteImgClick(obj) {
+			var imgId = $(obj).parent().siblings().eq(0).text();
+			$.ajax({
+				type: "post",
+				url: "http://115.28.227.1/projects/xa/php/php08/Back/backCommon.php",
+				async: true,
+				data: {
+					type: "deleteScrollImg",
+					id: imgId
+				},
+				success: function(res) {
+//					console.log(res);
+					if(res.errcode == "0") {
+						$(obj).addClass("deleteSuccess");
+						setTimeout(function() {
+							window.location.href = "adv.html";
+						}, 1000)
+					} else {
+						$(obj).addClass("deleteNotice");
+					}
+				}
+			});
+		}
+
+		$(".subImgBox").css({
+			"padding": "5px 0",
+			"width": "40%"
+		})
+		$(".label").css({
+			"margin-top": "11px",
+			"width": "20%",
+			"display": "inline-block"
+		})
+		$('#image1').css({
+			"width": "100%",
+			"background": "transparent",
+			"padding": "0",
+			"border": "none",
+			"color": "black",
+			"font-size": "0.6rem",
+			"display": "inline-block",
+			"vertical-align": "middle",
+			"margin-top": "13px"
+		})
+		$(".subImgDisplay").css({
+			//			"border":"1px solid red",
+			"margin-left": "6%",
+			//				"display": "inline-block",
+			//				"vertical-align": "middle"
+		})
+		$("#scrollImgForm").css({
+			"width": "40%",
+			"float": "left"
+		})
+		$("#submit").css({
+			"margin-top": "1%",
+			"padding": "5px 15px"
+		})
+		$(".button-group").css({
+			"margin-left": "80px"
+		})
+	</script>
+
+</html>

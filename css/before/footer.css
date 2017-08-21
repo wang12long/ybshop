@@ -1,0 +1,10 @@
+/*底部*/
+#footer {width: 100%;background: #444;padding: 40px 0 20px;color: #CCCCCC;}
+#footer .container {margin: auto;min-width: 992px;}
+.table {width: 100%;text-align: left;line-height: 1.5em;font-size: 1strong;text-indent: 20px;}
+.table tbody tr th {font-size: 16px;border-top: 0;color: #CCCCCC;}
+.table tbody tr td {font-size: 12px;border-top: 0;color: #CCCCCC;}
+.footer-info {text-align: center;font-size: 12px;margin-left: -10px;padding: 20px 0 15px;}
+.footer-info p a {color: #CCCCCC;margin-left: 10px;text-decoration: none;}
+.footer-info p strong {margin-left: 5px;}
+.footer-info p a:hover {color: red;}

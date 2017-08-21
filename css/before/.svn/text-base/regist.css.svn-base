@@ -1,0 +1,277 @@
+* {
+	margin: 0px;
+	padding: 0px;
+}
+
+body {
+	font-size: 16px;
+}
+
+.clearfix:after {
+	content: "";
+	display: block;
+	clear: both;
+}
+
+.wrap {
+	width: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+header {
+	width: 1024px;
+	margin: auto;
+	padding: 20px 0;
+}
+
+.logo {
+	vertical-align: middle;
+}
+
+.circle {
+	display: inline-block;
+	vertical-align: middle;
+	width: 10px;
+	height: 10px;
+	background: #d22b2b;
+	border-radius: 50%;
+}
+
+.welcome {
+	font-size: 2.5rem;
+	vertical-align: middle;
+}
+
+.other-regist {
+	display: inline-block;
+}
+
+.main {
+	width: 1024px;
+	margin: 50px auto 120px;
+}
+
+.re-bg {
+	display: inline-block;
+	vertical-align: middle;
+	width: 62%;
+}
+
+.re-list {
+	display: inline-block;
+	position: relative;
+	vertical-align: middle;
+	width: 33%;
+	border: 1px solid #ccc;
+}
+
+.rgbtn {
+	width: 100%;
+	text-align: center;
+	padding: 20px 0px;
+	font-size: 1.9rem;
+	border-bottom: 1px solid #ccc;
+	margin-bottom: 20px;
+}
+
+.current {
+	color: #D22B2B;
+}
+
+.rg-phone {
+	width: 45%;
+	float: left;
+}
+
+.rg-email {
+	width: 45%;
+	float: right;
+}
+
+.re-cont {
+	width: 88%;
+	margin: auto;
+	overflow: hidden;
+}
+
+.re-cont1 {
+	width: 210%;
+}
+
+.reg-phone {
+	float: left;
+}
+
+.reg-email {
+	float: right;
+}
+
+.box {
+	display: inline-block;
+	vertical-align: middle;
+	height: 34px;
+	width: 41px;
+	text-align: center;
+	border-right: 1px solid #ccc;
+}
+
+.userlogo,
+.pwdlogo,
+.codelogo,
+.emaillogo {
+	display: inline-block;
+	width: 20px;
+	height: 20px;
+	margin-top: 6px;
+}
+
+.userlogo {
+	background: url(../../img/user-icon.png) 0px -15px no-repeat;
+}
+
+.pwdlogo {
+	background: url(../../img/user-icon.png) 0px -36px no-repeat;
+}
+
+.codelogo {
+	background: url(../../img/user-icon.png) 0px -56px no-repeat;
+}
+
+.phonelogo {
+	display: inline-block;
+	width: 20px;
+	height: 25px;
+	background: url(../../img/user-icon.png) 0px -76px no-repeat;
+	margin-top: 2px;
+}
+
+.emaillogo {
+	background: url(../../img/user-icon.png) 0px -101px no-repeat;
+}
+
+.input-group {
+	border: 1px solid #ccc;
+	margin: 5px 10px 0px 10px;
+	border-radius: 4px;
+}
+.input-grop1{
+	color: red;
+	font-size: 0.8em;
+	margin-left: 20%;
+	margin-top: 3%;
+	display: none;
+}
+.input-group2 {
+	display: inline-block;
+	border: 1px solid #ccc;
+	margin: 15px 10px 0px 10px;
+	border-radius: 4px;
+}
+
+input {
+	vertical-align: middle;
+	padding: 9px 2px;
+	outline: none;
+	border: none;
+	font-size: 1.2rem;
+}
+
+.input-group input {
+	width: 230px;
+}
+
+.input-group2 input {
+	width: 87px;
+}
+
+.codes {
+	display: inline-block;
+	vertical-align: middle;
+	width: 70px;
+	height: 32px;
+	border: 1px solid;
+}
+
+.verification-phonecode,
+.verification-emailcode {
+	display: inline-block;
+	vertical-align: middle;
+	height: 32px;
+	line-height: 32px;
+	background: #d22b2b;
+	font-size: 0.8rem;
+	padding: 0px 6px;
+	color: white;
+}
+
+.input-group3 {
+	margin: 20px 10px;
+	font-size: 0.8rem;
+}
+.input-group3 input {
+	margin: 2px 3px 3px 2px;
+}
+.input-group3 a {
+	color: rgb(0, 0, 255);
+}
+
+.input-group4 {
+	margin: 5px 40px;
+	color: #817878;
+	font-size: 0.85rem;
+}
+
+.input-group4 span {
+	margin: 0px 15px;
+}
+
+.rebtn {
+	margin: 15px 10px;
+	text-align: center;
+	background: #D32B2B;
+	margin-bottom: 20px;
+	border-radius: 4px;
+}
+
+.rebtn input {
+	display: inline-block;
+	background: #D32B2B;
+	color: white;
+	font-size: 1.3rem;
+}
+.quicklogin {
+	width: 100px;
+	display: inline-block;
+	position: absolute;
+	right: 0px;
+	top: -28px;
+}
+.quicklogin a {
+	font-size: 1.8rem;
+	color: #D22B2B;	
+}
+
+/*底部*/
+
+.footer-info {
+	width: 100%;
+	text-align: center;
+	font-size: 12px;
+}
+
+.footer-info p a {
+	color: #666;
+	margin-left: 15px;
+	text-decoration: none;
+}
+
+.footer-info p strong {
+	margin-left: 10px;
+}
+
+.footer-info p a:hover {
+	color: red;
+}

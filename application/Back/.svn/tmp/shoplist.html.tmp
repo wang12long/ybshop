@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<meta name="renderer" content="webkit">
+		<title></title>
+		<link rel="stylesheet" href="css/pintuer.css">
+		<link rel="stylesheet" href="css/admin.css">
+		<link rel="stylesheet" type="text/css" href="../../css/public/bootstrap.min.css" />
+		<script src="js/jquery.js"></script>
+		<script src="js/pintuer.js"></script>
+		<style type="text/css">
+			#changeX span{margin-left: 200px;}
+			#changeX span:nth-child(1){margin-left: 0px;}
+		</style>
+	</head>
+
+	<body>
+		<div class="panel admin-panel">
+			<div class="panel-head"><strong class="icon-reorder"> 店铺列表</strong>
+				<a href="" style="float:right; display:none;">添加字段</a>
+			</div>
+			<table class="table table-hover text-center" id="goodsList">
+				<tr>
+					<th width="100" style="text-align:left; padding-left:20px;">店铺名</th>
+					<th width="10%">店铺LOGO</th>
+					<th>店铺类型</th>
+					<th>联系电话</th>
+					<th>是否热门</th>
+					<th>是否精选</th>
+					<th width="200">操作</th>
+				</tr>
+				<volist name="list" id="vo">
+					
+				
+			</table>
+			<div id="hhh" style="border: 1px solid lightgray;padding: 0px 10px 10px;border-radius: 10px;">
+				<div class="panel-head" style="margin-bottom: 10px;"><strong class="icon-reorder" > 修改店铺</strong>
+				<a href="" style="float:right; display:none;">添加字段</a>
+			</div>
+			<div id="changeX" >
+				<span class="shopname" style="width: 300px;display: inline-block;">店铺名：<span class="dianpu"></span></span>
+			<span>是否精选：
+				<select name="" style="width: 100px;">
+				<option value="">无</option>
+				<option value="1">是</option>
+				<option value="0">否</option>
+			</select>
+			</span>
+			<span><button class="btn btn-info" id="subX">提交</button></span>	
+			</div>
+			</div>
+			
+					
+		</div>
+
+		<script type="text/javascript">
+			$.ajax({
+				type: "get",
+				url: "http://115.28.227.1/projects/xa/php/php08/Back/backCommon.php",
+				async: true,
+				data: {
+					type: "getshopinfo",
+				},
+				success: function(res) {
+					console.log(res);
+					for(var i = 0; i < res.length; i++) {
+						if(res[i].RID==1){
+							 res[i].RID='是';
+						}else{
+							res[i].RID='否';
+						}
+						if(res[i].XID==1){
+							 res[i].XID='是';
+						}else{
+							res[i].XID='否';
+						}
+						var shopinfo=JSON.parse(res[i].StoreMsg);
+						$('#goodsList').append('<tr>'+
+						'<td style="text-align:left; padding-left:20px;" class="storename">'+shopinfo.storeName+'</td>'+
+						'<td width="10%"><img src="'+shopinfo.logo+'" alt="" width="70" height="50" /></td>'+
+						'<td>'+res[i].Kind+'</td>'+
+						'<td>'+shopinfo.phoneNum+'</td>'+
+						'<td class="hot">'+res[i].RID+'</td>'+
+						'<td class="chose">'+ res[i].XID +'</td>'+
+						'<td>'+
+								'<button class="btn btn-info shopoption">修改</button><button class="btn btn-danger shopDeletes" >删除</button>'+
+						'</td>'+
+					'</tr>')
+					}
+					$('.shopoption').click(function(){
+						var name=$(this).parent().prevAll().eq(5).text();
+						var name1=$(this).parent().prevAll().eq(0).text();
+						$('.dianpu').text(name);
+//						console.log($('option:selected').val())
+					})
+					$('#subX').click(function(){
+						var XID=$('option:selected').val();
+						var storeName=$(this).parent().prev().prev().find('.dianpu').text();
+						console.log(storeName);
+						$.ajax({
+							type:"get",
+							url:"http://115.28.227.1/projects/xa/php/php08/Back/backCommon.php",
+							async:true,
+							data:{
+								type:'changeXID',
+								storename:storeName,
+								XID:XID
+							},
+							success:function(res){
+								console.log(res);
+							}
+						});
+					})
+					
+					$('.shopDeletes').click(function(){
+						var name=$(this).parent().prevAll().eq(5).text();			
+						 var r=confirm('确认删除？');
+						 
+   						if (r==true){
+   							$(this).parent().parent().remove();
+   							$.ajax({
+							type:"get",
+							url:"http://115.28.227.1/projects/xa/php/php08/Back/backCommon.php",
+							async:true,
+							data:{
+								type:'delshop',
+								storename:name
+							},
+							success:function(res){		
+									if(res.err==0){
+										alert(' 删除成功')
+									}
+							}
+						});
+   						}	
+					})
+				}
+			});
+		</script>
+
+	</body>
+
+</html>

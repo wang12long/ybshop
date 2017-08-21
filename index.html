@@ -1,0 +1,869 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/public/bootstrap.min.css" />
+		<link rel="stylesheet" type="text/css" href="css/before/header.css" />
+
+		<link rel="stylesheet" type="text/css" href="css/before/footer.css" />
+		<link rel="stylesheet" type="text/css" href="css/before/ui.css" />
+		<link rel="stylesheet" type="text/css" href="css/before/style.css" />
+		<link rel="stylesheet" type="text/css" href="css/public/swiper-3.4.0.min.css" />
+
+		<link rel="stylesheet" type="text/css" href="css/before/index.css" />
+		<link rel="stylesheet" type="text/css" href="css/public/animate.css" />
+		<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+		<script src="js/public/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/before/aimmenu.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/before/knockout.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/before/ceshi.js" type="text/javascript" charset="utf-8"></script>
+
+	</head>
+
+	<body>
+		<!--头部导航栏-->
+		<div class="l_header">
+			<div class="container">
+				<div class="l_header_left">
+					<span>欢迎光临本店!&nbsp;</span>
+					<span>请登录&nbsp;</span>
+					<span>免费注册</span>
+				</div>
+				<div class="l_header_right" style="cursor: pointer;">
+					<div class="navSpan">
+						<span class="ico-text">我的信息</span>
+						<span class="userinfo-ico"></span>
+						<ul class="navSpanHover">
+							<li>
+								<a href="">已买到的宝贝</a>
+							</li>
+							<li>
+								<a href="">我的地址管理</a>
+							</li>
+						</ul>
+					</div>
+					<div class="navSpan">
+						<span class="att-shop"></span>
+						<span class="ico-text">我关注的店铺</span>
+					</div>
+					<div class="navSpan">
+						<span class="shop-car"></span>
+						<span class="ico-text">购物车</span>
+					</div>
+					<div class="navSpan">
+						<span class="ico-text">收藏夹</span>
+						<span class="userinfo-ico"></span>
+						<ul class="navSpanHover">
+							<li>
+								<a href="">收藏的宝贝</a>
+							</li>
+							<li>
+								<a href="">收藏的店铺</a>
+							</li>
+						</ul>
+					</div>
+					<div class="navSpan">
+						<span class="ico-text">手机版</span>
+					</div>
+					<div class="navSpan">
+						<span class="ico-text">商家支持</span>
+						<span class="userinfo-ico"></span>
+						<ul class="navSpanHover">
+							<p>商家：</p>
+							<li>
+								<a href="">售后流程</a>
+							</li>
+							<li>
+								<a href="">购物流程</a>
+							</li>
+							<li>
+								<a href="">订购方式</a>
+							</li>
+							<li>
+								<a href="">常见问题</a>
+							</li>
+							<p>帮助：</p>
+							<li>
+								<a href="">帮助中心</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!--撑开的内容-->
+		<div class="userLogin" style="display: none;">
+			<!--用户登录-->
+			<div class="" style="height: 100%;">
+				<div class="container box">
+					<div class="loginBox">
+						<div class="noLogin">
+							<span>您尚未登录</span>
+							<span></span>
+						</div>
+						<div class="topstyle">
+							<div class="changestyle">
+								<span class="code-login">扫码登录</span>
+							</div>
+							<div class="fast">
+								<span class="user-login">账户登录</span>
+							</div>
+						</div>
+						<div class="box-display">
+							<div class="boxcontent">
+								<div class="qr-code">
+									<div class="code-img">
+										<img src="img/weixin.jpeg" />
+									</div>
+									<p>打开
+										<a href="#">手机有吧</a> 扫描二维码</p>
+									<div class="qw-login">
+										<span><img src="img/qq.png"/><a href=""> QQ登录</a></span>
+										<span><img src="img/wechat.png"/><a href=""> 微信登录</a></span>
+									</div>
+								</div>
+								<div class="account-login">
+									<div class="inputgroup">
+										<div class="input-group">
+											<div class="input-group-addon"><span class="user_icon"></span></div>
+											<input class="form-control" id="username" type="email" placeholder="手机号码／会员名／邮箱">
+										</div>
+										<div class="input-group">
+											<div class="input-group-addon"><span class="lock"></span></div>
+											<input class="form-control" id="password" type="password" placeholder="密码">
+										</div>
+										<div class="checkbox">
+											<label>
+											      <input class="checkbox-input" type="checkbox">
+											      <span class="rememberpass">
+											      	记住密码
+											      </span>
+											    </label>
+											<a>忘记密码</a>
+										</div>
+										<button type="button" class="btn btn-danger" id="loginbtn">登录</button>
+									</div>
+									<div class="otherlogin">
+										<div class="other_login">
+											<span><img src="img/qq.png"/><a href=""> QQ</a></span>
+											<span class="line">|</span>
+											<span><img src="img/wechat.png"/><a href=""> 微信</a></span>
+										</div>
+										<div class="quickregist">
+											<a href="#">
+												<span class="regist_ico"></span>
+												<a class="regist_link">立即注册</a>
+											</a>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--右侧导航栏-->
+		<div class="right_fix">
+			<div class="littleImg">
+				<div class="slideBan slideBan_">
+					<a href="#"><i class="setting"></i></a>
+					<span class="slideBan1">有吧会员</span>
+				</div>
+				<div class="slideBan">
+					<a href="#"><i class="bonus"></i></a>
+					<span class="slideBan2">领红包在购物</span>
+				</div>
+				<div class="slideBan">
+					<a href="#"><i class="cart"></i></a>
+					<span id="littlecar">购物车</span>
+					<span class="littlegoodnum">0</span>
+				</div>
+				<div class="slideBan">
+					<a href="#"><i class="seen"></i></a>
+					<span class="slideBan3">我看过的</span>
+				</div>
+				<div class="slideBan slideBan_">
+					<a href="#"><i class="hearts"></i></a>
+					<span class="slideBan4">我关注的店铺</span>
+				</div>
+				<div class="slideBan slideBan_">
+					<a href="#"><i class="collect"></i></a>
+					<span class="slideBan5">我的收藏</span>
+				</div>
+				<div class="slideBan slideBan_">
+					<a href="#"><i class="backtop"></i></a>
+					<span class="slideBan6">返回顶部</span>
+				</div>
+			</div>
+
+			<div class="slideCon">
+
+				<!--点击更换-->
+				<div class="huan">
+					<div class="redPaper">
+						<span></span>
+						<span class="fonta">红包</span>
+						<span class="closeBtn"></span>
+						<div class="loadingImg">
+							<img src="img/noresult.png" />
+							<p>暂时还没有红包~~</p>
+							<a href="">先去逛逛吧</a>
+						</div>
+					</div>
+					<div class="shoppingCar">
+						<span class="shopIcon"></span>
+						<span class="fonta">购物车</span>
+						<span class="closeBtn"></span>
+						<div class="loadingImg">
+							<img src="img/noresult.png" />
+							<p>您的购物车里什么都没有哦</p>
+							<a href="">再去看看吧</a>
+						</div>
+						<!--购物车数据库获取的数据-->
+						<ul class="shopData">
+							<!--<li class="shopinfo clearfix">
+								<div>
+									<a href=""><img src="img/1394_thumb_G_1475822992003.jpg" /></a>
+								</div>
+								<div>
+									<a href=""><span class="infoHover">2016新核桃（干果）包邮（西藏 新疆 青海不包邮）</span></a>
+									<p><span>￥20.0</span>&nbsp;x&nbsp;<span>3</span><b class="dele">删除</b></p>
+								</div>
+							</li>							-->
+						</ul>
+					</div>
+					<div class="mine">
+						<span></span>
+						<span class="fonta">我的足记</span>
+						<span class="closeBtn"></span>
+						<div class="loadingImg">
+							<img src="img/noresult.png" />
+							<p>您还没有浏览过~~~</p>
+							<a href="">快去看看吧</a>
+						</div>
+						<!--我的足记数据库获取的数据-->
+						<!--<ul class="mineData">
+							<li class="mineInfo clearfix">
+								<a href=""><img src="img/1394_thumb_G_1475822992003.jpg" /></a>
+								<b>￥20.0</b>   
+							</li>	
+							<li class="mineInfo clearfix">
+								<a href=""><img src="img/1394_thumb_G_1475822992003.jpg" /></a>
+								<b>￥20.0</b>
+							</li>	
+						</ul>-->
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--内容-->
+		<div class="container">
+			<!--搜索框，logo-->
+			<div class="l_main">
+				<img src="img/logolast.png" />
+				<div class="l_bigInput">
+					<input type="text" name="" id="" value="" class="searchcon" />
+					<span class="searchbtns" style="cursor:pointer">搜 索</span>
+				</div>
+				<div class="l_ul">
+					<span>u8洗衣液&nbsp;｜&nbsp;</span>
+					<span>晨露&nbsp;｜&nbsp;</span>
+					<span>西凤酒&nbsp;｜&nbsp;</span>
+					<span>百事联创&nbsp;｜&nbsp;</span>
+					<span>月如意&nbsp;｜&nbsp;</span>
+					<span>&nbsp;猕猴桃&nbsp;｜&nbsp;</span>
+					<span>门源</span>
+				</div>
+			</div>
+			<!--分类，轮播图-->
+			<div class="container clearfix mt-40"  >
+				<div class="wp navbar">
+					<div class="macth_xv_navlist">
+						<div class="macth_xv_menu">
+							<!--左侧导航-->
+							<div class="macth_xv_categorys">
+								<div class="macth_xv_cat_title">
+									<h2 class="macth_cat_name"><a href="###">全部商品分类</a></h2>
+								</div>
+								<div class="macth_xv_cat_catlist ">
+									<ul class="macth-dropdown-menu" data-bind="foreach:navData">
+										<li class="macth_xvitem" data-bind="attr:{'data-submenu-id':$data.id}">
+											<h3>
+												<span class="macth_xvh3_a"><a href="javascript:void(0)" data-bind="text:$data.title"></a></span><s></s>
+											</h3>
+											<div data-bind="attr:{'id':$data.id}" class="macth_popover">
+												<div class="macth_popover-content">
+													<ul class="macth_content_ul" data-bind="foreach:$data.content">
+														<li class="macth_nav_li">
+															<a class="macth_xvnav_li_alist" href="###" data-bind="text:$data.title"></a>
+															<ul class="macth_xvnav_li_ul" data-bind="foreach:$data.content">
+																<li>
+																	<a href="###" data-bind="text:$data"></a>
+																</li>
+															</ul>
+														</li>
+													</ul>
+												</div>
+												<div class="macth_cat-right">
+													<a href="###" target="_blank">
+														<img src="http://7vzt86.com1.z0.glb.clouddn.com/rightbanner.jpg" style="margin-top: 6px">
+													</a>
+												</div>
+											</div>
+										</li>
+									</ul>
+								</div>
+							</div>
+							<!--中间导航-->
+							<ul class="macth_xv_nav">
+								<li class="macth_liactive">
+									<a href="index.html">首页</a>
+								</li>
+								<li>
+									<a href="public/stores.html">店铺街</a>
+								</li>
+								<li>
+									<a href="###">同城</a>
+								</li>
+								<li>
+									<a href="###">团购</a>
+								</li>
+								<li>
+									<a href="###">译家人</a>
+								</li>
+								<li>
+									<a href="###">预售</a>
+								</li>
+								<li>
+									<a href="###">拍卖</a>
+								</li>
+								<li>
+									<a href="###">礼包</a>
+								</li>
+								<li>
+									<a href="###">积分商城</a>
+								</li>
+								<li>
+									<a href="###">优惠活动</a>
+								</li>
+								<li>
+									<a href="###">文章资讯</a>
+								</li>
+							</ul>
+							<!--轮播图-->
+							<div class="swiper-container">
+								<div class="swiper-wrapper swiper-wrapper1">
+								</div>
+								<!-- Add Pagination -->
+								<div class="swiper-pagination"></div>
+							</div>
+							<!--登录-->
+							<div class="banner_loginblock">
+								<div class="l_login">
+									<div class="user_headimg">
+										<img src="img/people.gif" />
+									</div>
+									<div class="come">Hi! 你好</div>
+									<div class="come">欢迎来到有吧连锁商城</div>
+									<span>登录</span>
+									<span>注册</span>
+								</div>
+								<!--公告-->
+								<div class="l_teil">
+									<div class="l_teil_one">
+										<span class="a">公告</span> |
+										<span class="b">规则</span> |
+										<span class="c">指南</span> |
+										<span class="d">招商入住</span>
+									</div>
+									<div class="l_teil_two a">
+										<span>喜迎元旦</span>
+										<span>有吧招微商团队</span>
+										<span>商家帮助指南</span>
+										<span>供货商(入驻商文章标题)</span>
+									</div>
+									<div class="l_teil_two b">
+										<span>不正当谋利规则变更</span>
+										<span>淘宝亲宝贝市场管理规</span>
+										<span>淘宝价格发布规范变更</span>
+										<span>店铺相关规则调整变更</span>
+									</div>
+									<div class="l_teil_two c">
+										<span>大众评审乡村医院开建</span>
+										<span>闲鱼公益上线招募NGO</span>
+										<span>阿里与残联出助残政策</span>
+										<span>公益宝贝卖家发票索取</span>
+									</div>
+									<div class="l_teil_two d">
+										<div class="teil_two">
+											<span class="teil_two1">申请商家入驻</span>
+											<span class="teil_two2">已提交申请可查看审核状态</span>
+										</div>
+										<div class="teil_two1">
+											<span>登录商家管理中心</span>
+										</div>
+									</div>
+								</div>
+								<!--头条-->
+								<div class="l_title">
+									<div class="l_title_one">有吧头条</div>
+									<div class="swiper-container">
+										<div class="swiper-wrapper">
+											<div class="swiper-slide headline">
+												<img src="img/1394_thumb_G_1475822992003.jpg" />
+												<span>为毛只有苹果火了?</span>
+												<p>谈起手机业界上最为著名的几个黑科技，3DTouch这项超越了以往的旧交互的模式的立体新维度多点触控技术</p>
+											</div>
+											<div class="swiper-slide headline">
+												<img src="img/10-2.jpg" />
+												<span>如何做好内容营销?</span>
+												<p>和飓风 i 哦大会报告 vv 肌肤的数据都是经过 v 风刀霜剑个 v 哦肥胖的 v 结果对方是坡跟 v 减肥大赛</p>
+											</div>
+											<div class="swiper-slide headline">
+												<img src="img/1641_thumb_G_1481884455314.jpg" />
+												<span>为毛只有苹果火了?</span>
+												<p>谈起手机业界上最为著名的几个黑科技，3DTouch这项超越了以往的旧交互的模式的立体新维度多点触控技术</p>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<!--限时抢购-->
+							<div class="l_time">
+								<img src="img/title_1.jpg" />
+								<img src="img/title_2.jpg" />
+								<img src="img/title_3.jpg" />
+							</div>
+						</div>
+					</div>
+				</div>
+			<div class="maskss"></div>
+			</div>
+		</div>
+
+		<!--抢购-->
+		<div class="container l_snap">
+			<div class="container" style="height: 50px;line-height: 50px;margin-top: 20px;">
+				<div class="containerBox" style="position:relative;height:100px;background: url(img/seckill_hd.png) no-repeat;font-weight:bold;font-size: 1.8rem;color: rgb(255,255,255);">
+					<div class="container_text" style="position: absolute;top: 5px;left: 70px;">
+						<span style="">有吧秒杀</span>
+				<span style="font-size: 1.1rem;font-weight: bold;margin-left: 10px;">总有你想不到的低价</span>
+					</div>
+				
+				</div>
+			</div>
+			
+			<div class="l_snap_head">
+				<div class="l_snap_head_title">
+					<span>9:00</span>
+					<span class="l_snap_head_title1">已结束</span>
+				</div>
+				<div class="l_snap_head_title">
+					<span>11:00</span>
+					<span class="l_snap_head_title1">已结束</span>
+				</div>
+				<div class="l_snap_head_title">
+					<span>13:00</span>
+					<span class="l_snap_head_title1">正在进行</span>
+				</div>
+				<div class="l_snap_head_title">
+					<span>15:00</span>
+					<span class="l_snap_head_title1">已结束</span>
+				</div>
+				<div class="l_snap_head_title">
+					<span>18:00</span>
+					<span class="l_snap_head_title1">已结束</span>
+				</div>
+			</div>
+			<div class="l_snap_content">
+
+			</div>
+		</div>
+		<!--店铺街-->
+		<div class="container store">
+			<div class="store_one">
+				<span>店铺街</span>
+				<span>推荐店铺</span>
+			</div>
+			<div class="storeImg col-lg-3 col-md-3 col-sm-3 col-xs-3">
+				<img src="img/stores.jpg" />
+			</div>
+			<div class="col-lg-9 col-md-9 col-sm-9 col-xs-9 shopitemBox">
+
+			</div>
+
+		</div>
+		<!--热门推荐-->
+		<div class="container recommend">
+			<div class="col-lg-2 col-md-2 col-xs-2 col-sm-2 recommendClass" id="chao">
+				<div class="hotname">潮流前沿</div>
+			</div>
+			<div class="col-lg-2 col-md-2 col-xs-2 col-sm-2 recommendClass" id="fen">
+				<div class="hotname">疯狂抢购</div>
+			</div>
+			<div class="col-lg-2 col-md-2 col-xs-2 col-sm-2 recommendClass" id="re">
+				<div class="hotname">热销排行</div>
+			</div>
+			<div class="col-lg-2 col-md-2 col-xs-2 col-sm-2 recommendClass" id="shang">
+				<div class="hotname">商城推荐</div>
+			</div>
+			<div class="col-lg-2 col-md-2 col-xs-2 col-sm-2 recommendClass" id="xin">
+				<div class="hotname">新品上市</div>
+			</div>
+		</div>
+		<div class="container">
+			<img src="img/1453619944293013871.jpg" width="100%" />
+		</div>
+		<!-- 楼层单元-->
+		<!--楼层导航-->
+		<div class="louceng">
+			<div class="louceng_item">1F</div>
+			<div class="louceng_item">2F</div>
+			<div class="louceng_item">3F</div>
+			<div class="louceng_item">4F</div>
+			<div class="louceng_item">5F</div>
+			<div class="louceng_item">6F</div>
+			<div class="louceng_item">7F</div>
+		</div>
+		<!--1-->
+		<div class="container items">
+			<div class="row floors">
+				<div class="floorName"><img src="img/floor.png" /><span class="floorNum">1F</span><span class="className">数码商城</span></div>
+				<div class="fClasses">
+					<span class="floorClass 1-1">精挑细选</span>
+					<span class="floorClass 1-2">热卖手机</span>
+					<span class="floorClass 1-3">手机配件</span>
+					<span class="floorClass 1-4">数码影音</span>
+				</div>
+			</div>
+			<div id="floorcontent">
+				<div class="bigitem col-lg-3 col-md-3 col-sm-3 col-xs-3">
+					<div class="bigitem_one">
+						<img src="img/aside7.jpeg" alt="" />
+					</div>
+					<div class="swiper-container">
+						<div class="swiper-wrapper">
+							<div class="swiper-slide">户外运动会场</div>
+							<div class="swiper-slide">gfdghhbgfhg</div>
+							<div class="swiper-slide">割发代首割发代首个 v 地方</div>
+						</div>
+					</div>
+					<div class="bigitem_two">
+						<span>户外运动会场</span>
+						<span>大牌年货五折起</span>
+					</div>
+				</div>
+
+				<div class="col-lg-9 col-md-9 col-sm-9 col-xs-9 shopitemBox">
+
+				</div>
+			</div>
+		</div>
+		<!--2-->
+		<div class="container items">
+			<div class="row floors">
+				<div class="floorName"><img src="img/floor.png" /><span class="floorNum">2F</span><span class="className">手机数码</span></div>
+				<div class="fClasses">
+					<span class="floorClass 2-1">精挑细选</span>
+					<span class="floorClass 2-2">热卖手机</span>
+					<span class="floorClass 2-3">手机配件</span>
+					<span class="floorClass 2-4">数码影音</span>
+				</div>
+			</div>
+			<div id="floorcontent">
+				<div class="bigitem col-lg-3 col-md-3 col-sm-3 col-xs-3">
+					<div class="bigitem_one">
+						<img src="img/aside2.jpeg" alt="" />
+					</div>
+					<div class="swiper-container">
+						<div class="swiper-wrapper">
+							<div class="swiper-slide">户外运动会场</div>
+							<div class="swiper-slide">gfdghhbgfhg</div>
+							<div class="swiper-slide">割发代首割发代首个 v 地方</div>
+						</div>
+					</div>
+					<div class="bigitem_two">
+						<span>户外运动会场</span>
+						<span>大牌年货五折起</span>
+					</div>
+				</div>
+
+				<div class="col-lg-9 col-md-9 col-sm-9 col-xs-9 shopitemBox">
+
+				</div>
+			</div>
+		</div>
+		<div class="container">
+			<img src="img/indexbar.jpg" width="100%" />
+		</div>
+		<!--3-->
+		<div class="container items">
+			<div class="row floors">
+				<div class="floorName"><img src="img/floor.png" /><span class="floorNum">3F</span><span class="className">家具，家装</span></div>
+				<div class="fClasses">
+					<span class="floorClass 3-1">精挑细选</span>
+					<span class="floorClass 3-2">热卖手机</span>
+					<span class="floorClass 3-3">手机配件</span>
+					<span class="floorClass 3-4">数码影音</span>
+				</div>
+			</div>
+			<div id="floorcontent">
+				<div class="bigitem col-lg-3 col-md-3 col-sm-3 col-xs-3">
+					<div class="bigitem_one">
+						<img src="img/aside3.jpeg" alt="" />
+					</div>
+					<div class="swiper-container">
+						<div class="swiper-wrapper">
+							<div class="swiper-slide">户外运动会场</div>
+							<div class="swiper-slide">gfdghhbgfhg</div>
+							<div class="swiper-slide">割发代首割发代首个 v 地方</div>
+						</div>
+					</div>
+					<div class="bigitem_two">
+						<span>户外运动会场</span>
+						<span>大牌年货五折起</span>
+					</div>
+				</div>
+
+				<div class="col-lg-9 col-md-9 col-sm-9 col-xs-9 shopitemBox">
+
+				</div>
+			</div>
+		</div>
+		<!--4-->
+		<div class="container items">
+			<div class="row floors">
+				<div class="floorName"><img src="img/floor.png" /><span class="floorNum">4F</span><span class="className">男装，女装</span></div>
+				<div class="fClasses">
+					<span class="floorClass 4-1">精挑细选</span>
+					<span class="floorClass 4-2">热卖手机</span>
+					<span class="floorClass 4-3">手机配件</span>
+					<span class="floorClass 4-4">数码影音</span>
+				</div>
+			</div>
+			<div id="floorcontent">
+				<div class="bigitem col-lg-3 col-md-3 col-sm-3 col-xs-3">
+					<div class="bigitem_one">
+						<img src="img/aside4.jpeg" alt="" />
+					</div>
+					<div class="swiper-container">
+						<div class="swiper-wrapper">
+							<div class="swiper-slide">户外运动会场</div>
+							<div class="swiper-slide">gfdghhbgfhg</div>
+							<div class="swiper-slide">割发代首割发代首个 v 地方</div>
+						</div>
+					</div>
+					<div class="bigitem_two">
+						<span>户外运动会场</span>
+						<span>大牌年货五折起</span>
+					</div>
+				</div>
+
+				<div class="col-lg-9 col-md-9 col-sm-9 col-xs-9 shopitemBox">
+
+				</div>
+			</div>
+		</div>
+		<div class="container">
+			<img src="img/1453619944293013871.jpg" width="100%" />
+		</div>
+		<!--5-->
+		<div class="container items">
+			<div class="row floors">
+				<div class="floorName"><img src="img/floor.png" /><span class="floorNum">5F</span><span class="className">清洁用品</span></div>
+				<div class="fClasses">
+					<span class="floorClass 5-1">精挑细选</span>
+					<span class="floorClass 5-2">热卖手机</span>
+					<span class="floorClass 5-3">手机配件</span>
+					<span class="floorClass 5-4">数码影音</span>
+				</div>
+			</div>
+			<div id="floorcontent">
+				<div class="bigitem col-lg-3 col-md-3 col-sm-3 col-xs-3">
+					<div class="bigitem_one">
+						<img src="img/aside5.jpeg" alt="" />
+					</div>
+					<div class="swiper-container">
+						<div class="swiper-wrapper">
+							<div class="swiper-slide">户外运动会场</div>
+							<div class="swiper-slide">gfdghhbgfhg</div>
+							<div class="swiper-slide">割发代首割发代首个 v 地方</div>
+						</div>
+					</div>
+					<div class="bigitem_two">
+						<span>户外运动会场</span>
+						<span>大牌年货五折起</span>
+					</div>
+				</div>
+
+				<div class="col-lg-9 col-md-9 col-sm-9 col-xs-9 shopitemBox">
+
+				</div>
+			</div>
+		</div>
+		<!--6-->
+		<div class="container items">
+			<div class="row floors">
+				<div class="floorName"><img src="img/floor.png" /><span class="floorNum">6F</span><span class="className">图书，音像</span></div>
+				<div class="fClasses">
+					<span class="floorClass 6-1">精挑细选</span>
+					<span class="floorClass 6-2">热卖手机</span>
+					<span class="floorClass 6-3">手机配件</span>
+					<span class="floorClass 6-4">数码影音</span>
+				</div>
+			</div>
+			<div id="floorcontent">
+				<div class="bigitem col-lg-3 col-md-3 col-sm-3 col-xs-3">
+					<div class="bigitem_one">
+						<img src="img/aside6.jpeg" alt="" />
+					</div>
+					<div class="swiper-container">
+						<div class="swiper-wrapper">
+							<div class="swiper-slide">户外运动会场</div>
+							<div class="swiper-slide">gfdghhbgfhg</div>
+							<div class="swiper-slide">割发代首割发代首个 v 地方</div>
+						</div>
+					</div>
+					<div class="bigitem_two">
+						<span>户外运动会场</span>
+						<span>大牌年货五折起</span>
+					</div>
+				</div>
+
+				<div class="col-lg-9 col-md-9 col-sm-9 col-xs-9 shopitemBox">
+
+				</div>
+			</div>
+		</div>
+		<div class="container">
+			<img src="img/indexbar.jpg" width="100%" />
+		</div>
+		<!--7-->
+		<div class="container items">
+			<div class="row floors">
+				<div class="floorName"><img src="img/floor.png" /><span class="floorNum">7F</span><span class="className">母婴，玩具</span></div>
+				<div class="fClasses">
+					<span class="floorClass 7-1">精挑细选</span>
+					<span class="floorClass 7-2">热卖手机</span>
+					<span class="floorClass 7-3">手机配件</span>
+					<span class="floorClass 7-4">数码影音</span>
+				</div>
+			</div>
+			<div id="floorcontent">
+				<div class="bigitem col-lg-3 col-md-3 col-sm-3 col-xs-3">
+					<div class="bigitem_one">
+						<img src="img/aside1.jpeg" alt="" />
+					</div>
+					<div class="swiper-container">
+						<div class="swiper-wrapper">
+							<div class="swiper-slide">户外运动会场</div>
+							<div class="swiper-slide">gfdghhbgfhg</div>
+							<div class="swiper-slide">割发代首割发代首个 v 地方</div>
+						</div>
+					</div>
+					<div class="bigitem_two">
+						<span>户外运动会场</span>
+						<span>大牌年货五折起</span>
+					</div>
+				</div>
+
+				<div class="col-lg-9 col-md-9 col-sm-9 col-xs-9 shopitemBox">
+
+				</div>
+			</div>
+		</div>
+		<!--页面底部-->
+		<div id="footer">
+			<div class="container">
+				<!--网站服务-->
+				<div class="footer-related">
+					<table class="table" border="0" cellspacing="0" cellpadding="0">
+						<tr>
+							<th>新手上路</th>
+							<th>配送方式</th>
+							<th>店主之家</th>
+							<th>售后服务</th>
+							<th>关于我们</th>
+							<th>服务支持</th>
+
+						</tr>
+						<tr>
+							<td>售后流程</td>
+							<td>货到付款区域</td>
+							<td>常见问题</td>
+							<td>退换货原则</td>
+							<td>关于有吧</td>
+							<td>售前售后咨询 13369202343</td>
+						</tr>
+						<tr>
+							<td>购物流程</td>
+							<td>配送支付查询</td>
+							<td>如何管理商铺</td>
+							<td>售后服务保证</td>
+							<td>合作与洽谈</td>
+							<td>售前售后咨询 15929208788</td>
+						</tr>
+						<tr>
+							<td>如何设置个人信息</td>
+							<td>订单状态</td>
+							<td>如何申请开店</td>
+							<td>退款说明</td>
+							<td>投诉与建议</td>
+							<td>客服 QQ 437209535</td>
+						</tr>
+						<tr>
+							<td>支付方式</td>
+							<td>如何注册支付宝</td>
+							<td>如何发货</td>
+							<td>返修/退换货</td>
+							<td>联系方式</td>
+							<td>客服 QQ 397218182</td>
+						</tr>
+						<tr>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td>工作时间 9：00-17：30</td>
+						</tr>
+					</table>
+				</div>
+				<!--网站信息-->
+				<div class="footer-info row">
+					<p>
+						<a href="">关于我们</a><strong>|</strong>
+						<a href="">联系我们</a><strong>|</strong>
+						<a href="">商家入驻</a><strong>|</strong>
+						<a href="">友情链接</a><strong>|</strong>
+						<a href="">站点地图</a><strong>|</strong>
+						<a href="">手机商城</a><strong>|</strong>
+						<a href="">销售联盟</a><strong>|</strong>
+						<a href="">商城社区</a><strong>|</strong>
+						<a href="">企业文化</a><strong>|</strong>
+						<a href="">帮助中心</a><strong>|</strong>
+						<a href="">留言板</a>
+					</p>
+					<p>
+						<a href="javascript:;">© 2005-2017 有吧连锁商城 版权所有，并保留所有权利。</a>
+						<a href="javascript:;">植物园花圃园内 </a>
+						<a href="javascript:;"> Tel: 13369202343 </a>
+						<a href="javascript:;"> E-mail: 397218182@qq.com </a>
+					</p>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script src="js/before/daohang.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/public/swiper-3.4.0.min.js"></script>
+	<script src="js/before/login.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/before/indexGetInfo.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/before/header.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/before/index.js" type="text/javascript" charset="utf-8"></script>
+
+</html>

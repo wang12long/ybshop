@@ -1,0 +1,258 @@
+window.onload = function(){
+
+
+var swiper = new Swiper('.macth_xv_menu>.swiper-container', {
+        pagination: '.swiper-pagination',
+        paginationClickable: true,
+        autoplay: 2000
+    });
+var swiper1 = new Swiper('.l_title>.swiper-container', {
+        direction: 'vertical',
+        slidesPerView: 1,
+        paginationClickable: true,
+        spaceBetween: 30,
+        mousewheelControl: true,
+        autoplay: 2500,
+        effect : 'fade'
+    });
+var swiper2 = new Swiper('#floorcontent .swiper-container', {
+        direction: 'vertical',
+        slidesPerView: 1,
+        paginationClickable: true,
+        spaceBetween: 30,
+        mousewheelControl: true,
+        autoplay: 2500
+
+    });
+    
+//头部导航栏hover
+$('.l_header_left span:eq(2)').hover(function(){
+	$(this).css({'color':'red','cursor':'pointer'});
+},function(){
+	$(this).css({'color':'#666666'});
+});
+
+<<<<<<< .mine
+=======
+
+
+>>>>>>> .r142
+$(".floorClass").on("mouseenter",function(){
+//	console.log($(this).siblings());
+	$(this).siblings().css({"border":"1px solid lightgray","border-bottom":"1px solid #D22B2B","background":"rgb(251,251,251)"});
+	$(this).css({"border":"1px solid #D22B2B","border-bottom":"1px solid white","background":"white"});
+});
+
+
+
+//公告
+$(".l_teil .l_teil_one span").on("mouseenter",function(){
+	$(".l_teil .l_teil_one span").css({'border-bottom':'0px solid red'});
+	$('.l_teil .l_teil_two').css({'display':'none'});
+	$(this).css({'border-bottom':'2px solid red'});
+	$('.l_teil>.'+$(this).attr("class")).css({'display':'block'});
+
+});
+$('.storelogo img').on("mouseenter",function(){
+	$(this).addClass("animated tada");	
+});
+$('.storelogo img').on("mouseout",function(){
+		var a=$(this);
+	setTimeout(function(){		
+		a.removeClass("animated tada");
+	},800);
+});
+
+//抢购
+$('.l_snap_head_title').on("click",function(){
+	$('.l_snap_head_title').css({"background":"rgb(250,250,250)"});
+	$(this).css({"background":"red"});
+	$('.l_snap_head_title span').css({"color":"black"});
+	$('.l_snap_head_title1').css({"border":"1px solid black","font-weight":""});
+	$($(this).children()[0]).css({"color":"white"});
+	$($(this).children()[1]).css({"color":"white","border":"2px solid white","font-weight":"bold"});
+//	console.log($($(this).children()[1]));
+});
+
+
+//右侧导航栏
+
+$('.slideBan:eq(0),.l_login>span:eq(0)').on('click',function(){
+	$('.userLogin').css({'display':'block'});
+})
+$('.slideBan').not(".slideBan_").on('click',function(){
+
+		$('.right_fix').animate({'right':'270px'});
+		$('.slideCon').animate({'right':'0px'});
+		$('.huan>div').css({'display':'none'});
+		if($(this).children()[1].innerHTML=="领红包在购物"){
+			$('.redPaper').css({'display':'block'});
+		}else if($(this).children()[1].innerHTML=="购物车"){
+			$('.shoppingCar').css({'display':'block'});
+		}else if($(this).children()[1].innerHTML=="我看过的"){
+			$('.mine').css({'display':'block'});
+		}
+});
+$('.closeBtn').on("click",function(){
+			$('.right_fix').animate({'right':'0px'});
+		$('.slideCon').animate({'right':'-270px'});
+});
+$('.noLogin span:eq(1)').on("click",function(){
+	$('.userLogin').css({'display':'none'});
+});
+
+//遮造的登录页面
+var windowWidth1 = $(window).width() - $('.littleImg').width() - $('.slideCon').width();
+$('.userLogin').css({'width':'100%'});
+$(window).resize(function(){
+	var windowWidth = $(window).width() - $('.littleImg').width() - $('.slideCon').width();
+	$('.userLogin').css({'width':'100%'});
+});
+
+var closeLoginFlag = false;
+$('.closeLogin').on('click',function() {
+	if(closeLoginFlag){
+		$('.userLogin').css({'display':'none'});
+		closeLoginFlag=false;
+	}else{
+		$('.userLogin').css({'display':'block'});
+		closeLoginFlag=true;
+	}
+});
+
+
+//楼层导航
+$('.louceng .louceng_item').on('mouseenter',function(){
+	$(this).css({"background":"#cc3333"})
+	if($(this).text()=="1F"){
+		$(this).text('数码');
+	}else if($(this).text()=="2F"){
+		$(this).text('手机');
+	}else if($(this).text()=="3F"){
+		$(this).text('家装');
+	}else if($(this).text()=="4F"){
+		$(this).text('服饰');
+	}else if($(this).text()=="5F"){
+		$(this).text('清洁');
+	}else if($(this).text()=="6F"){
+		$(this).text('图书');
+	}else if($(this).text()=="7F"){
+		$(this).text('母婴');
+	}
+});
+$('.louceng .louceng_item').on('mouseout',function(){
+	$(this).css({"background":"rgba(0,0,0,0.4)"})
+	if($(this).text()=="数码"){
+		$(this).text('1F');
+	}else if($(this).text()=="手机"){
+		$(this).text('2F');
+	}else if($(this).text()=="家装"){
+		$(this).text('3F');
+	}else if($(this).text()=="服饰"){
+		$(this).text('4F');
+	}else if($(this).text()=="清洁"){
+		$(this).text('5F');
+	}else if($(this).text()=="图书"){
+		$(this).text('6F');
+	}else if($(this).text()=="母婴"){
+		$(this).text('7F');
+	}
+	if(window.scrollY>=2024){
+	$('.louceng').animate({'left':'2%'},50);
+}else{
+	$('.louceng').animate({'left':'-5%'},50);
+}
+if(window.scrollY>=2024&&window.scrollY<2515){
+	$('.louceng .louceng_item').css({"background":"rgba(0,0,0,0.4)"});
+	$('.louceng .louceng_item:eq(0)').css({"background":"#cc3333"});
+}else if(window.scrollY>=2515&&window.scrollY<3015){
+	$('.louceng .louceng_item').css({"background":"rgba(0,0,0,0.4)"});
+	$('.louceng .louceng_item:eq(1)').css({"background":"#cc3333"});
+}else if(window.scrollY>=3015&&window.scrollY<3505){
+	$('.louceng .louceng_item').css({"background":"rgba(0,0,0,0.4)"});
+	$('.louceng .louceng_item:eq(2)').css({"background":"#cc3333"});
+}else if(window.scrollY>=3505&&window.scrollY<4005){
+	$('.louceng .louceng_item').css({"background":"rgba(0,0,0,0.4)"});
+	$('.louceng .louceng_item:eq(3)').css({"background":"#cc3333"});
+}else if(window.scrollY>=4005&&window.scrollY<4495){
+	$('.louceng .louceng_item').css({"background":"rgba(0,0,0,0.4)"});
+	$('.louceng .louceng_item:eq(4)').css({"background":"#cc3333"});
+}else if(window.scrollY>=4495&&window.scrollY<4990){
+	$('.louceng .louceng_item').css({"background":"rgba(0,0,0,0.4)"});
+	$('.louceng .louceng_item:eq(5)').css({"background":"#cc3333"});
+}else if(window.scrollY>4990){
+	$('.louceng .louceng_item').css({"background":"rgba(0,0,0,0.4)"});
+	$('.louceng .louceng_item:eq(6)').css({"background":"#cc3333"});
+}
+});
+
+$(window).scroll(function() {
+	if(window.scrollY>=700){
+		$('.slideBan:eq(6)').css({'display':'block'});
+	}else{
+		$('.slideBan:eq(6)').css({'display':'none'});
+	}
+if(window.scrollY>=2024){
+	$('.louceng').animate({'left':'2%'},100);
+}else{
+	$('.louceng').animate({'left':'-5%'},100);
+}
+if(window.scrollY>=2024&&window.scrollY<2515){
+	$('.louceng .louceng_item').css({"background":"rgba(0,0,0,0.4)"});
+	$('.louceng .louceng_item:eq(0)').css({"background":"#cc3333"});
+}else if(window.scrollY>=2515&&window.scrollY<3015){
+	$('.louceng .louceng_item').css({"background":"rgba(0,0,0,0.4)"});
+	$('.louceng .louceng_item:eq(1)').css({"background":"#cc3333"});
+}else if(window.scrollY>=3015&&window.scrollY<3505){
+	$('.louceng .louceng_item').css({"background":"rgba(0,0,0,0.4)"});
+	$('.louceng .louceng_item:eq(2)').css({"background":"#cc3333"});
+}else if(window.scrollY>=3505&&window.scrollY<4005){
+	$('.louceng .louceng_item').css({"background":"rgba(0,0,0,0.4)"});
+	$('.louceng .louceng_item:eq(3)').css({"background":"#cc3333"});
+}else if(window.scrollY>=4005&&window.scrollY<4495){
+	$('.louceng .louceng_item').css({"background":"rgba(0,0,0,0.4)"});
+	$('.louceng .louceng_item:eq(4)').css({"background":"#cc3333"});
+}else if(window.scrollY>=4495&&window.scrollY<4990){
+	$('.louceng .louceng_item').css({"background":"rgba(0,0,0,0.4)"});
+	$('.louceng .louceng_item:eq(5)').css({"background":"#cc3333"});
+}else if(window.scrollY>=4990){
+	$('.louceng .louceng_item').css({"background":"rgba(0,0,0,0.4)"});
+	$('.louceng .louceng_item:eq(6)').css({"background":"#cc3333"});
+}
+});
+
+$('.louceng .louceng_item').on('click',function(){
+	if($(this).text()=="数码"){
+		$('body').animate({'scrollTop':'2024'},500);
+	}else if($(this).text()=="手机"){
+		$('body').animate({'scrollTop':'2515'},500);
+	}else if($(this).text()=="家装"){
+		$('body').animate({'scrollTop':'3015'},500);
+	}else if($(this).text()=="服饰"){
+		$('body').animate({'scrollTop':'3505'},500);
+	}else if($(this).text()=="清洁"){
+		$('body').animate({'scrollTop':'4005'},500);
+	}else if($(this).text()=="图书"){
+		$('body').animate({'scrollTop':'4496'},500);
+	}else if($(this).text()=="母婴"){
+		$('body').animate({'scrollTop':'4990'},500);
+	}
+});
+
+
+//置顶
+ var timer=null;
+$('.slideBan:eq(6)').on("click",function(){
+	 var scrollTop_=document.body.scrollTop||document.documentElement.scrollTop;
+        timer=setInterval(function() {
+          if (scrollTop_>0) {
+            scrollTop_-=40;
+
+            document.body.scrollTop=scrollTop_;
+          }else {
+            clearInterval(timer);
+          }
+          },0.1);
+});
+
+}

@@ -1,0 +1,33 @@
+.container{min-width: 992px;}
+/*头部*/
+.top{height: 120px;padding-top: 30px;background: white;}
+.left{display: inline-block;}
+.right{display:inline-block;float: right;margin-right: 100px;margin-top: 20px;}
+.headers{width: 100px;text-align: center;color: #888;font-size: 0.8em;}
+#process table tr td{text-align: center;line-height: 22px;font-size: 1em;color: white;}
+.firststep{height: 25px;width: 120px;background:url(../../img/apply.png) no-repeat;background-position: 0px -45px;;}
+.secondstep{height: 25px;width: 120px;background:url(../../img/apply.png) no-repeat;background-position: 0px -92px;}
+.thirdstep{height: 25px;width: 120px;background:url(../../img/apply.png) no-repeat;background-position: 0px 0px;position: relative;}
+.done{display: inline-block;width: 10px;height: 10px;background:url(../../img/apply.png) no-repeat;background-position: 0px -140px;position: absolute;top: 7px;left: 55px;}
+/*信息填写*/
+.upmsg{color: #1279BB;line-height: 16px;padding: 10px 0;margin-bottom: 10px;border-bottom: dashed 1px #CBDDE6;border-top: dashed 1px #CBDDE6;width: 790px;margin:50px auto;font-size: 0.9em;}
+.upmsg i{background: url(../../img/apply.png) no-repeat;   background-position: -62px -140px;vertical-align: top;display: inline-block;width: 11px;height: 16px;margin-right: 6px;}
+.msgtable{width: 790px;margin: auto;margin-top: 50px;}
+thead tr {display: table-row;}
+thead tr th{padding: 12px 4px;}
+.tbs tr{display: table-row;padding: 8px;}
+.tbs tr th i{color: red;}
+.tbs tr th{text-align: right;padding-right: 10px;font-size: 0.85em;color: #777;vertical-align: top;text-align: right;height: 20px;padding: 12px 6px;}
+.tbs tr td{vertical-align: top;text-align: left;height: 20px;padding: 8px 4px;}
+
+.logoimg img{width: 20%;padding: 10px;}
+.storestyle{font-size: 0.9em;color: #555;background: white;padding: 5px;display: block;height: 35px;border: 1px solid lightgray;width: 150px;}
+input,textarea{font-size: 0.8em;padding: 5px;}
+
+input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
+color: red;
+}
+input:-moz-placeholder, textarea:-moz-placeholder {
+color: red;
+} 
+.chosefile{font-size: 0.8em;color: red;padding-left: 10px;display: none;}

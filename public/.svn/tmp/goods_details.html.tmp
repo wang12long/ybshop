@@ -1,0 +1,987 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="../css/public/bootstrap.min.css" />
+		<link rel="stylesheet" type="text/css" href="../css/before/header.css" />
+		<link rel="stylesheet" type="text/css" href="../css/before/footer.css" />
+		<link rel="stylesheet" type="text/css" href="../css/before/ui.css" />
+		<link rel="stylesheet" type="text/css" href="../css/before/style.css" />
+		<link rel="stylesheet" type="text/css" href="../css/public/animate.css" />
+		<link rel="stylesheet" type="text/css" href="../css/public/swiper-3.4.0.min.css" />
+		<link rel="stylesheet" type="text/css" href="../css/before/goods_details.css" />
+		<link rel="stylesheet" type="text/css" href="../css/before/index.css" />
+		<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+		<script src="../js/public/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/before/aimmenu.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/before/knockout.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/before/ceshi.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/public/swiper-3.4.0.min.js"></script>
+		<script src="../js/before/daohang.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/public/distpicker.data.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/public/distpicker.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+
+	<body>
+
+		<div class="goods_wrap">
+			<!--头部导航栏-->
+			<div class="l_header">
+				<div class="container">
+					<div class="l_header_left">
+						<span>欢迎光临本店!&nbsp;</span>
+						<span>请登录&nbsp;</span>
+						<span>免费注册</span>
+					</div>
+					<div class="l_header_right">
+						<div class="navSpan">
+							<span class="ico-text">我的信息</span>
+							<span class="userinfo-ico"></span>
+							<ul class="navSpanHover">
+								<li>
+									<a href="">已买到的宝贝</a>
+								</li>
+								<li>
+									<a href="">我的地址管理</a>
+								</li>
+							</ul>
+						</div>
+						<div class="navSpan">
+							<span class="att-shop"></span>
+							<span class="ico-text">我关注的店铺</span>
+						</div>
+						<div class="navSpan">
+							<span class="shop-car"></span>
+							<span class="ico-text">购物车</span>
+						</div>
+						<div class="navSpan">
+							<span class="ico-text">收藏夹</span>
+							<span class="userinfo-ico"></span>
+							<ul class="navSpanHover">
+								<li>
+									<a href="">收藏的宝贝</a>
+								</li>
+								<li>
+									<a href="">收藏的店铺</a>
+								</li>
+							</ul>
+						</div>
+						<div class="navSpan">
+							<span class="ico-text">手机版</span>
+						</div>
+						<div class="navSpan">
+							<span class="ico-text">商家支持</span>
+							<span class="userinfo-ico"></span>
+							<ul class="navSpanHover">
+								<p>商家：</p>
+								<li>
+									<a href="">售后流程</a>
+								</li>
+								<li>
+									<a href="">购物流程</a>
+								</li>
+								<li>
+									<a href="">订购方式</a>
+								</li>
+								<li>
+									<a href="">常见问题</a>
+								</li>
+								<p>帮助：</p>
+								<li>
+									<a href="">帮助中心</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!--撑开的内容-->
+			<div class="userLogin" style="display: none;">
+				<!--用户登录-->
+				<div class="" style="height: 100%;">
+					<div class="container box">
+						<div class="loginBox">
+							<div class="noLogin">
+								<span>您尚未登录</span>
+								<span></span>
+							</div>
+							<div class="topstyle">
+								<div class="changestyle">
+									<span class="code-login">扫码登录</span>
+								</div>
+								<div class="fast">
+									<span class="user-login">账户登录</span>
+								</div>
+							</div>
+							<div class="box-display">
+								<div class="boxcontent">
+									<div class="qr-code">
+										<div class="code-img">
+											<img src="../img/weixin.jpeg" />
+										</div>
+										<p>打开
+											<a href="#">手机有吧</a> 扫描二维码</p>
+										<div class="qw-login">
+											<span><img src="../img/qq.png"/><a href=""> QQ登录</a></span>
+											<span><img src="../img/wechat.png"/><a href=""> 微信登录</a></span>
+										</div>
+									</div>
+									<div class="account-login">
+										<div class="inputgroup">
+											<div class="input-group">
+												<div class="input-group-addon"><span class="user_icon"></span></div>
+												<input class="form-control" id="username" type="email" placeholder="手机号码／会员名／邮箱">
+											</div>
+											<div class="input-group">
+												<div class="input-group-addon"><span class="lock"></span></div>
+												<input class="form-control" id="password" type="password" placeholder="密码">
+											</div>
+											<div class="checkbox">
+												<label>
+											      <input class="checkbox-input" type="checkbox">
+											      <span class="rememberpass">
+											      	记住密码
+											      </span>
+											    </label>
+												<a>忘记密码</a>
+											</div>
+											<button type="button" class="btn btn-danger" id="loginbtn">登录</button>
+										</div>
+										<div class="otherlogin">
+											<div class="other_login">
+												<span><img src="../img/qq.png"/><a href=""> QQ</a></span>
+												<span class="line">|</span>
+												<span><img src="../img/wechat.png"/><a href=""> 微信</a></span>
+											</div>
+											<div class="quickregist">
+												<a href="#">
+													<span class="regist_ico"></span>
+													<a class="regist_link">立即注册</a>
+												</a>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!--右侧导航栏-->
+			<div class="right_fix">
+				<div class="littleImg">
+					<div class="slideBan slideBan_">
+						<a href="#"><i class="setting"></i></a>
+						<span class="slideBan1">有吧会员</span>
+					</div>
+					<div class="slideBan">
+						<a href="#"><i class="bonus"></i></a>
+						<span class="slideBan2">领红包在购物</span>
+					</div>
+					<div class="slideBan">
+						<a href="#"><i class="cart"></i></a>
+						<span id="littlecar">购物车</span>
+						<span class="littlegoodnum">0</span>
+					</div>
+					<div class="slideBan">
+						<a href="#"><i class="seen"></i></a>
+						<span class="slideBan3">我看过的</span>
+					</div>
+					<div class="slideBan slideBan_">
+						<a href="#"><i class="hearts"></i></a>
+						<span class="slideBan4">我关注的店铺</span>
+					</div>
+					<div class="slideBan slideBan_">
+						<a href="#"><i class="collect"></i></a>
+						<span class="slideBan5">我的收藏</span>
+					</div>
+					<div class="slideBan slideBan_">
+						<a href="#"><i class="backtop"></i></a>
+						<span class="slideBan6">返回顶部</span>
+					</div>
+				</div>
+
+				<div class="slideCon">
+
+					<!--点击更换-->
+					<div class="huan">
+						<div class="redPaper">
+							<span></span>
+							<span class="fonta">红包</span>
+							<span class="closeBtn"></span>
+							<div class="loadingImg">
+								<img src="../img/noresult.png" />
+								<p>暂时还没有红包~~</p>
+								<a href="">先去逛逛吧</a>
+							</div>
+						</div>
+						<div class="shoppingCar">
+							<span class="shopIcon"></span>
+							<span class="fonta">购物车</span>
+							<span class="closeBtn"></span>
+							<div class="loadingImg">
+								<img src="../img/noresult.png" />
+								<p>您的购物车里什么都没有哦</p>
+								<a href="">再去看看吧</a>
+							</div>
+							<!--购物车数据库获取的数据-->
+							<ul class="shopData">
+							<!--<li class="shopinfo clearfix">
+								<div>
+									<a href=""><img src="../img/1394_thumb_G_1475822992003.jpg" /></a>
+								</div>
+								<div>
+									<a href=""><span class="infoHover">2016新核桃（干果）包邮（西藏 新疆 青海不包邮）</span></a>
+									<p><span>￥20.0</span>&nbsp;x&nbsp;<span>3</span><b class="dele">删除</b></p>
+								</div>
+							</li>							-->
+						</ul>
+						</div>
+						<div class="mine">
+							<span></span>
+							<span class="fonta">我的足记</span>
+							<span class="closeBtn"></span>
+							<div class="loadingImg">
+								<img src="../img/noresult.png" />
+								<p>您还没有浏览过~~~</p>
+								<a href="">快去看看吧</a>
+							</div>
+							<!--我的足记数据库获取的数据-->
+							<!--<ul class="mineData">
+							<li class="mineInfo clearfix">
+								<a href=""><img src="../img/1394_thumb_G_1475822992003.jpg" /></a>
+								<b>￥20.0</b>   
+							</li>	
+							<li class="mineInfo clearfix">
+								<a href=""><img src="../img/1394_thumb_G_1475822992003.jpg" /></a>
+								<b>￥20.0</b>
+							</li>	
+						</ul>-->
+						</div>
+					</div>
+				</div>
+			</div>
+			<!--内容-->
+			<div class="container" style="background:white;">
+				<!--搜索框，logo-->
+				<div class="l_main">
+					<img src="../img/logo.gif" />
+					<div class="l_bigInput">
+						<input type="text" name="" id="" value="" />
+						<span>搜 索</span>
+					</div>
+					<div class="l_ul">
+						<span>u8洗衣液&nbsp;｜&nbsp;</span>
+						<span>晨露&nbsp;｜&nbsp;</span>
+						<span>西凤酒&nbsp;｜&nbsp;</span>
+						<span>百事联创&nbsp;｜&nbsp;</span>
+						<span>月如意&nbsp;｜&nbsp;</span>
+						<span>&nbsp;猕猴桃&nbsp;｜&nbsp;</span>
+						<span>门源</span>
+					</div>
+				</div>
+				<!--分类，轮播图-->
+				<div class="container clearfix mt-40">
+					<div class="wp navbar">
+						<div class="macth_xv_navlist">
+							<div class="macth_xv_menu">
+								<!--左侧导航-->
+								<div class="macth_xv_categorys">
+									<div class="macth_xv_cat_title">
+										<h2 class="macth_cat_name"><a href="###">全部商品分类</a></h2>
+									</div>
+									<div class="macth_xv_cat_catlist ">
+										<ul class="macth-dropdown-menu" data-bind="foreach:navData">
+											<li class="macth_xvitem" data-bind="attr:{'data-submenu-id':$data.id}">
+												<h3>
+								<span><i><img src="http://7vzt86.com1.z0.glb.clouddn.com/homeicon.png"></i></span><span class="macth_xvh3_a"><a href="javascript:void(0)" data-bind="text:$data.title"></a></span><s></s>
+							</h3>
+												<div data-bind="attr:{'id':$data.id}" class="macth_popover">
+													<div class="macth_popover-content">
+														<ul class="macth_content_ul" data-bind="foreach:$data.content">
+															<li class="macth_nav_li">
+																<a class="macth_xvnav_li_alist" href="###" data-bind="text:$data.title"></a>
+																<ul class="macth_xvnav_li_ul" data-bind="foreach:$data.content">
+																	<li>
+																		<a href="###" data-bind="text:$data"></a>
+																	</li>
+																</ul>
+															</li>
+														</ul>
+													</div>
+													<div class="macth_cat-right">
+														<a href="###" target="_blank">
+															<img src="http://7vzt86.com1.z0.glb.clouddn.com/rightbanner.jpg" style="margin-top: 6px">
+														</a>
+													</div>
+												</div>
+											</li>
+										</ul>
+									</div>
+								</div>
+								<!--中间导航-->
+								<ul class="macth_xv_nav">
+									<li class="macth_liactive">
+										<a href="###">首页</a>
+									</li>
+									<li>
+										<a href="###">店铺街</a>
+									</li>
+									<li>
+										<a href="###">同城</a>
+									</li>
+									<li>
+										<a href="###">团购</a>
+									</li>
+									<li>
+										<a href="###">译家人</a>
+									</li>
+									<li>
+										<a href="###">预售</a>
+									</li>
+									<li>
+										<a href="###">拍卖</a>
+									</li>
+									<li>
+										<a href="###">礼包</a>
+									</li>
+									<li>
+										<a href="###">积分商城</a>
+									</li>
+									<li>
+										<a href="###">优惠活动</a>
+									</li>
+									<li>
+										<a href="###">文章资讯</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- 商品详情Content -->
+			<div class="goods_content">
+				<div class="goods_container">
+					<div class="goods_list">
+						<div class="goods_nav">
+							<a href="" class="goods_index">首页<span class="goods_dt_ico">></span></a>
+							
+							<!--<a href="" class="goods_item">-->
+								<!--食品、酒类、生鲜、特产--><!--<i class="goodsItem_ico"></i>-->
+							<!--</a>
+							<span class="goods_dt_ico">></span>-->
+							<!--<a href="" class="goods_item">
+								食品、酒类、生鲜、特产
+							</a>
+								<span class="goods_dt_ico">></span>-->
+							<div class="goods_details_title">
+								<span class="goods_dt_text"></span>
+							</div>
+						</div>
+						<div class="goods_details_list">
+							<div class="goods_mag_display">
+								<div class="goods_magnifier">
+									<div class="goods_smallImg">
+										<div class="goods_smallImg_container">
+											<img src="" />
+											<div class="goods_mag_slider"></div>
+										</div>
+
+									</div>
+									<div class="goods_bigImg">
+										<div class="goods_bigImg_container">
+											<img src="" />
+										</div>
+									</div>
+								</div>
+								<div class="goods_display">
+									<span class="goods_dis_leftbtn"></span>
+									<div class="goods_dis_imgs">
+										<div class="dis_img">
+
+										</div>
+									</div>
+									<span class="goods_dis_rightbtn"></span>
+								</div>
+								<div class="goods_sn">
+									<div class="goods_sn_n">
+										<span>商品货号</span>
+										<span id="goods_id"></span>
+									</div>
+									<div class="goods_share">
+										<a href="" class="goods_sharebtn">分享</a>
+										<a href="" class="qzonebtn"></a>
+										<a href="" class="sinabtn"></a>
+										<a href="" class="wechatbtn"></a>
+										<a href="" class="qqbtn"></a>
+										<div class="goods_collect">
+											<span class="col_ico"></span>
+											<span class="col_text">收藏</span>
+										</div>
+									</div>
+
+								</div>
+							</div>
+							<div class="goods_produce">
+								<h1 class="goods_pro_title">
+<!--									2016新核桃（干果）包邮（西藏 新疆 青海不包邮）-->
+								</h1>
+								<p class="goods_pro_details">
+									<!--原味无糖无添加大薄皮新货特级孕妇零食品营养。外形美观，薄壳，果仁澄黄饱满，味醇香甘甜，营养价值极高等特点 深受人们喜爱。-->
+								</p>
+								<div class="goods_price">
+									<div class="goods_selling_price">
+										<span class="goods_sellText">售价</span>
+										<span class="goods_price_num"></span>
+										<span class="goods_priceDown">降价通知</span>
+									</div>
+									<div class="goods_market_price">
+										<span class="goods_marketText">市场价</span>
+										<span class="mark_under"><s></s></span>
+										<span class="vip_price">会员等级价格</span>
+										<span class="vip_ico"></span>
+									</div>
+								</div>
+								<div class="sell_detalis_list">
+									<div class="goods_comment">累计评价
+										<a href="" class="goods_comment_counts">1人评价</a>
+									</div>
+									<div class="goods_sell_counts">累计销量
+										<font>114</font>
+									</div>
+									<div class="goods_send_intergral">赠送积分
+										<font>20</font>
+									</div>
+								</div>
+								<p class="goods_spel">此商品为免运费商品，计算配送金额时将不计入配送费用</p>
+								<div class="goods_reserve">
+									<span class="goods_accounts">数量</span>
+									<div class="goods_countBtn">
+										<div class="btn-reduce"></div>
+										<input type="text" class="goods_number" value="1" />
+										<div class="btn-add"></div>
+										<span class="goods_reserve_counts">（库存886）</span>
+									</div>
+								</div>
+								<div class="goods_buy_btn">
+									<a class="goods_buyNow">立即购买</a>
+									<a class="goods_buyCar">加入购物车</a>
+									<a class="goods_buy_phone">
+										手机购买
+										<span class="goods_buy_code"></span>
+										<div class="goods_bp_codeContainer">
+											<div class="goods_buyPhone_code">
+												<span class="arr"></span>
+												<div class="goods_bpcode_imgc">
+													<img src="../img/details_goods/erweima_png.php" />
+												</div>
+											</div>
+										</div>
+									</a>
+								</div>
+							</div>
+							<div class="goods_shop_produce">
+								<div class="goods_shoppro_title">
+									<h2>宝鸡市陈仓区助民种养殖专业合作社</h2>
+								</div>
+								<div class="goods_shop_pro_det">
+									<div class="goods_shop_list">
+										<table border="" cellspacing="" cellpadding="">
+											<tr class="goods_goodcom">
+												<td class="goods_sp_text good_com">好评率：</td>
+												<td class="goods_sp_con">
+													<span class="good_bar"></span> 100%
+												</td>
+											</tr>
+											<tr>
+												<td class="goods_sp_text">商家名称：</td>
+												<td class="goods_sp_con" id="shopname">助民合作社</td>
+											</tr>
+											<tr>
+												<td class="goods_sp_text">商家类别：</td>
+												<td class="goods_sp_con" id="shopclass"></td>
+											</tr>
+											<tr>
+												<td class="goods_sp_text">客服电话：</td>
+												<td class="goods_sp_con" id="shopphone">17749265855</td>
+											</tr>
+											<tr>
+												<td class="goods_sp_text">所在地区：</td>
+												<td class="goods_sp_con" id="detailadd">陕西宝鸡</td>
+											</tr>
+										</table>
+									</div>
+									<div class="goods_shop_level">
+										<div class="goods_shop_describe"><span class="des_ico"></span><span id="des_counts">5</span></div>
+										<div class="goods_shop_service"><span class="ser_ico"></span><span id="ser_counts">5</span></div>
+										<div class="goods_shop_logistics"><span class="logi_ico"></span><span id="logi_counts">5</span></div>
+									</div>
+									<div class="goods_shop_btn">
+										<div class="goods_shop_enter"><span class="goodsshop_enter_ico"></span><span class="goodsshop_enter_text">进入商店</span></div>
+										<div class="goods_shop_attention"><span class="goodsshop_att_ico"></span><span class="goodsshop_att_text">关注本店</span></div>
+									</div>
+									<div class="goods_shop_phonecode">
+										<p>扫一扫，手机访问店铺</p>
+										<div class="shop_phonecode">
+											<img src="../img/details_goods/erweima_supplier.php" />
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="goods_commendation">
+						<div class="goods_com_container">
+							<div class="goods_com_title">
+								<div class="goods_com_better">
+									推荐精品
+								</div>
+							</div>
+							<div class="goods_com_con">
+								<span class="goods_com_leftBtn"></span>
+								<div class="goods_com_display">
+									<div class="swiper-container">
+										<div class="swiper-wrapper" id="	bests">
+											<!--<div class="swiper-slide" >
+												<img src="../img/details_goods/recommend-1.jpeg" />
+												<div class="goods_com_price">
+													<p>¥48.0</p>
+													<p>陕西特产蒲城酥梨富微酥梨10斤装包邮</p>
+												</div>
+											</div>-->
+										</div>
+
+									</div>
+								</div>
+								<span class="goods_com_rightBtn"></span>
+							</div>
+						</div>
+					</div>
+					<div class="goods_standards">
+						<div class="goods_stand_aside">
+							<div class="goods_stand_asideBlock goods_stand_type">
+								<h2>相关分类</h2>
+								<ul>
+									<li>家用电器</li>
+									<li>家用电器</li>
+									<li>家用电器</li>
+									<li>家用电器</li>
+									<li>家用电器</li>
+									<li>家用电器</li>
+								</ul>
+							</div>
+
+							<div class="goods_stand_asideBlock goods_stand_brand">
+								<h2>同类品牌</h2>
+								<ul>
+									<li>西凤酒</li>
+									<li>西凤酒</li>
+									<li>西凤酒</li>
+									<li>西凤酒</li>
+								</ul>
+							</div>
+
+							<div class="goods_stand_asideBlock goods_stand_newUp">
+								<h2>最近上新</h2>
+								<ul class="putnew">
+									<!--<li>
+										<a href="">
+											<img src="../img/details_goods/new-1.jpeg" />
+											<div class="goods_new_det">
+												<p class="goods_new_text">
+													新疆阿克苏冰糖心苹果
+												</p>
+												<p class="goods_new_price">
+													¥99.8
+												</p>
+											</div>
+										</a>
+									</li>-->
+									
+								</ul>
+
+							</div>
+
+						</div>
+						<div class="goods_stand_con">
+							<div class="goods_standcon_title" id="goods_standcon_title">
+								<div class="goods_stand_titleLeft">
+									<ul>
+										<li>
+											<a class="goods_gg" href="#goods_standcon_title">规格参数</a>
+										</li>
+										<li>
+											<a class="goods_gg" href="#goods_standcon_imgs">商品介绍</a>
+										</li>
+										<li>
+											<a class="goods_gg" href="#goods_pro_comment">商品评价</a>
+										</li>
+										<li>
+											<a class="goods_gg" href="#aftermarket">售后保障</a>
+										</li>
+									</ul>
+								</div>
+
+								<div class="goods_stand_addShopCar">
+									<span class="goods_stand_asc">加入购物车</span>
+								</div>
+							</div>
+							<div class="goods_standcon_con">
+								<div class="goods_standcon_left">
+									<div class="goods_standcon_para" id="goods_standcon_para">
+										<table border="0" cellspacing="" cellpadding="">
+											<tr>
+												<td class="goods_name">商品名称：<span></span></td>
+												<td class="goods_num">商品编号：<span></span></td>
+												<td class="goods_por">品牌：<span></span></td>
+											</tr>
+											<tr>
+												<td class="goods_pubtime">上架时间：<span></span></td>
+												<td class="goods_weight">商品毛重：<span></span></td>
+												<td class="goods_res_num">库存：<span></span></td>
+											</tr>
+										</table>
+									</div>
+									<div class="goods_standcon_imgs" id="goods_standcon_imgs">
+										<!--<div class="goods_standcon_img">
+											<img src="../img/details_goods/big-1.gif" />
+										</div>-->
+										<!--<div class="goods_standcon_img">
+											<img src="../img/details_goods/big-2.gif" />
+										</div>-->
+
+									</div>
+									<div class="goods_pro_comment" id="goods_pro_comment">
+										<div class="goods_comment_top goods_com_title">
+											<div class="goods_comment_text goods_com_better">
+												商品评价
+											</div>
+										</div>
+										<div class="goods_comment_content">
+											<div class="goods_comment_conleft">
+												<div class="goods_comment_angle">
+													<p>100%</p>
+													<p class="goods_comment_gray">好评度</p>
+												</div>
+												<div class="goods_comment_kind">
+													<div class="goods_comment_kindBox">
+														<table border="0" cellspacing="" cellpadding="">
+															<tr>
+																<td>
+																	<span class="goods_comment_kindTitle">
+																	好评：
+																</span>
+																	<span class="goods_comment_gray">100%</span>
+																</td>
+																<td><span class="goods_comment_kindBar">
+																	
+																</span>
+																</td>
+															</tr>
+															<tr>
+																<td>
+																	<span class="goods_comment_kindTitle">
+																	中评：
+																</span>
+																	<span class="goods_comment_gray">100%</span>
+																</td>
+																<td>
+																	<span class="goods_comment_kindBar">
+																	
+																</span>
+																</td>
+															</tr>
+															<tr>
+																<td>
+																	<span class="goods_comment_kindTitle">
+																	差评：
+																</span>
+																	<span class="goods_comment_gray">100%</span>
+																</td>
+																<td>
+																	<span class="goods_comment_kindBar">
+																	
+																</span>
+																</td>
+															</tr>
+														</table>
+													</div>
+
+												</div>
+											</div>
+											<div class="goods_comment_conright"></div>
+										</div>
+										<div class="goods_comment_footer">
+											<div class="goods_userComment">
+												<ul>
+													<li class="goods_userComment_Active">全部评价<span>(1)</span></li>
+													<li>好评<span>(1)</span></li>
+													<li>中评<span>(0)</span></li>
+													<li>差评<span>(0)</span></li>
+													<li>用户晒单<span>(0)</span></li>
+												</ul>
+											</div>
+											<div class="goods_userComment_display">
+												<div class="noneComment">
+													暂时还没有任何评论！
+												</div>
+												<!--<div class="goods_userComment_userlist">
+													<div class="goods_userComment_user">
+														<div class="goods_userHeadImg">
+															<img src="../img/people.gif" />
+														</div>
+														<div class="goods_userCard">
+															<p class="goods_username">我最帅</p>
+														</div>
+													</div>
+													<div class="goods_userComment_box">
+														<div class="goods_userBox_top">
+															<div class="goods_userBox_topCon">
+																<span class="goods_user_stars"></span>
+																<span class="goods_userComment_pubTime">2016-12-22</span>
+															</div>
+
+														</div>
+														<div class="goods_userBox_Bottom">
+															<div class="goods_userComment_text">
+																心得：
+																<p class="goods_userComment_con">还行</p>
+															</div>
+														</div>
+													</div>
+												</div>-->
+											</div>
+										</div>
+									</div>
+									<div class="goodspacking" id="goodspacking">
+										<div class="goods_pack_title goods_com_title">
+											<span class="goods_packTitle_text goods_com_better">包装清单</span>
+										</div>
+										<div class="goods_pack_con">
+											<img src="../img/details_goods/package.jpeg" />
+										</div>
+									</div>
+									<div class="goods_bigBlock aftermarket" id="aftermarket">
+										<div class="aftermarket_title goods_pack_title goods_com_title">
+											<div class="aftermarket_text goods_packTitle_text goods_com_better">售后保障</div>
+										</div>
+										<div class="aftermarket_con goods_pack_con">
+											<p>质保期：一年<br/> 售前服务电话：13369202343
+												<br/> 售后服务电话：15929208788
+												<br/>
+											</p>
+											<p>本商城向您保证所售商品均为正品行货，本商城自营商品自带机打发票，与商品一起寄送。凭质保证书及本商城发票，可享受全国联保服务（奢侈品、钟表除外；奢侈品、钟表由本商城联系保修，享受法定三包售后服务），与您亲临商场选购的商品享受相同的质量保证。本商城还为您提供具有竞争力的商品价格和运费政策，请您放心购买！ </p>
+											<p class="special">注：因厂家会在没有任何提前通知的情况下更改产品包装、产地或者一些附件，本司不能确保客户收到的货物与商城图片、产地、附件说明完全一致。只能确保为原厂正货！并且保证与当时市场上同样主流新品一致。若本商城没有及时更新，请大家谅解！</p>
+											<div class="goods_line">
+												<span class="declare">权利声明：</span>
+												<p>本商城上的所有商品信息、客户评价、商品咨询、网友讨论等内容，是有吧商城重要的经营资源，未经许可，禁止非法转载使用。
+													<br/>注：本站商品信息均来自于厂商，其真实性、准确性和合法性由信息拥有者（厂商）负责。本站不提供任何保证，并不承担任何法律责任。</p>
+											</div>
+										</div>
+									</div>
+									<div class="goods_bigBlock common_problem" id="common_problem">
+										<div class="commonProblem_title goods_pack_title goods_com_title">
+											<span class="commonProblem_title_text goods_packTitle_text goods_com_better">常见问题</span>
+										</div>
+										<div class="commonProblem_con goods_pack_con">
+											<div class="commonProblem_list">
+												<h4 class="commonProblem_question">
+													<span class="commonQue_ico"></span>
+													<span class="commonQue_con">下单后可以修改订单吗？</span>
+												</h4>
+												<p>
+													<span class="commonProblem_response">
+														<span class="commonRes_ico"></span>
+													<span class="commonRes_con">由本网站发货的订单，在订单打印之前可以修改，打开“订单详情”页面，点击右上角的“修改订单”即可，若没有修改订单按钮，则表示订单无法修改。</span>
+													</span>
+												</p>
+											</div>
+											<div class="commonProblem_list">
+												<h4 class="commonProblem_question">
+													<span class="commonQue_ico"></span>
+													<span class="commonQue_con">无货商品几天可以到货？</span>
+												</h4>
+												<p>
+													<span class="commonProblem_response">
+														<span class="commonRes_ico"></span>
+													<span class="commonRes_con">您可以通过以下方法获取商品的到货时间：若商品页面中，显示“无货”时：商品具体的到货时间是无法确定的，您可以通过商品页面的“到货通知”功能获得商品到货提醒。</span>
+													</span>
+												</p>
+											</div>
+											<div class="commonProblem_list">
+												<h4 class="commonProblem_question">
+													<span class="commonQue_ico"></span>
+													<span class="commonQue_con">订单如何取消？</span>
+												</h4>
+												<p>
+													<span class="commonProblem_response">
+														<span class="commonRes_ico"></span>
+													<span class="commonRes_con">如订单处于暂停状态，进入“我的订单"页面，找到要取消的订单，点击“取消订单”按钮。</span>
+													</span>
+												</p>
+											</div>
+											<div class="commonProblem_list">
+												<h4 class="commonProblem_question">
+													<span class="commonQue_ico"></span>
+													<span class="commonQue_con">可以开发票吗？</span>
+												</h4>
+												<p>
+													<span class="commonProblem_response">
+														<span class="commonRes_ico"></span>
+													<span class="commonRes_con">本网站所售商品都是正品行货，均开具正规发票（图书商品用户自由选择是否开发票），发票金额含配送费金额，另有说明的除外。</span>
+													</span>
+												</p>
+											</div>
+											<div class="commonProblem_list">
+												<h4 class="commonProblem_question">
+													<span class="commonQue_ico"></span>
+													<span class="commonQue_con">收到的商品少了/发错了怎么办？</span>
+												</h4>
+												<p>
+													<span class="commonProblem_response">
+														<span class="commonRes_ico"></span>
+													<span class="commonRes_con">同个订单购买多个商品可能会分为一个以上包裹发出，可能不会同时送达，建议您耐心等待1-2天，如未收到，本网站自营商品可直接联系有吧在线客服，第三方商家商品请联系商家在线客服。</span>
+													</span>
+												</p>
+											</div>
+											<div class="commonProblem_list">
+												<h4 class="commonProblem_question">
+													<span class="commonQue_ico"></span>
+													<span class="commonQue_con">退换货/维修需要多长时间？</span>
+												</h4>
+												<p>
+													<span class="commonProblem_response">
+														<span class="commonRes_ico"></span>
+													<span class="commonRes_con">一般情况下，退货处理周期（不包含检测时间）：自接收到问题商品之日起 7 日之内为您处理完成，各支付方式退款时间请点击查阅退款多久可以到账；
+																				换货处理周期：自接收到问题商品之日起 15 日之内为您处理完成；
+																				正常维修处理周期：自接收到问题商品之日起 30 日内为您处理完成。
+														</span>
+													</span>
+												</p>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="goods_standcon_right">
+									<ul>
+										<li><span class="goods_pointer"></span>
+											<a href="#goods_standcon_para" class="goods_pointText">规格参数</a>
+										</li>
+										<li><span class="goods_pointer"></span>
+											<a href="#goods_standcon_imgs" class="goods_pointText">产品介绍</a>
+										</li>
+										<li><span class="goods_pointer"></span>
+											<a href="#goods_pro_comment" class="goods_pointText">商品评价</a>
+										</li>
+										<li><span class="goods_pointer"></span>
+											<a href="#goodspacking" class="goods_pointText">包装清单</a>
+										</li>
+										<li><span class="goods_pointer"></span>
+											<a href="#aftermarket" class="goods_pointText">售后服务</a>
+										</li>
+										<li><span class="goods_pointer"></span>
+											<a href="#common_problem" class="goods_pointText">常见问题</a>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<div class="succeed">
+        		请登录!
+      	</div>
+			<!--页面底部-->
+			<div id="footer">
+				<div class="container">
+					<!--网站服务-->
+					<div class="footer-related">
+						<table class="table" border="0" cellspacing="0" cellpadding="0">
+							<tr>
+								<th>新手上路</th>
+								<th>配送方式</th>
+								<th>店主之家</th>
+								<th>售后服务</th>
+								<th>关于我们</th>
+								<th>服务支持</th>
+
+							</tr>
+							<tr>
+								<td>售后流程</td>
+								<td>货到付款区域</td>
+								<td>常见问题</td>
+								<td>退换货原则</td>
+								<td>关于有吧</td>
+								<td>售前售后咨询 13369202343</td>
+							</tr>
+							<tr>
+								<td>购物流程</td>
+								<td>配送支付查询</td>
+								<td>如何管理商铺</td>
+								<td>售后服务保证</td>
+								<td>合作与洽谈</td>
+								<td>售前售后咨询 15929208788</td>
+							</tr>
+							<tr>
+								<td>如何设置个人信息</td>
+								<td>订单状态</td>
+								<td>如何申请开店</td>
+								<td>退款说明</td>
+								<td>投诉与建议</td>
+								<td>客服 QQ 437209535</td>
+							</tr>
+							<tr>
+								<td>支付方式</td>
+								<td>如何注册支付宝</td>
+								<td>如何发货</td>
+								<td>返修/退换货</td>
+								<td>联系方式</td>
+								<td>客服 QQ 397218182</td>
+							</tr>
+							<tr>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td>工作时间 9：00-17：30</td>
+							</tr>
+						</table>
+					</div>
+					<!--网站信息-->
+					<div class="footer-info row">
+						<p>
+							<a href="">关于我们</a><strong>|</strong>
+							<a href="">联系我们</a><strong>|</strong>
+							<a href="">商家入驻</a><strong>|</strong>
+							<a href="">友情链接</a><strong>|</strong>
+							<a href="">站点地图</a><strong>|</strong>
+							<a href="">手机商城</a><strong>|</strong>
+							<a href="">销售联盟</a><strong>|</strong>
+							<a href="">商城社区</a><strong>|</strong>
+							<a href="">企业文化</a><strong>|</strong>
+							<a href="">帮助中心</a><strong>|</strong>
+							<a href="">留言板</a>
+						</p>
+						<p>
+							<a href="javascript:;">© 2005-2017 有吧连锁商城 版权所有，并保留所有权利。</a>
+							<a href="javascript:;">植物园花圃园内 </a>
+							<a href="javascript:;"> Tel: 13369202343 </a>
+							<a href="javascript:;"> E-mail: 397218182@qq.com </a>
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script src="../js/before/goods_details.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../js/before/index.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../js/before/login.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../js/before/header.js" type="text/javascript" charset="utf-8"></script>
+
+</html>

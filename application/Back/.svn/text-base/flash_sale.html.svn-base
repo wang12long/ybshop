@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.pro_btn {
+				padding: 5px 15px!important;
+			}
+			
+			table {
+				text-align: center;
+			}
+			
+			table th {
+				border-bottom: 0!important;
+			}
+			
+			table td,
+			th {
+				line-height: 30px!important;
+			}
+		</style>
+		<link rel="stylesheet" type="text/css" href="../../css/public/bootstrap.min.css" />
+		<link rel="stylesheet" href="css/pintuer.css">
+		<link rel="stylesheet" href="css/admin.css">
+	</head>
+
+	<body>
+		<div class="flashSale_wrap">
+			<table border="1" class="table" style="border: 0px;">
+				<tr>
+					<th rowspan="2">开抢时间</th>
+					<th colspan="5">产品编号</th>
+					<th rowspan="2"></th>
+				</tr>
+				<tr>
+					<th>产品一</th>
+					<th>产品二</th>
+					<th>产品三</th>
+					<th>产品四</th>
+					<th>产品五</th>
+				</tr>
+				<tr>
+					<td>9:00</td>
+					<td><input type="text" name="" class="flash_sale_pro" id="" value="" /></td>
+					<td><input type="text" name="" class="flash_sale_pro" id="" value="" /></td>
+					<td><input type="text" name="" class="flash_sale_pro" id="" value="" /></td>
+					<td><input type="text" name="" class="flash_sale_pro" id="" value="" /></td>
+					<td><input type="text" name="" class="flash_sale_pro" id="" value="" /></td>
+					<td><button class="button bg-main icon-check-square-o pro_btn">提交</button></td>
+				</tr>
+				<tr>
+					<td>11:00</td>
+					<td><input type="text" name="" class="flash_sale_pro" id="" value="" /></td>
+					<td><input type="text" name="" class="flash_sale_pro" id="" value="" /></td>
+					<td><input type="text" name="" class="flash_sale_pro" id="" value="" /></td>
+					<td><input type="text" name="" class="flash_sale_pro" id="" value="" /></td>
+					<td><input type="text" name="" class="flash_sale_pro" id="" value="" /></td>
+					<td><button class="button bg-main icon-check-square-o pro_btn">提交</button></td>
+				</tr>
+				<tr>
+					<td>13:00</td>
+					<td><input type="text" name="" class="flash_sale_pro" id="" value="" /></td>
+					<td><input type="text" name="" class="flash_sale_pro" id="" value="" /></td>
+					<td><input type="text" name="" class="flash_sale_pro" id="" value="" /></td>
+					<td><input type="text" name="" class="flash_sale_pro" id="" value="" /></td>
+					<td><input type="text" name="" class="flash_sale_pro" id="" value="" /></td>
+					<td><button class="button bg-main icon-check-square-o pro_btn">提交</button></td>
+				</tr>
+				<tr>
+					<td>15:00</td>
+					<td><input type="text" name="" class="flash_sale_pro" id="" value="" /></td>
+					<td><input type="text" name="" class="flash_sale_pro" id="" value="" /></td>
+					<td><input type="text" name="" class="flash_sale_pro" id="" value="" /></td>
+					<td><input type="text" name="" class="flash_sale_pro" id="" value="" /></td>
+					<td><input type="text" name="" class="flash_sale_pro" id="" value="" /></td>
+					<td><button class="button bg-main icon-check-square-o pro_btn">提交</button></td>
+				</tr>
+				<tr>
+					<td>18:00</td>
+					<td><input type="text" name="" class="flash_sale_pro" id="" value="" /></td>
+					<td><input type="text" name="" class="flash_sale_pro" id="" value="" /></td>
+					<td><input type="text" name="" class="flash_sale_pro" id="" value="" /></td>
+					<td><input type="text" name="" class="flash_sale_pro" id="" value="" /></td>
+					<td><input type="text" name="" class="flash_sale_pro" id="" value="" /></td>
+					<td><button class="button bg-main icon-check-square-o pro_btn">提交</button></td>
+				</tr>
+			</table>
+		</div>
+	</body>
+	<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+	<script type="text/javascript">
+		$.ajax({
+			type: "post",
+			url: "http://115.28.227.1/projects/xa/php/php08/Back/backCommon.php",
+			async: true,
+			data: {
+				type: "showFlashSale"
+			},
+			success: function(res) {
+				var tableTdArr = [];
+				var tableArr = [];
+				var arr = [];
+				var resTid0 = [];
+				var resTid1 = [];
+				var resTid2 = [];
+				var resTid3 = [];
+				var resTid4 = [];
+				for(var i = 0; i < res.length; i++) {
+					arr.push(res[i].TID);
+										if(res[i].TID == "0"){
+											resTid0.push(res[i].Numbers);
+										}else if(res[i].TID == "1"){
+											resTid1.push(res[i].Numbers);
+										}else if(res[i].TID == "2"){
+											resTid2.push(res[i].Numbers);
+										}else if(res[i].TID == "3"){
+											resTid3.push(res[i].Numbers);
+										}else if(res[i].TID == "4"){
+											resTid4.push(res[i].Numbers);
+										}
+			}
+				
+			for(var i = 0; i < resTid0.length; i++) {
+				$(".flashSale_wrap").find("tr:eq(2)").find("td:eq(" + (i + 1) + ")").find("input").val(resTid0[i]);
+				$(".flashSale_wrap").find("tr:eq(3)").find("td:eq(" + (i + 1) + ")").find("input").val(resTid1[i]);
+				$(".flashSale_wrap").find("tr:eq(4)").find("td:eq(" + (i + 1) + ")").find("input").val(resTid2[i]);
+				$(".flashSale_wrap").find("tr:eq(5)").find("td:eq(" + (i + 1) + ")").find("input").val(resTid3[i]);
+				$(".flashSale_wrap").find("tr:eq(6)").find("td:eq(" + (i + 1) + ")").find("input").val(resTid4[i]);
+			}
+
+		}
+		});
+		$(".pro_btn").each(function(n, obj) {
+			var tid = n;
+
+			$(this).click(function() {
+				var tdInpValArr = [];
+//				console.log(tid);
+				for(var i = 0; i < 5; i++) {
+					if($(".flashSale_wrap table").find("tr:eq(" + (tid + 2) + ")").find("td").find("input")[i].value != "") {
+						tdInpValArr.push($(".flashSale_wrap table").find("tr:eq(" + (tid + 2) + ")").find("td").find("input")[i].value);
+					}
+				}
+//				console.log(tdInpValArr);
+				$.ajax({
+					type: "post",
+					url: "http://115.28.227.1/projects/xa/php/php08/Back/backCommon.php",
+					async: true,
+					data: {
+						type: "flashSale",
+						tid: tid,
+						goodsNumbers: tdInpValArr
+					},
+					success: function(res) {
+//						console.log(res);
+						if(res.errcode == "0"){
+							alert("提交成功");
+						}else{
+							alert("提交失败");
+						}
+					}
+				});
+			})
+		})
+	</script>
+
+</html>

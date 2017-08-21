@@ -1,0 +1,207 @@
+ <!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="../../css/public/bootstrap.min.css"/>
+		<style type="text/css">
+			td{text-align: center;}
+		</style>
+	</head>
+	<body>
+		<table style="border: 1px solid rgb(221,221,221);" class="table table-hover">
+			<thead>
+				<th style="text-align: center;">热门店铺</th>
+				<th style="text-align: center;">店铺图片</th>
+				<th style="text-align: center;">热门店铺</th>
+				<th style="text-align: center;">店铺图片</th>
+				<th style="text-align: center;">热门店铺</th>
+				<th style="text-align: center;">店铺图片</th>
+			</thead>
+			<tr>
+				<td><select name="select" class="sel">
+					<option value="">无</option>
+				</select></td>
+				<td></td>
+				<td><select name="select" class="sel">
+					<option value="">无</option>
+				</select></td>
+				<td></td>
+				<td><select name="select" class="sel">
+					<option value="">无</option>
+				</select></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td><select name="select" class="sel">
+					<option value="">无</option>
+				</select></td>
+				<td></td>
+				<td><select name="select" class="sel">
+					<option value="">无</option>
+				</select></td>
+				<td></td>
+				<td><select name="select" class="sel">
+					<option value="">无</option>
+				</select></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td><select name="select" class="sel">
+					<option value="">无</option>
+				</select></td>
+				<td></td>
+				<td><select name="select" class="sel">
+					<option value="">无</option>
+				</select></td>
+				<td></td>
+				<td><select name="select" class="sel">
+					<option value="">无</option>
+				</select></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td><select name="select" class="sel">
+					<option value="">无</option>
+				</select></td>
+				<td></td>
+				<td><select name="select" class="sel">
+					<option value="">无</option>
+				</select></td>
+				<td></td>
+				<td><select name="select" class="sel">
+					<option value="">无</option>
+				</select></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td><select name="select" class="sel">
+					<option value="">无</option>
+				</select></td>
+				<td></td>
+				<td><select name="select" class="sel">
+					<option value="">无</option>
+				</select></td>
+				<td></td>
+				<td><select name="select" class="sel">
+					<option value="">无</option>
+				</select></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td><select name="select" class="sel">
+					<option value="">无</option>
+				</select></td>
+				<td></td>
+				<td><select name="select" class="sel">
+					<option value="">无</option>
+				</select></td>
+				<td></td>
+				<td><select name="select" class="sel">
+					<option value="">无</option>
+				</select></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td><select name="select" class="sel">
+					<option value="">无</option>
+				</select></td>
+				<td></td>
+				<td><select name="select" class="sel">
+					<option value="">无</option>
+				</select></td>
+				<td></td>
+				<td><select name="select" class="sel">
+					<option value="">无</option>
+				</select></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td><select name="select" class="sel">
+					<option value="">无</option>
+				</select></td>
+				<td></td>
+				<td><select name="select" class="sel">
+					<option value="">无</option>
+				</select></td>
+				<td></td>
+				<td><select name="select" class="sel">
+					<option value="">无</option>
+				</select></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td><div class="btn btn-info btn_">提交</div></td>
+			</tr>
+			
+		</table>
+	</body>
+		<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+	<script type="text/javascript">
+		$.ajax({
+				type: "post",
+				url: "http://115.28.227.1/projects/xa/php/php08/Back/backCommon.php",
+				async: true,
+				data: {
+					type: "dianpuSweet",
+					aa:'aaaa'
+				},
+				success: function(res) {
+					for (var i=0;i<res.length;i++) {
+						$('Select option:eq('+i+'):selected').text(res[i].StoreName);
+						$('Select:eq('+i+')').parent().next().html('<img src="'+JSON.parse(res[i].StoreMsg).logo+'" width="100px" height="60px">');
+					}
+				}
+			});
+			
+		$('select').on("click",function(){
+			var sel=$(this);
+			$(sel).html('');
+			$.ajax({
+				type: "post",
+				url: "http://115.28.227.1/projects/xa/php/php08/Back/backCommon.php",
+				async: true,
+				data: {
+					type: "dianpuSweet",
+					aa:'aaa'
+				},
+				success: function(res) {
+						var selitem1='<option value="">无</option>';
+						sel.append(selitem1);
+					for (var i=0;i<res.length;i++) {
+						var selitem='<option value="">'+JSON.parse(res[i].StoreMsg).storeName+'</option>';
+						sel.append(selitem);
+					}
+				}
+			});
+		});
+		$('.btn_').on("click",function(){
+			var selectval=[];
+			for (var i=0;i<$(":selected").length;i++) {
+				selectval.push($('.sel:eq('+i+') option:selected').text());
+			}
+			console.log(selectval);
+				$.ajax({
+					type: "post",
+					url: "http://115.28.227.1/projects/xa/php/php08/Back/backCommon.php",
+					async: true,
+					data: {
+						type: "dianpuSweet",
+						aa:'aa',
+						a:selectval
+					},
+					success: function(res) {
+						console.log(res);
+					}
+				});
+						window.history.go(0);
+				
+		});
+	</script>
+
+</html>

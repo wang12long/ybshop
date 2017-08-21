@@ -1,0 +1,31 @@
+<<<<<<< .mine
+//var swiper = new Swiper('.swiper-container', {
+//      pagination: '.swiper-pagination',
+//      paginationClickable: true,
+//      autoplay: 2000
+//  });
+   $(function(){
+   	$('.floorClass:nth-child(1)').css({"border":"1px solid #D22B2B","border-bottom":"1px solid white"})
+   })
+//楼层单元
+$('.floorClass').hover(function(){
+	$(this).css({"border":"1px solid #D22B2B","border-bottom":"1px solid white"})
+},function(){
+	$(this).css({"border":"1px solid lightgray","border-bottom":0})
+})
+=======
+var swiper = new Swiper('.swiper-container', {
+        pagination: '.swiper-pagination',
+        paginationClickable: true,
+        autoplay: 2000
+});
+//公告
+$(".l_teil .l_teil_one span").on("mouseenter",function(){
+	$(".l_teil .l_teil_one span").css({'border-bottom':'0px solid red'});
+	$('.l_teil .l_teil_two').css({'display':'none'});
+	$(this).css({'border-bottom':'2px solid red'});
+	$('.l_teil>.'+$(this).attr("class")).css({'display':'block'});
+//	console.log($('.l_teil>.'+$(this).attr("class")));
+	
+});
+>>>>>>> .r21

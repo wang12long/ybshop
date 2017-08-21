@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="../css/public/bootstrap.min.css" />
+		<link rel="stylesheet" type="text/css" href="../css/before/header.css" />
+		<link rel="stylesheet" type="text/css" href="../css/before/login.css" />
+	</head>
+
+	<body>
+		<!--头部-->
+		<div class="container">
+			<a href="../index.html"><img src="../img/logo.gif" /></a>
+			<span class="circle"></span>
+			<span class="welcome">欢迎登录</span>
+			<div class="sendmsg"><img src="../img/q-icon.png" /> 登录页面，调查问卷</div>
+		</div>
+		<!--中间内容-->
+		<div class="main">
+			<div class="container box">
+				<div class="loginBox">
+					<div class="topstyle">
+						<div class="changestyle">
+							<span class="code-login">
+								扫码登录
+							</span>
+						</div>
+						<div class="fast">
+							<span class="user-login">
+								账户登录
+							</span>
+						</div>
+					</div>
+					<div class="box-display">
+						<div class="boxcontent">
+							<div class="qr-code">
+								<div class="code-img">
+									<img src="../img/weixin.jpeg" />
+								</div>
+								<p>打开
+									<a href="#">手机有吧</a> 扫描二维码</p>
+								<div class="qw-login">
+									<span><img src="../img/qq.png"/><a href=""> QQ登录</a></span>
+									<span><img src="../img/wechat.png"/><a href=""> 微信登录</a></span>
+								</div>
+							</div>
+							<div class="account-login">
+								<div class="inputgroup">
+									<div class="input-group">
+										<div class="input-group-addon"><span class="user_icon"></span></div>
+										<input class="form-control" id="username" type="email" placeholder="手机号码／会员名／邮箱">
+									</div>
+									<div class="input-group">
+										<div class="input-group-addon"><span class="lock"></span></div>
+										<input class="form-control" id="password" type="password" placeholder="密码">
+									</div>
+									<div class="checkbox">
+										<label>
+						      <input class="checkbox-input" type="checkbox">
+						      <span class="rememberpass">
+						      	记住密码
+						      </span>
+						    </label>
+										<a>忘记密码</a>
+									</div>
+									<button type="button" class="btn btn-danger" id="loginbtn">登录</button>
+								</div>
+								<div class="otherlogin">
+									<div class="other_login">
+										<span><img src="../img/qq.png"/><a href=""> QQ</a></span>
+										<span class="line">
+						 			|
+						 		</span>
+										<span><img src="../img/wechat.png"/><a href=""> 微信</a></span>
+									</div>
+									<div class="quickregist">
+										<a href="#">
+											<span class="regist_ico">
+						 				
+						 			</span>
+											<a href="regist.html" class="regist_link">
+												立即注册
+											</a>
+										</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+		<!--底部-->
+		<div class="container">
+			<div class="footer-info row">
+				<p>
+					<a href="">关于我们</a><strong>|</strong>
+					<a href="">联系我们</a><strong>|</strong>
+					<a href="">商家入驻</a><strong>|</strong>
+					<a href="">友情链接</a><strong>|</strong>
+					<a href="">站点地图</a><strong>|</strong>
+					<a href="">手机商城</a><strong>|</strong>
+					<a href="">销售联盟</a><strong>|</strong>
+					<a href="">商城社区</a><strong>|</strong>
+					<a href="">企业文化</a><strong>|</strong>
+					<a href="">帮助中心</a><strong>|</strong>
+					<a href="">留言板</a>
+				</p>
+				<p>
+					<a href="javascript:;">© 2005-2017 有吧连锁商城 版权所有，并保留所有权利。</a>
+					<a href="javascript:;">植物园花圃园内 </a>
+					<a href="javascript:;"> Tel: 13369202343 </a>
+					<a href="javascript:;"> E-mail: 397218182@qq.com </a>
+				</p>
+			</div>
+		</div>
+	</body>
+	<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+	<script type="text/javascript" src="../js/before/login.js"></script>
+
+</html>

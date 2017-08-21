@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>用户注册</title>
+		<link rel="stylesheet" type="text/css" href="../css/public/bootstrap.min.css" />
+		<link rel="stylesheet" type="text/css" href="../css/before/regist.css" />
+	</head>
+
+	<body>
+		<div class="wrap">
+			<!--头部-->
+			<header>
+				<a href="../index.html">
+					<img class="logo" src="../img/logo.gif" />
+				</a>
+				<span class="circle"></span>
+				<span class="welcome">&nbsp;&nbsp;欢迎注册</span>
+				<!--其他登录方式-->
+				<div class="other-regist">
+					<!--微信-->
+					<span></span>
+					<!--微信二维码-->
+					<span style="display: none;">
+						
+					</span>
+				</div>
+			</header>
+			<!--内容-->
+			<div class="main">
+				<!--图片-->
+				<div class="re-bg">
+					<img src="../img/registpic.png" />
+				</div>
+				<!--右边注册表格-->
+				<div class="re-list">
+					<div class="quicklogin">
+						<a href="login.html">&gt;&gt;立即登录</a>
+					</div>
+					<div class="rgbtn clearfix">
+						<b class="rg-phone rgbtn-child">手机注册</b>
+						<span style="color: #ccc;">|</span>
+						<b class="rg-email rgbtn-child">邮箱注册</b>
+					</div>
+					<div class="re-cont">
+						<div class="re-cont1 clearfix">
+							<!--手机注册-->
+							<div class="reg-phone reg">
+								<div class="input-group">
+									<div class="box">
+										<span class="userlogo"></span>
+									</div>
+									<input type="text" name="userphone" id="userphone" value="" placeholder="手机" />
+								</div>
+								<div class="input-grop1 input-gropa">
+									手机号码不是一个有效号码
+								</div>
+								<div class="input-group">
+									<div class="box">
+										<span class="pwdlogo"></span>
+									</div>
+									<input type="password" name="phonepwd" id="phonepwd" value="" placeholder="密码" />
+								</div>
+								<div class="input-grop1 input-gropb">
+									密码不能少于6个字符
+								</div>
+								<div class="input-group">
+									<div class="box">
+										<span class="pwdlogo"></span>
+									</div>
+									<input type="password" name="rephonepwd" id="rephonepwd" value="" placeholder="确认密码" />
+								</div>
+								<div class="input-grop1 input-gropc">
+									密码不相同
+								</div>
+								<div class="">
+									<div class="input-group2">
+										<div class="box">
+											<span class="codelogo"></span>
+										</div>
+										<input type="text" name="code" id="code" value="" placeholder="验证码" />
+									</div>
+									<span class="codes"><img src="../img/code1.png"/></span>
+								</div>
+								<div class="">
+									<div class="input-group2">
+										<div class="box">
+											<span class="phonelogo"></span>
+										</div>
+										<input type="text" name="phonecode" id="phonecode" value="" placeholder="手机验证码" />
+									</div>
+									<span class="verification-phonecode">获取手机验证码</span>
+								</div>
+								<div class="input-group3">
+									<input type="checkbox" name="" id="aaa" value="" /> 我已看过并接受《
+									<a href="">用户协议</a>》
+								</div>
+								<div class="rebtn">
+									<input type="button" name="" id="rebtn1" value="立即注册" />
+								</div>
+							</div>
+							<!--邮箱注册-->
+							<div class="reg-email reg">
+								<div class="input-group">
+									<div class="box">
+										<span class="emaillogo"></span>
+									</div>
+									<input type="email" name="useremail" id="useremail" value="" placeholder="email" />
+								</div>
+								<div class="input-grop1 input-grope">
+									邮箱号码不正确
+								</div>
+								<div class="input-group">
+									<div class="box">
+										<span class="pwdlogo"></span>
+									</div>
+									<input type="password" name="emailpwd" id="emailpwd" value="" placeholder="密码" />
+								</div>
+								<div class="input-grop1 input-gropf">
+									密码不能少于6个字符
+								</div>
+								<div class="input-group">
+									<div class="box">
+										<span class="pwdlogo"></span>
+									</div>
+									<input type="password" name="reemailpwd" id="reemailpwd" value="" placeholder="确认密码" />
+								</div>
+								<div class="input-grop1 input-gropg">
+									密码不相同
+								</div>
+								<div class="">
+									<div class="input-group2">
+										<div class="box">
+											<span class="codelogo"></span>
+										</div>
+										<input type="text" name="code" id="code" value="" placeholder="验证码" />
+									</div>
+									<span class="codes"><img src="../img/code1.png"/></span>
+								</div>
+								<div class="">
+									<div class="input-group2">
+										<div class="box">
+											<span class="emaillogo"></span>
+										</div>
+										<input type="text" name="eamilcode" id="emailcode" value="" placeholder="邮箱验证码" />
+									</div>
+									<span class="verification-emailcode">获取邮箱验证码</span>
+								</div>
+								<div class="input-group3">
+									<input type="checkbox" name="" id="aab" value="" /> 我已看过并接受《
+									<a href="">用户协议</a>》
+								</div>
+								<div class="rebtn">
+									<input type="button" name="" id="rebtn2" value="立即注册" />
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!--脚-->
+			<div class="container">
+				<div class="footer-info row">
+					<p>
+						<a href="">关于我们</a><strong>|</strong>
+						<a href="">联系我们</a><strong>|</strong>
+						<a href="">商家入驻</a><strong>|</strong>
+						<a href="">友情链接</a><strong>|</strong>
+						<a href="">站点地图</a><strong>|</strong>
+						<a href="">手机商城</a><strong>|</strong>
+						<a href="">销售联盟</a><strong>|</strong>
+						<a href="">商城社区</a><strong>|</strong>
+						<a href="">企业文化</a><strong>|</strong>
+						<a href="">帮助中心</a><strong>|</strong>
+						<a href="">留言板</a>
+					</p>
+					<p>
+						<a href="javascript:;">© 2005-2017 有吧连锁商城 版权所有，并保留所有权利。</a>
+						<a href="javascript:;">植物园花圃园内 </a>
+						<a href="javascript:;"> Tel: 13369202343 </a>
+						<a href="javascript:;"> E-mail: 397218182@qq.com </a>
+					</p>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+	<script src="../js/before/regist.js" type="text/javascript" charset="utf-8"></script>
+
+</html>

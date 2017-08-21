@@ -1,0 +1,505 @@
+var disImgArr=[];
+//获取修改的ID
+var url = decodeURI(location.href);
+var STR = url.split('?')[1];
+var aa = STR.substring(3);
+console.log(aa);
+//根据ID进行ajax请求
+$.ajax({
+	type:"get",
+	url:"http://115.28.227.1/projects/xa/php/php08/common.php",
+	async:true,
+	data:{
+		type:"detail",
+		ID:aa
+	},
+	success:function(res){
+		var goodinfo=JSON.parse(res[0].GoodInfo);
+		console.log(goodinfo);
+		console.log(res);
+		$(".goods_pro_title").text(goodinfo.goodName);
+		$(".goods_pro_details").text(goodinfo.goodsDescribe);
+		$(".goods_price_num").text("¥"+goodinfo.price);
+		$('.mark_under s').text("¥"+goodinfo.marketPrice);
+		$('.goods_reserve_counts').text('（库存'+goodinfo.stock+'）');
+		for(var i=0;i<goodinfo.goodimgs.length;i++){
+			disImgArr.push(goodinfo.goodimgs[i]);
+		}
+		//// 放大镜小图初始图片路径
+		smallImg.src = disImgArr[0];
+//		var bigImg = bigImgWrap.querySelector("img");
+		//// 放大镜大图对应小图路径
+		bigImg.src = smallImg.src;
+		
+					//=================== 商品详情图片列表 =====================
+		$disImg = $(".dis_img");
+		//var disImgArr = ["../img/details_goods/dis_1.jpeg", "../img/details_goods/dis_2.jpeg", "../img/details_goods/dis_3.jpeg", "../img/details_goods/dis_4.png"];
+		for(var i = 0; i < disImgArr.length; i++) {
+			var dImg = document.createElement("img");
+			dImg.src = disImgArr[i];
+			// 点击图片列表图片 放大镜小图更新路径 大图更新路径
+			dImg.onclick = function() {
+				smallImg.src = this.src;
+				bigImg.src = smallImg.src;
+			}
+			$disImg.append(dImg);
+		}
+		
+		//创建商品分类
+			if(goodinfo.firstsort!="") {
+				$('.goods_index').after('<a href="" class="goods_item">' + goodinfo.firstsort + '</a><span class="goods_dt_ico firstsort" >></span>')
+				}
+			if(goodinfo.secondsort!="") {
+				$('.firstsort').after('<a href="" class="goods_item">' + goodinfo.secondsort + '</a><span class="goods_dt_ico secondsort">></span>')
+				}
+			if(goodinfo.thirdsort!="") {
+					$('.secondsort').after('<a href="" class="goods_item">' + goodinfo.thirdsort + '</a><span class="goods_dt_ico">></span>')
+				}
+	// 商品货号
+	$('#goods_id').text(res[0].Numbers);
+	$('.goods_num span').text(res[0].Numbers);
+	//商品名
+	$('.goods_dt_text').text(goodinfo.goodName);
+	$('.goods_name span').text(goodinfo.goodName);
+	//上架时间
+	$('.goods_pubtime span').text(res[0].UpGoodDate);
+	//	商品毛重
+	$('.goods_weight span').text(goodinfo.specifications);
+	//库存
+	$('.goods_res_num span').text(goodinfo.stock);
+	//商品介绍
+		for(var j=0;j<goodinfo.detailimgs.length;j++){
+			$('#goods_standcon_imgs').append('<div class="goods_standcon_img"><img src="'+goodinfo.detailimgs[j]+'" /></div>')
+		}
+	//商店信息
+	var shopinfo=JSON.parse(res[0].StoreMsg);
+	var address=shopinfo.province+shopinfo.city;
+	$('.goods_shoppro_title h2').text(address+shopinfo.storeName);
+	$('#shopname').text(shopinfo.storeName);
+	$('#shopclass').text(res[0].Kind);
+	$('#shopphone').text(shopinfo.phoneNum);
+	$('#detailadd').text(address);
+	
+	}
+});
+
+//商品收藏
+var flags=true;
+UID = JSON.parse(sessionStorage.getItem("currentUser")).Uid.split("'")[1];
+$.ajax({
+		type:"get",
+		url:"http://115.28.227.1/projects/xa/php/php08/common.php",
+		async:true,
+		data:{
+			type:"selcol",
+			GID:aa,
+			UID:UID
+		},
+		success:function(res){
+			console.log(res.length);
+			if(res.length==0){
+				$('.col_text').text('收藏');
+				flags=true;
+			}else{
+				console.log('11');
+				$('.col_text').text('已收藏');
+				flags=false;
+			}
+		}
+})
+
+$('.goods_collect').click(function(){
+	if(flags){
+	collectAnimate();
+		$.ajax({
+		type:"get",
+		url:"http://115.28.227.1/projects/xa/php/php08/common.php",
+		async:true,
+		data:{
+			type:"col",
+			GID:aa,
+			UID:UID
+		},
+		success:function(res){
+				$('.col_text').text('已收藏');
+				flags=false;
+		}
+	})
+	}else if(flags==false){
+		$.ajax({
+		type:"get",
+		url:"http://115.28.227.1/projects/xa/php/php08/common.php",
+		async:true,
+		data:{
+			type:"delcol",
+			GID:aa,
+			UID:UID
+		},
+		success:function(res){
+				$('.col_text').text('收藏');
+				flags=true;
+		}
+	})
+}
+})
+
+
+var slider = document.querySelector(".goods_mag_slider");
+var smallImgWrap = document.querySelector(".goods_smallImg");
+var bigImgWrap = document.querySelector(".goods_bigImg");
+var smallImgContainer = document.querySelector(".goods_smallImg_container");
+var bigImgContainer = document.querySelector(".goods_bigImg_container");
+var smallImg = smallImgWrap.querySelector("img");
+////// 放大镜小图初始图片路径
+//smallImg.src = disImgArr[0];
+var bigImg = bigImgWrap.querySelector("img");
+////// 放大镜大图对应小图路径
+//bigImg.src = smallImg.src;
+////放大镜大图宽高
+var bigImgWidth = smallImg.offsetWidth * 2;
+var bigImgHeight = smallImg.offsetHeight * 2;
+bigImg.style.width = bigImgWidth + "px";
+bigImg.style.height = bigImgHeight + "px";
+//
+////================= 放大镜效果 =============================
+//var scaleX, scaleY;
+//
+smallImgWrap.onmousemove = function(event) {
+	bigImgWrap.style.display = "inline-block";
+	$('.goods_mag_slider').css({
+		'display': 'inline-block'
+	});
+	var X=$('.goods_magnifier').offset().left;
+	var Y=document.querySelector(".goods_magnifier").getBoundingClientRect().top;
+
+	scaleX = bigImg.offsetWidth / smallImg.offsetWidth;
+	scaleY = bigImg.offsetHeight / smallImg.offsetHeight;
+	event = event || window.event;
+	var sliderLeft = event.clientX - slider.offsetWidth/2-X;
+	var sliderTop = event.clientY - slider.offsetHeight/2-Y;
+	if(sliderLeft <= 0) {
+		sliderLeft = 0;
+	} else if(sliderLeft >= smallImgWrap.offsetWidth - slider.offsetWidth-22) {
+		sliderLeft = smallImgWrap.offsetWidth - slider.offsetWidth-22;
+	}
+	if(sliderTop <= 0) {
+		sliderTop = 0;
+	} else if(sliderTop >= smallImgWrap.offsetHeight - slider.offsetHeight-22) {
+		sliderTop = smallImgWrap.offsetHeight - slider.offsetHeight-22;
+	}
+	slider.style.left = sliderLeft + "px";
+	slider.style.top = sliderTop + "px";
+
+	bigImgContainer.scrollLeft = slider.offsetLeft * scaleX;
+	bigImgContainer.scrollTop = slider.offsetTop * scaleY;
+}
+smallImgWrap.onmouseout = function() {
+		bigImgWrap.style.display = "none";
+		$('.goods_mag_slider').css({
+			'display': 'none'
+		});
+	}
+
+
+//	//=================== 商品详情图片列表 =====================
+//$disImg = $(".dis_img");
+////var disImgArr = ["../img/details_goods/dis_1.jpeg", "../img/details_goods/dis_2.jpeg", "../img/details_goods/dis_3.jpeg", "../img/details_goods/dis_4.png"];
+//for(var i = 0; i < disImgArr.length; i++) {
+//	var dImg = document.createElement("img");
+//	dImg.src = disImgArr[i];
+//	// 点击图片列表图片 放大镜小图更新路径 大图更新路径
+//	dImg.onclick = function() {
+//		smallImg.src = this.src;
+//		bigImg.src = smallImg.src;
+//	}
+//	$disImg.append(dImg);
+//}
+// 商品详情图片列表 左右button点击事件
+
+// ============= 规格参数hover ===============
+$(".goods_stand_titleLeft").find("ul").find("li:eq(0)").addClass("goods_stand_titleActive");
+$(".goods_stand_titleLeft").find("ul").find("li").click(function() {
+	$(".goods_stand_titleLeft").find("ul").find("li").find("a").css({
+		"text-decoration": "none"
+	})
+	index = $(this).index();
+	$(this).addClass("goods_stand_titleActive");
+	$(".goods_stand_titleLeft").find("ul").find("li").not("li:eq(" + index + ")").removeClass("goods_stand_titleActive");
+})
+
+var swiper = new Swiper('.goods_com_display .swiper-container', {
+	pagination: '.swiper-pagination',
+	slidesPerView: 6,
+	paginationClickable: true,
+	spaceBetween: 30,
+	autoplay: 2000,
+	speed: 1000,
+	loop: true,
+	mousewheelControl: false,
+	freeMode: true
+});
+
+$('.goods_com_display .swiper-slide img').on("mouseenter", function() {
+	$(this).css({
+		'cursor': 'pointer'
+	});
+	$(this).next().animate({
+		'bottom': '0px'
+	});
+});
+$('.goods_com_display .swiper-slide img').on("mouseout", function() {
+	$('.goods_com_price').animate({
+		'bottom': '-35px'
+	});
+});
+//=================== 商品规格悬浮 ======================
+var goodsStandConTitle = document.querySelector(".goods_standcon_title");
+var goodsStandconRight = document.querySelector(".goods_standcon_right");
+
+var bodyHeight = document.querySelector("body").offsetHeight;
+var footerHeight = document.querySelector("#footer").offsetHeight;
+var footer = document.querySelector("#footer");
+var windowHeight = document.documentElement.clientHeight;
+var fixDistance = bodyHeight - footerHeight - goodsStandconRight.offsetTop;
+goodsStandconRight.style.height = windowHeight + 'px';
+window.onscroll = function() {
+	goodsNavFixed();
+//	rightIcoScroll();
+	if(window.scrollY > $('#footer').offset().top-windowHeight) {
+		goodsStandconRight.style.height = windowHeight - 38 - window.scrollY + $('#footer').offset().top-windowHeight + 'px';
+	} else {
+		goodsStandconRight.style.height = windowHeight + 'px';
+	}
+
+}
+
+function goodsNavFixed() {
+	scrollTop = document.body.scrollTop || document.documentElement.scrollTop;
+	if(scrollTop >= 1016) {
+		goodsStandConTitle.style.width = "955px";
+		goodsStandConTitle.style.position = "fixed";
+		goodsStandConTitle.style.top = "0";
+		goodsStandconRight.style.position = "fixed";
+		goodsStandconRight.style.top = "38px";
+		goodsStandconRight.style.marginLeft = "3px";
+
+	} else {
+		goodsStandConTitle.style.position = "static";
+		goodsStandConTitle.style.top = goodsStandConTitle.offsetTop + 'px';
+		goodsStandconRight.style.position = "static";
+		goodsStandconRight.style.top = goodsStandConTitle.offsetTop + 'px';
+		goodsStandconRight.style.marginLeft = "0px";
+	}
+
+}
+
+goodsStandconRight.style.height = fixDistance + "px";
+
+// ============================ 商品评价nav ==============================
+// 商品每种评价数量
+var allCommentNum = 1;
+var goodCommentNum = 1;
+var midCommentNum = 0;
+var badCommentNum = 0;
+var userListNum = 0;
+var commentArr = [allCommentNum, goodCommentNum, midCommentNum, badCommentNum, userListNum];
+
+var goodsUserCommentLi = document.querySelector(".goods_userComment").children[0].children;
+
+for(var i = 0; i < goodsUserCommentLi.length; i++) {
+	var goodsUserCommentNum = goodsUserCommentLi[i].children[0];
+	console.log(goodsUserCommentNum.innerText);
+	goodsUserCommentNum.innerText = "(" + commentArr[i] + ")";
+}
+// 判断商品评价有没有内容 有就显示 没有显示没有评论
+$('.goods_userComment li').on("click", function() {
+	if($(this).find("span").text() == "(0)") {
+		$(".goods_userComment_userlist").css({
+			"display": "none"
+		})
+		$(".noneComment").css({
+			"display": "block"
+		})
+	} else {
+		$(".goods_userComment_userlist").css({
+			"display": "block"
+		})
+		$(".noneComment").css({
+			"display": "none"
+		})
+	}
+});
+// 商品评价nav点击样式 
+$(".goods_userComment").find("ul").find("li").click(function() {
+	$(this).addClass("goods_userComment_Active");
+	index = $(this).index();
+	$(".goods_userComment").find("ul").find("li").not("li:eq(" + index + ")").removeClass("goods_userComment_Active");
+})
+
+//======================= 购物车 ======================
+//--------------- 商品售价 -----------------
+var goodsPrice = 20.0;
+var goodsPriceAll = 0;
+var goodsPriceNum = document.querySelector(".goods_price_num");
+goodsPriceNum.innerText = "¥" + goodsPrice.toFixed(1);
+// ------------------- 购买商品 -----------------
+var goodsNum = document.querySelector(".goods_number");
+var shopNum = goodsNum.value;
+// 库存数量
+var reserveNum = 886;
+var goodsReserveCounts = document.querySelector(".goods_reserve_counts");
+goodsReserveCounts.innerText = "（库存" + reserveNum + "）";
+// ---------- 输入购买商品数量 ---------------
+goodsNum.onchange = function() {
+		shopNum = goodsNum.value;
+		var shopNum1=Number(shopNum);
+		if(Number.isInteger(shopNum1)&&shopNum1<=reserveNum){
+			if(shopNum > reserveNum) {
+				shopNum = reserveNum;
+			}
+		}else{
+			goodsNum.value=0;
+			shopNum=0;
+		}
+			goodsPriceAll = goodsPrice * shopNum;
+			goodsPriceNum.innerText = "¥" + goodsPriceAll.toFixed(1);
+		
+	}
+	// --------------- 加减商品数量 -------------
+$(".btn-add").click(function() {
+	shopNum++;
+	if(shopNum > reserveNum) {
+		shopNum = reserveNum;
+		alert("已超过最大库存!");
+	}
+	goodsPriceAll = goodsPrice * shopNum;
+	if(goodsPriceAll > reserveNum * shopNum) {
+		goodsPriceAll = reserveNum * shopNum;
+	}
+//	goodsPriceNum.innerText = "¥" + goodsPriceAll.toFixed(1);
+	goodsNum.value = shopNum;
+})
+$(".btn-reduce").click(function() {
+		shopNum--;
+		if(shopNum < 1) {
+			shopNum = 1;
+		}
+		goodsPriceAll = goodsPrice * shopNum;
+		if(goodsPriceAll < 0) {
+			goodsPriceAll = 0;
+		}
+//		goodsPriceNum.innerText = "¥" + goodsPriceAll.toFixed(1)
+		goodsNum.value = shopNum;
+	})
+	//------------------- 加入购物车动画 ---------------------
+var goodsBuyCar = document.querySelector(".goods_buyCar");
+//var goodsCollect = document.querySelector(".goods_collect");
+var body = document.querySelector("body");
+goodsBuyCar.onclick = buyAnimate;
+//goodsCollect.onclick = collectAnimate;
+
+var alreadyFly = false;
+
+function buyAnimate() {
+	imgAnimate();
+	$('.aaa').animate({
+		"left": "100%",
+		"top": "330px",
+		"display": "none"
+	}, 800);
+	//	if($(".aaa").css("left") == "100%");
+
+	//	$(".goods_buyCar").removeAttr("onclick");
+}
+
+function collectAnimate() {
+	imgAnimate();
+	$('.aaa').animate({
+		"left": "100%",
+		"top": "570px",
+		"display": "none"
+	}, 800);
+}
+
+function imgAnimate() {
+//	console.log($('.goods_smallImg_container img').offset().left);
+	smallImgClone = smallImg.cloneNode(true);
+	smallImgClone.style.width = "378px";
+	smallImgClone.style.height = "378px";
+	smallImgClone.zIndex = "9999";
+	smallImgClone.style.position = "fixed";
+	smallImgClone.style.top = $('.goods_smallImg_container img').offset().top - $(document).scrollTop() + "px";
+	smallImgClone.style.left = $('.goods_smallImg_container img').offset().left + 'px';
+	smallImgClone.setAttribute("class", "aaa");
+	body.appendChild(smallImgClone);
+
+	borderRadiusNum = 40;
+	smallImgLeft = 0;
+	smallImgSWidth = smallImgClone.offsetWidth;
+	smallImgSHeight = smallImgClone.offsetHeight;
+
+	buyBtnInterval = setInterval(function() {
+		borderRadiusNum++;
+		smallImgSWidth -= 5;
+		smallImgSHeight -= 5;
+		smallImgClone.style.width = smallImgSWidth + "px";
+		smallImgClone.style.height = smallImgSHeight + "px";
+		smallImgClone.style.borderRadius = borderRadiusNum + "%";
+		if(smallImgSWidth <= 0) {
+			clearInterval(buyBtnInterval);
+		}
+	}, 10)
+}
+// ========================= 关注店铺 ==========================
+var attentionClick = false;
+$(".goods_shop_attention").click(function() {
+	if(!attentionClick) {
+		$(this).html("<span>取消关注</span>");
+		$(this).css({
+			"padding-left": "25px"
+		})
+		setTimeout(function() {
+			alert("关注成功!");
+
+		}, 100)
+		attentionClick = true;
+	} else {
+		$(this).html("<span class='goodsshop_att_ico'></span><span class='goodsshop_att_text'>关注本店</span>");
+		setTimeout(function() {
+			alert("取关成功!");
+
+		}, 500)
+		attentionClick = false;
+	}
+});
+//============================ 右边栏 =====================
+$(".goods_standcon_right").find("ul").find("li:eq(0)").find("span").addClass("goods_pointer_active");
+$(".goods_standcon_right").find("ul").find("li").click(function() {
+	index = $(this).index();
+	$(".goods_standcon_right").find("ul").find("li").find("span").not("span:eq(" + index + ")").removeClass("goods_pointer_active");
+	$(this).find("span").addClass("goods_pointer_active");
+})
+// 右边栏滚动 指针自动更换
+function rightIcoScroll(){
+	
+	if(window.scrollTop<=$('#goods_standcon_imgs').offset().top-20){
+		$(".goods_standcon_right ul li span").removeClass("goods_pointer_active");
+		$(".goods_standcon_right ul").find("li:eq(0)").find(".goods_pointer").addClass("goods_pointer_active");
+	}else if(window.scrollTop>$('#goods_standcon_imgs').offset().top&&window.scrollTop<$('#goods_pro_comment').offset().top-20){
+		$(".goods_standcon_right ul li span").removeClass("goods_pointer_active");
+		$(".goods_standcon_right ul").find("li:eq(1)").find(".goods_pointer").addClass("goods_pointer_active");
+	}else if(window.scrollTop>$('#goods_pro_comment').offset().top&&window.scrollTop<$('#goodspacking').offset().top-20){
+		$(".goods_standcon_right ul li span").removeClass("goods_pointer_active");
+		$(".goods_standcon_right ul").find("li:eq(2)").find(".goods_pointer").addClass("goods_pointer_active");
+	}else if(window.scrollTop>$('#goodspacking').offset().top&&window.scrollTop<$('#aftermarket').offset().top-20){
+		$(".goods_standcon_right ul li span").removeClass("goods_pointer_active");
+		$(".goods_standcon_right ul").find("li:eq(3)").find(".goods_pointer").addClass("goods_pointer_active");
+	}else if(window.scrollTop>$('#aftermarket').offset().top&&window.scrollTop<$('#common_problem').offset().top-20){
+		$(".goods_standcon_right ul li span").removeClass("goods_pointer_active");
+		$(".goods_standcon_right ul").find("li:eq(4)").find(".goods_pointer").addClass("goods_pointer_active");
+	}else if(window.scrollTop>=$('#common_problem').offset().top-20){
+		$(".goods_standcon_right ul li span").removeClass("goods_pointer_active");
+		$(".goods_standcon_right ul").find("li:eq(5)").find(".goods_pointer").addClass("goods_pointer_active");
+	}
+
+}

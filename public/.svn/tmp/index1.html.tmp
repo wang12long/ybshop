@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="../css/public/bootstrap.min.css" />
+		<link rel="stylesheet" type="text/css" href="../css/before/index1.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/public/animate.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/public/swiper-3.4.0.min.css"/>
+	</head>
+
+	<body>
+		<!--<!--页面底部-->
+		<!--<div id="footer">
+			<div class="container">-->
+				<!--网站服务-->
+				<!--<div class="footer-related">
+					<table class="table" border="0" cellspacing="0" cellpadding="0">
+						<tr>
+							<th>新手上路</th>
+							<th>配送方式</th>
+							<th>店主之家</th>
+							<th>售后服务</th>
+							<th>关于我们</th>
+							<th>服务支持</th>
+
+						</tr>
+						<tr>
+							<td>售后流程</td>
+							<td>货到付款区域</td>
+							<td>常见问题</td>
+							<td>退换货原则</td>
+							<td>关于有吧</td>
+							<td>售前售后咨询 13369202343</td>
+						</tr>
+						<tr>
+							<td>购物流程</td>
+							<td>配送支付查询</td>
+							<td>如何管理商铺</td>
+							<td>售后服务保证</td>
+							<td>合作与洽谈</td>
+							<td>售前售后咨询 15929208788</td>
+						</tr>
+						<tr>
+							<td>如何设置个人信息</td>
+							<td>订单状态</td>
+							<td>如何申请开店</td>
+							<td>退款说明</td>
+							<td>投诉与建议</td>
+							<td>客服 QQ 437209535</td>
+						</tr>
+						<tr>
+							<td>支付方式</td>
+							<td>如何注册支付宝</td>
+							<td>如何发货</td>
+							<td>返修/退换货</td>
+							<td>联系方式</td>
+							<td>客服 QQ 397218182</td>
+						</tr>
+						<tr>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td>工作时间 9：00-17：30</td>
+						</tr>
+					</table>
+				</div>-->
+				<!--网站信息-->
+				<!--<div class="footer-info row">
+					<p>
+						<a href="">关于我们</a><strong>|</strong>
+						<a href="">联系我们</a><strong>|</strong>
+						<a href="">商家入驻</a><strong>|</strong>
+						<a href="">友情链接</a><strong>|</strong>
+						<a href="">站点地图</a><strong>|</strong>
+						<a href="">手机商城</a><strong>|</strong>
+						<a href="">销售联盟</a><strong>|</strong>
+						<a href="">商城社区</a><strong>|</strong>
+						<a href="">企业文化</a><strong>|</strong>
+						<a href="">帮助中心</a><strong>|</strong>
+						<a href="">留言板</a>
+					</p>
+					<p>
+						<a href="javascript:;">© 2005-2017 有吧连锁商城 版权所有，并保留所有权利。</a>
+						<a href="javascript:;">植物园花圃园内 </a>
+						<a href="javascript:;"> Tel: 13369202343 </a>
+						<a href="javascript:;"> E-mail: 397218182@qq.com </a>
+					</p>
+				</div>
+			</div>
+		</div>-->
+		
+		
+		<!-- 楼层单元-->
+		<div class="container items">
+			<div class="row floors">
+				<div class="floorName"><img src="../img/floor.png"/><span class="floorNum">1F</span><span class="className">数码商城</span></div>			
+				<div class="fClasses">
+					<span class="floorClass">精挑细选</span>
+					<span class="floorClass">热卖手机</span>
+					<span class="floorClass">手机配件</span>
+					<span class="floorClass">数码影音</span>
+				</div>
+			</div>
+			<div id="floorcontent">
+				<div class="bigitem col-lg-3 col-md-3 col-sm-3 col-xs-3">
+					<div class="bigitem_one">
+						<img src="../img/chang.jpeg" alt="" />
+					</div>
+					<div class="swiper-container">
+						<div class="swiper-wrapper">
+							<div class="swiper-slide">户外运动会场</div>
+							<div class="swiper-slide">gfdghhbgfhg</div>	
+							<div class="swiper-slide">割发代首割发代首个 v 地方</div>
+						</div>	
+    					</div>
+    					<div class="bigitem_two">
+    						<span>户外运动会场</span>
+    						<span>大牌年货五折起</span>
+    					</div>
+				</div>
+				
+				<div class="col-lg-9 col-md-9 col-sm-9 col-xs-9 shopitemBox">
+						<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 shopitem">
+							<img src="../img/chu.jpeg" alt="" />
+							<p class="goodname">飞科(FLYCO)电吹风机家用FH6218大功率吹风筒负离子 2000W</p>
+							<span class="goodprice">¥89.0</span>
+						</div>
+						<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 shopitem">
+							<img src="../img/chu.jpeg" alt="" />
+							<p class="goodname">飞科(FLYCO)电吹风机家用FH6218大功率吹风筒负离子 2000W</p>
+							<span class="goodprice">¥89.0</span>
+						</div>
+						<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 shopitem">
+							<img src="../img/chu.jpeg" alt="" />
+							<p class="goodname">飞科(FLYCO)电吹风机家用FH6218大功率吹风筒负离子 2000W</p>
+							<span class="goodprice">¥89.0</span>
+						</div>
+						<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 shopitem">
+							<img src="../img/chu.jpeg" alt="" />
+							<p class="goodname">飞科(FLYCO)电吹风机家用FH6218大功率吹风筒负离子 2000W</p>
+							<span class="goodprice">¥89.0</span>
+						</div>
+						<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 shopitem">
+							<img src="../img/chu.jpeg" alt="" />
+							<p class="goodname">飞科(FLYCO)电吹风机家用FH6218大功率吹风筒负离子 2000W</p>
+							<span class="goodprice">¥89.0</span>
+						</div><div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 shopitem">
+							<img src="../img/chu.jpeg" alt="" />
+							<p class="goodname">飞科(FLYCO)电吹风机家用FH6218大功率吹风筒负离子 2000W</p>
+							<span class="goodprice">¥89.0</span>
+						</div>
+						
+				</div>
+			</div>
+		</div>
+		<!--店铺街-->
+		<div class="container store">
+			<div class="storeImg col-lg-3 col-md-3 col-sm-3 col-xs-3">
+				<img src="../img/stores.jpg"/>
+			</div>
+			<div class="col-lg-9 col-md-9 col-sm-9 col-xs-9 shopitemBox">
+				<div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 storelogo">
+					<img src="../img/logo1.jpg"/>
+				</div><div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 storelogo">
+					<img src="../img/logo1.jpg"/>
+				</div><div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 storelogo">
+					<img src="../img/logo1.jpg"/>
+				</div><div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 storelogo">
+					<img src="../img/logo1.jpg"/>
+				</div><div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 storelogo">
+					<img src="../img/logo1.jpg"/>
+				</div><div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 storelogo">
+					<img src="../img/logo1.jpg"/>
+				</div><div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 storelogo">
+					<img src="../img/logo1.jpg"/>
+				</div><div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 storelogo">
+					<img src="../img/logo1.jpg"/>
+				</div><div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 storelogo">
+					<img src="../img/logo1.jpg"/>
+				</div><div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 storelogo">
+					<img src="../img/logo1.jpg"/>
+				</div><div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 storelogo">
+					<img src="../img/logo1.jpg"/>
+				</div><div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 storelogo">
+					<img src="../img/logo1.jpg"/>
+				</div><div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 storelogo">
+					<img src="../img/logo1.jpg"/>
+				</div><div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 storelogo">
+					<img src="../img/logo1.jpg"/>
+				</div><div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 storelogo">
+					<img src="../img/logo1.jpg"/>
+				</div><div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 storelogo">
+					<img src="../img/logo1.jpg"/>
+				</div><div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 storelogo">
+					<img src="../img/logo1.jpg"/>
+				</div><div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 storelogo">
+					<img src="../img/logo1.jpg"/>
+				</div><div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 storelogo">
+					<img src="../img/logo1.jpg"/>
+				</div><div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 storelogo">
+					<img src="../img/logo1.jpg"/>
+				</div>
+			</div>
+			
+		</div>
+	</body>
+	<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+	<script src="../js/public/swiper-3.4.0.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../js/before/index.js" type="text/javascript" charset="utf-8"></script>
+</html>

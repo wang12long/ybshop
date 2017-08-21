@@ -1,0 +1,49 @@
+
+/*.container{min-width: 992px;}*/
+.top{height: 120px;padding-top: 30px;background: white;}
+.left{display: inline-block;}
+.right{display:inline-block;float: right;margin-right: -100px;}
+.headers{width: 100px;text-align: center;color: #888;}
+#process table tr td{text-align: center;line-height: 34px;font-size: 1.5em;color: white;}
+.firststep{height: 34px;width: 140px;background: url(../../img/process.png) no-repeat scroll 50% -102px;background-position: 50% -204px;}
+.secondstep{height: 34px;width: 140px;background: url(../../img/process.png) no-repeat scroll 50% -102px;}
+.thirdstep{height: 34px;width: 140px;background: url(../../img/process.png) no-repeat scroll 50% -102px;}
+.fourthstep{height: 34px;width: 140px;background: url(../../img/process.png) no-repeat scroll 50% -102px;}
+.fifthtep{height: 34px;width: 140px;background: url(../../img/process.png) no-repeat scroll 50% -102px;background-position: 50% -136px;}
+/*购物车列表*/
+.lists{border:1px solid rgb(238,238,238);margin-top: 20px;}
+.lists table{width: 100%;height: 35px;background: rgb(247,247,247);color: #666;}
+.lists table tr th{text-align: center;}
+.shopstore{height: 34px;background: rgb(250,250,250);line-height: 34px;padding-left: 20px;font-weight: bold;color: #D22B2B;}
+.carcon{border: 1px solid rgb(238,238,238);}
+.carcon table tr td{text-align: center;padding: 1%;background: white;}
+.shopimg_name img{width: 15%;}
+.changenums{font-size: 0;}
+.shopnames{display: inline-block; width: 70%;overflow: hidden;vertical-align:middle;}
+.reduce,.add,.shopnums{display: inline-block; width: 20px;height: 20px;border: 1px solid rgb(221,221,221);font-size: 15px;line-height: 20px;}
+.reduce,.add{cursor: pointer;}
+.shopnums{width: 30%;}
+.shopprices1,.shopprices2{color: #D22B2B;font-weight: bold;}
+/*购物车结算*/
+.settle{background: white;height: 65px;padding: 1%;border:1px solid rgb(238,238,238);border-top: 0;}
+.settle div{display: inline-block;}
+.settle .lefts{float: left;}
+.settle .rights{float: right;}
+.goon{background: rgb(238,238,238);width: 150px;border-radius: 0;color: #555;font-size: 1em;}
+.clearcar{color: #777;margin-left: 10px;}
+.shouldpay{margin-right: 20px;}
+.needmoney{color: #D22B2B;font-size: 1.2em;font-weight: bold;}
+.gosettle{width: 150px;border-radius: 0;}
+/*更多*/
+.container.moreshop{margin-top: 20px;}
+.moreclass{height: 34px;background: rgb(247,247,247);padding-left: 40px;color: #555;font-size: 0;}
+.moreclass span{margin-top:8px;padding: 4px 17px;display: inline-block;font-size: 14px;font-weight: 300;}
+.moreclass span:nth-child(1){background: white;color: #D22B2B;}
+
+/*更多商品*/
+.moreitem{width: 20%;padding: 0;background: white;border: 1px solid rgb(238,238,238);border-top:0;border-left:0;cursor: pointer;}
+.moreitem:nth-child(1){border-left:1px solid rgb(238,238,238);}
+.moreitem:nth-child(6){border-left:1px solid rgb(238,238,238);}
+.moreitem img{width: 80%;padding-left: 10%;padding-top: 10%;}
+.moreitem p{width: 80%;padding-left: 10%;font-size: 13px;margin: 0;}
+.moreitem span{margin-left: 10%;color: #D32B2B;}

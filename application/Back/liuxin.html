@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			input{outline: none;}
+			tr{line-height: 70px;}
+			td{text-align: center;}
+		</style>
+		<link rel="stylesheet" type="text/css" href="../../css/public/bootstrap.min.css"/>
+	</head>
+	<body>
+		<table style="border: 1px solid rgb(221,221,221);" class="table table-hover">
+			<thead>
+				<th style="text-align: center;">商城推荐</th>
+				<th style="text-align: center;">产品编号1</th>
+				<th style="text-align: center;">产品编号2</th>
+				<th style="text-align: center;">操作</th>
+			</thead>
+			<tr>
+				<td id="1">潮流前沿</td>
+				<td><input type="text" name="" value="" /></td>
+				<td><input type="text" name="" value="" /></td>
+				<td><div class="btn btn-info btn_">提交</div></td>
+			</tr>
+			<tr>
+				<td id="2">疯狂抢购</td>
+				<td><input type="text" name="" value="" /></td>
+				<td><input type="text" name="" value="" /></td>
+				<td><div class="btn btn-info btn_">提交</div></td>
+			</tr>
+			<tr>
+				<td id="3">热销排行</td>
+				<td><input type="text" name="" value="" /></td>
+				<td><input type="text" name="" value="" /></td>
+				<td><div class="btn btn-info btn_">提交</div></td>
+			</tr>
+			<tr>
+				<td id="4">商城推荐</td>
+				<td><input type="text" name="" value="" /></td>
+				<td><input type="text" name="" value="" /></td>
+				<td><div class="btn btn-info btn_">提交</div></td>
+			</tr>
+			<tr>
+				<td id="5">新品上市</td>
+				<td><input type="text" name="" value="" /></td>
+				<td><input type="text" name="" value="" /></td>
+				<td><div class="btn btn-info btn_">提交</div></td>
+			</tr>
+		</table>
+	</body>
+	<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+	<script type="text/javascript">
+		$.ajax({
+			type: "post",
+			url: "http://115.28.227.1/projects/xa/php/php08/Back/backCommon.php",
+			async: true,
+			data: {
+				type: "liuxin",
+				aa:'aaa'
+			},
+			success: function(res) {
+				for (var i=0;i<res.length;i++) {
+					if(res[i].XID==1){
+						if($('#1').next().children().val()==''){
+							$('#1').next().children().val(res[i].Numbers);
+						}else{
+							$('#1').next().next().children().val(res[i].Numbers);
+						}
+					}else if(res[i].XID==2){
+						if($('#2').next().children().val()==''){
+							$('#2').next().children().val(res[i].Numbers);
+						}else{
+							$('#2').next().next().children().val(res[i].Numbers);
+						}
+					}else if(res[i].XID==3){
+						if($('#3').next().children().val()==''){
+							$('#3').next().children().val(res[i].Numbers);
+						}else{
+							$('#3').next().next().children().val(res[i].Numbers);
+						}
+					}else if(res[i].XID==4){
+						if($('#4').next().children().val()==''){
+							$('#4').next().children().val(res[i].Numbers);
+						}else{
+							$('#4').next().next().children().val(res[i].Numbers);
+						}
+					}else if(res[i].XID==5){
+						if($('#5').next().children().val()==''){
+							$('#5').next().children().val(res[i].Numbers);
+						}else{
+							$('#5').next().next().children().val(res[i].Numbers);
+						}
+					}
+				}
+			}
+		});
+							
+							
+		$('.btn_').on("click",function(){
+			var a=$(this).parent().prev().prev().children().val();
+			var b=$(this).parent().prev().children().val();
+			var c=$($(this).parent().prev().prev().prev())[0].id;
+			
+			$.ajax({
+				type: "post",
+				url: "http://115.28.227.1/projects/xa/php/php08/Back/backCommon.php",
+				async: true,
+				data: {
+					type: "liuxin",
+					aa:'aa',
+					a: a,
+					b: b,
+					c: c
+				},
+				success: function(res) {
+					console.log(res.errmsg);
+					if(res.errmsg=="修改成功"){
+					window.location.href="liuxin.html";
+						
+					}else{
+						alert('修改失败');
+					}
+					
+				}
+			});
+		});
+	</script>
+</html>

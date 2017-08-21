@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title>用户中心</title>
+		<link rel="stylesheet" type="text/css" href="../css/public/bootstrap.min.css" />
+		<link rel="stylesheet" type="text/css" href="../css/before/header.css" />
+		<link rel="stylesheet" type="text/css" href="../css/before/user.css" />
+		<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+		<script src="../js/public/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/public/swiper-3.4.0.min.js"></script>
+		<script src="../js/public/birthday.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/public/jquery.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+
+	<body>
+		<!--首页》用户中心-->
+		<div class="" style="">
+			<!--我的订单-->
+			<div class="myorder">
+				<h5><span>我的订单</span></h5>
+				<ul class="warnIng">
+					<li>我的交易提醒：</li>
+					<li><span>未确认订单</span><b class="dingdan"></b></li>
+					<li><span>待付款</span><b>0</b></li>
+					<li><span>代发货</span><b>0</b></li>
+					<li><span>已成交订单数</span><b>0</b></li>
+				</ul>
+				<ul class="orderInfo">
+					<li>
+						<ul class="orderNavwidth orderInfoNav">
+							<li>宝贝</li>
+							<li>属性</li>
+							<li>单价(元)</li>
+							<li>数量</li>
+							<li>售后</li>
+							<li>订单总金额</li>
+							<li>状态</li>
+							<li>操作</li>
+						</ul>
+					</li>
+					<li class="show_info">
+
+					</li>
+				</ul>
+			</div>
+		</div>
+
+	</body>
+	<script src="../js/public/swiper-3.4.0.min.js"></script>
+	<script src="../js/before/index.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../js/before/login.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../js/before/user.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+	if (sessionStorage.getItem("currentUser")==null) {
+		
+	} else{
+		var number=0;
+	var show_info=document.getElementsByClassName('show_info')[0];
+		$.ajax({
+				type:"post",
+				url:"http://115.28.227.1/projects/xa/php/php08/common.php",
+				async:true,
+				data:{
+					type:"createpay",
+					
+					Uid:JSON.parse(sessionStorage.getItem("currentUser")).Uid.split("'")[1]
+				},
+				success:function(res){
+					number=res.length;
+					console.log(res[0].StoreName)
+					for(var i=0;i<res.length;i++){
+						show_info.innerHTML+='<ul class="goodsorderInfo">'+
+							'<li class="ordera">'+
+								'<span>订单编号：<strong>2017011212609</strong></span>'+
+								'<span>成交时间：<b>2017-01-12 20:25:21</b></span>'+
+								'<span>商品店铺：<b>'+res[i].StoreName+'</b><i></i></span>'+
+							'</li>'+
+							'<ul class="orderNavwidth goodsorder">'+
+								'<li class="shopinfos clearfix">'+
+									'<div>'+
+										'<a href=""><img src="'+JSON.parse(res[i].GoodInfo).firstImg+'" /></a>'+
+									'</div>'+
+									'<div>'+
+										'<a href=""><span class="infoHover">'+res[i].GoodName+'</span></a>'+
+									'</div>'+
+								'</li>'+
+								'<li>属性</li>'+
+								'<li class="orderprice">'+
+									'￥<span>'+JSON.parse(res[i].GoodInfo).price+'</span>'+
+								'</li>'+
+								'<li><span>'+res[i].Num+'</span></li>'+
+								'<li><span>留言/投诉</span></li>'+
+								'<li>'+
+									'￥<span>'+res[i].Num*JSON.parse(res[i].GoodInfo).price+'</span>'+
+								'</li>'+
+								'<li class="orderstate">'+
+									'<span>未确认</span>'+
+									'<span>未付款</span>'+
+									'<span>未发货</span>'+
+									'<a href="#">查看详情</a>'+
+								'</li>'+
+								'<li class="orderop">'+
+									'<span>立即付款</span>'+
+									'<span>取消订单</span>'+
+								'</li>'+
+							'</ul>'+
+						'</ul>'
+				}
+
+		$('.dingdan').text(number);	
+					}
+						
+			});
+			
+	}
+	
+	
+	
+	</script>
+</html>

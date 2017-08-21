@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html style="overflow-x: hidden;">
+
+	<head>
+		<meta charset="utf-8" />
+		<title>用户中心</title>
+		<link rel="stylesheet" type="text/css" href="../css/public/bootstrap.min.css" />
+		<link rel="stylesheet" type="text/css" href="../css/before/header.css" />
+		<link rel="stylesheet" type="text/css" href="../css/before/footer.css" />
+		<link rel="stylesheet" type="text/css" href="../css/before/ui.css" />
+		<link rel="stylesheet" type="text/css" href="../css/before/style.css" />
+		<link rel="stylesheet" type="text/css" href="../css/public/swiper-3.4.0.min.css" />
+		<link rel="stylesheet" type="text/css" href="../css/public/animate.css" />
+		<link rel="stylesheet" type="text/css" href="../css/before/user.css" />
+		<link rel="stylesheet" type="text/css" href="../css/before/index.css" />
+		<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+		<script src="../js/public/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/before/aimmenu.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/before/knockout.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/before/ceshi.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/public/swiper-3.4.0.min.js"></script>
+		<script src="../js/public/birthday.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/public/jquery.js" type="text/javascript" charset="utf-8"></script>
+
+	</head>
+
+	<body>
+
+		<!--首页》用户中心-->
+		<div class="" style="width: 600;">
+			<!--用户中心右侧-->
+			<div class="allFunD" style="display: inline-block;vertical-align: top;">
+				<!--新增收货地址-->
+				<div class="address">
+					<div class="addressBtns">
+						<a href="#address">新增收货地址</a>
+						<span>操作提示：您可对已有的地址进行编辑及删除，亦可新增收货地址,带<span style="color: red;">*</span>必填</span>
+					</div>
+					<ul class="haveaddress">
+
+					</ul>
+					<div class="addAddress" id="address">
+						<h4>编写地址</h4>
+						<table>
+							<tr>
+								<td><span style="color: red;">*</span>配送区域：</td>
+								<td style="min-width: 500px;">
+									<div class="jq22-container" style="width: 0;">
+										<div class="container">
+											<form class="form-inline">
+												<div data-toggle="distpicker">
+													<div class="form-group">
+														<label class="sr-only" for="province">Province</label>
+														<select class="form-control fot" id="province"></select>
+													</div>
+													<div class="form-group">
+														<label class="sr-only" for="city">City</label>
+														<select class="form-control fot" id="city"></select>
+													</div>
+													<div class="form-group">
+														<label class="sr-only" for="district">District</label>
+														<select class="form-control fot" id="district"></select>
+													</div>
+												</div>
+											</form>
+										</div>
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<td><span style="color: red;">*</span>收货人姓名：</td>
+								<td><input type="text" name="addUserName" id="addUserName" value="" /></td>
+							</tr>
+							<tr>
+								<td><span style="color: red;">*</span>详细地址：</td>
+								<td><input type="text" name="adddetailed" id="adddetailed" value="" /></td>
+							</tr>
+							<tr>
+								<td><span style="color: red;">*</span>手机号：</td>
+								<td><input type="text" name="addphone" id="addphone" value="" /></td>
+							</tr>
+							<tr>
+								<td>固定电话：</td>
+								<td><input type="text" name="addfixphone" id="addfixphone" value="" /></td>
+							</tr>
+							<tr>
+								<td>邮箱：</td>
+								<td><input type="text" name="addemail" id="addemail" value="" /></td>
+							</tr>
+							<tr>
+								<td><span style="color: red;">*</span>邮政编码：</td>
+								<td><input type="text" name="postcode" id="postcode" value="" /></td>
+							</tr>
+							<tr>
+								<td>最佳配送时间：</td>
+								<td><input type="text" name="addsendtime" id="addsendtime" value="" /></td>
+							</tr>
+							<tr>
+								<td colspan="2"><input type="button" name="" id="addAddress" value="提交收货地址" /></td>
+							</tr>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</body>
+	<script src="../js/public/swiper-3.4.0.min.js"></script>
+	<script src="../js/before/index.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../js/before/login.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../js/before/user.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../js/public/distpicker.data.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../js/public/distpicker.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		//用户收货地址链接数据库
+		$Uid = JSON.parse(sessionStorage.getItem("currentUser")).Uid.split("'")[1];
+		$('#addAddress').on('click', function() {
+			if($('#addUserName').val() != "") {
+				if($('#adddetailed').val() != "") {
+					if($('#addphone').val() != "") {
+						if($('#postcode').val() != "") {
+							$province = $("#province").val() + ' ' + $("#city").val() + ' ' + $('#district').val() + ' ' + $('#adddetailed').val();
+							$addUserName = $('#addUserName').val();
+							$addphone = $('#addphone').val();
+							$addfixphone = $('#addfixphone').val();
+							$addemail = $('#addemail').val();
+							$postcode = $('#postcode').val();
+							$addsendtime = $('#addsendtime').val();
+
+							$.ajax({
+								type: "post",
+								url: "http://115.28.227.1/projects/xa/php/php08/common.php",
+								async: true,
+								data: {
+									type: "address",
+									kind: "addAddressNew",
+									Uid: $Uid,
+									province: $province,
+									addUserName: $addUserName,
+									addphone: $addphone,
+									addfixphone: $addfixphone,
+									addemail: $addemail,
+									postcode: $postcode,
+									addsendtime: $addsendtime
+								},
+								success: function(res) {
+									var addressID = JSON.parse(res);
+//									console.log(addressID);
+									haveaddress.innerHTML += '<li class="haveaddressli" id="' + addressID[0].ID + '">' +
+										'<h5><span>' + $addUserName + '</span><b onclick="dalate(this)">删除</b></h5>' +
+										'<table>' +
+										'<tr>' +
+										'<td>收货人：</td>' +
+										'<td>' + $addUserName + '</td>' +
+										'</tr>' +
+										'<tr>' +
+										'<td>所在区域：</td>' +
+										'<td>' + $province + '</td>' +
+										'</tr>' +
+										'<tr>' +
+										'<td>手机：</td>' +
+										'<td>' + $addphone + '</td>' +
+										'</tr>' +
+										'<tr>' +
+										'<td>邮政编码：</td>' +
+										'<td>' + $postcode + '</td>' +
+										'</tr>' +
+										'</table>' +
+										'</li>';
+
+								}
+							});
+						} else {
+							alert("邮政编码不能为空");
+						}
+					} else {
+						alert("手机号不能为空");
+					}
+				} else {
+					alert("详细地址不能为空");
+				}
+			} else {
+				alert("收货人不能为空");
+			}
+		});
+		var haveaddress = document.getElementsByClassName('haveaddress')[0];
+		//收货地址生成的标签
+		$.ajax({
+			type: "post",
+			url: "http://115.28.227.1/projects/xa/php/php08/common.php",
+			async: true,
+			data: {
+				type: "address",
+				kind: "showAddress",
+				Uid: $Uid
+			},
+			success: function(res) {
+				for(var i = 0; i < res.length; i++) {
+//					console.log(res);
+					haveaddress.innerHTML += '<li class="haveaddressli" id="' + res[i].ID + '">' +
+						'<h5><span>' + res[i].Name + '</span><b onclick="dalate(this)">删除</b></h5>' +
+						'<table>' +
+						'<tr>' +
+						'<td>收货人：</td>' +
+						'<td>' + res[i].Name + '</td>' +
+						'</tr>' +
+						'<tr>' +
+						'<td>所在区域：</td>' +
+						'<td>' + res[i].Address + '</td>' +
+						'</tr>' +
+						'<tr>' +
+						'<td>手机：</td>' +
+						'<td>' + res[i].Tel + '</td>' +
+						'</tr>' +
+						'<tr>' +
+						'<td>邮政编码：</td>' +
+						'<td>' + res[i].Postcode + '</td>' +
+						'</tr>' +
+						'</table>' +
+						'</li>';
+				}
+
+			}
+		});
+
+		function dalate(a) {
+			var r = confirm('确认删除？');
+			if(r == true) {
+				$(a).parent().parent().remove();
+				var uida = $(a).parent().parent()[0].id;
+				$.ajax({
+					type: "post",
+					url: "http://115.28.227.1/projects/xa/php/php08/common.php",
+					async: true,
+					data: {
+						type: "address",
+						kind: "deleteAddress",
+						Uid: uida
+					},
+					success: function(res) {
+						alert("删除成功！");
+					}
+				});
+			}
+
+		}
+	</script>
+
+</html>

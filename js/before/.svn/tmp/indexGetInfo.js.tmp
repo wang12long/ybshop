@@ -1,0 +1,131 @@
+//热门推荐
+var recommendArr=[];
+$.ajax({
+	type:"get",
+	url:"http://115.28.227.1/projects/xa/php/php08/common.php",
+	async:true,
+	data:{
+		type:"getAll",
+		XID:1
+	},
+	success:function(res){
+		for(var i=0;i<res.length;i++){
+			var goodinfo=JSON.parse(res[i].GoodInfo);
+<<<<<<< .mine
+//			console.log(goodinfo);
+=======
+>>>>>>> .r218
+			$("#chao").append('<div class="hotItem">'+
+					'<div class="changeImg"><a href="public/goods_details.html?id='+res[i].ID+'"><img src="'+goodinfo.firstImg+'" alt="" class="img-circle"/></div></a>'+
+					'<p class="goodname">'+res[i].GoodName+'</p>'+
+				'</div>')
+		}
+	}
+});
+$.ajax({
+	type:"get",
+	url:"http://115.28.227.1/projects/xa/php/php08/common.php",
+	async:true,
+	data:{
+		type:"getAll",
+		XID:2
+	},
+	success:function(res){
+		for(var i=0;i<res.length;i++){
+			var goodinfo=JSON.parse(res[i].GoodInfo);
+			$("#fen").append('<div class="hotItem">'+
+					'<div class="changeImg"><a href="public/goods_details.html?id='+res[i].ID+'"><img src="'+goodinfo.firstImg+'" alt="" class="img-circle"/></div></a>'+
+					'<p class="goodname">'+res[i].GoodName+'</p>'+
+				'</div>')
+		}
+	}
+});
+$.ajax({
+	type:"get",
+	url:"http://115.28.227.1/projects/xa/php/php08/common.php",
+	async:true,
+	data:{
+		type:"getAll",
+		XID:3
+	},
+	success:function(res){
+<<<<<<< .mine
+//		console.log(res);
+=======
+>>>>>>> .r218
+		for(var i=0;i<res.length;i++){
+			var goodinfo=JSON.parse(res[i].GoodInfo);
+			$("#re").append('<div class="hotItem">'+
+					'<div class="changeImg"><a href="public/goods_details.html?id='+res[i].ID+'"><img src="'+goodinfo.firstImg+'" alt="" class="img-circle"/></div></a>'+
+					'<p class="goodname">'+res[i].GoodName+'</p>'+
+				'</div>')
+		}
+	}
+});
+$.ajax({
+	type:"get",
+	url:"http://115.28.227.1/projects/xa/php/php08/common.php",
+	async:true,
+	data:{
+		type:"getAll",
+		XID:4
+	},
+	success:function(res){
+		for(var i=0;i<res.length;i++){
+			var goodinfo=JSON.parse(res[i].GoodInfo);
+			$("#shang").append('<div class="hotItem">'+
+					'<div class="changeImg"><a href="public/goods_details.html?id='+res[i].ID+'"><img src="'+goodinfo.firstImg+'" alt="" class="img-circle"/></div></a>'+
+					'<p class="goodname">'+res[i].GoodName+'</p>'+
+				'</div>')
+		}
+	}
+});
+$.ajax({
+	type:"get",
+	url:"http://115.28.227.1/projects/xa/php/php08/common.php",
+	async:true,
+	data:{
+		type:"getAll",
+		XID:5
+	},
+	success:function(res){
+		for(var i=0;i<res.length;i++){
+			var goodinfo=JSON.parse(res[i].GoodInfo);
+			$("#xin").append('<div class="hotItem">'+
+					'<div class="changeImg"><a href="public/goods_details.html?id='+res[i].ID+'"><img src="'+goodinfo.firstImg+'" alt="" class="img-circle"/></div></a>'+
+					'<p class="goodname">'+res[i].GoodName+'</p>'+
+				'</div>')
+		}
+	}
+});
+
+
+//店铺街
+$.ajax({
+	type:"get",
+	url:"http://115.28.227.1/projects/xa/php/php08/common.php",
+	async:true,
+	data:{
+		type:"getstweet"
+	},
+	success:function(res){
+		var shopitemBox=document.querySelector(".shopitemBox");
+		shopitemBox.innerHTML="";
+		for (var i=0;i<24;i++) {
+			if(i<res.length){
+				shopitemBox.innerHTML+='<div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 storelogo"><img src="'+JSON.parse(res[i].StoreMsg).logo+'" /></div>';
+			}else{
+				shopitemBox.innerHTML+='<div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 storelogo"><img src="img/ad.jpg" /></div>';
+			}
+		}
+		$('.storelogo img').on("mouseenter", function() {
+	$(this).addClass("animated tada");
+});
+$('.storelogo img').on("mouseout", function() {
+	var a = $(this);
+	setTimeout(function() {
+		a.removeClass("animated tada");
+	}, 800);
+});
+	}
+});

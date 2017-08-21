@@ -1,0 +1,147 @@
+if(sessionStorage.getItem('currentUser')==null){
+	
+}else{
+var currentUser = JSON.parse(window.sessionStorage.currentUser);
+}
+// =========================== 如果已经登录header显示内容 ==================================
+if(currentUser){
+	$(".l_header_left").html("<span class='afterLogin_nickname'>" + currentUser.currentUser + "</span>欢迎您回来！<span class='quit'>退出</span>");
+}
+// =========================== 判断是哪一页的头部 点击登录跳转到哪一页 ======================
+// ps: 首页和其他页面路径不同
+$(".l_header_left").find("span:eq(1)").click(function(){
+	if($(".l_header_left").find("span:eq(1)").text()=="请登录 "){
+		var url = decodeURI(location.href);
+		var STR = url.split('/');
+		var str_=STR[STR.length-1];
+		var qq = str_.substr(0,10);
+		if(qq=="index.html"){
+			window.location.href = "../youba/public/login.html";
+		}else{
+			window.location.href = "login.html";
+		}
+	} 
+});
+// ================== 用户登录后点击用户昵称进入个人中心 ====================
+// ps: 首页和其他页面路径不同
+$(".afterLogin_nickname").click(function() {
+	var url = decodeURI(location.href);
+	var STR = url.split('/');
+	var str_=STR[STR.length-1];
+	var qq = str_.substr(0,10);
+	if(qq=="index.html"){
+		window.location.href = "../youba/public/user.html";
+	}else{
+		window.location.href = "user.html";
+	}
+});
+//========================= 退出登录 ============================
+$(".quit").click(function(){
+	window.sessionStorage.removeItem("currentUser");
+	$(".l_header_left").html("<span>欢迎光临本店!&nbsp;</span><span>请登录&nbsp;</span><span>免费注册</span>");
+	$(".l_header_left").find("span:eq(1)").click(function(){
+	if($(".l_header_left").find("span:eq(1)").text()=="请登录 "){
+		var url = decodeURI(location.href);
+		var STR = url.split('/');
+		var str_=STR[STR.length-1];
+		var qq = str_.substr(0,10);
+		if(qq=="index.html"){
+			window.location.href = "../youba/public/login.html";
+		}else{
+			window.location.href = "login.html";
+		}
+	}
+
+})
+})
+// ============================= 购物车 ===================================
+$('.ico-text').on('click',function(){
+	var url = decodeURI(location.href);
+	var STR = url.split('/');
+	var str_=STR[STR.length-1];
+	var qq = str_.substr(0,10);
+	if(qq=="index.html"){
+		window.location.href = "public/shopcar.html";
+	}else{
+		window.location.href='shopcar.html';
+	}
+	
+})
+
+//判断用户是否登录
+var UID='';
+if(sessionStorage.getItem("currentUser")!=null){
+	UID = JSON.parse(sessionStorage.getItem("currentUser")).Uid.split("'")[1];
+}
+
+//右侧购物车
+if(UID){
+	carnum();
+}
+function carnum(){
+	$.ajax({
+	type:"post",
+	url:"http://115.28.227.1/projects/xa/php/php08/common.php",
+	async:true,
+	data:{
+		type:"getShopCarCon",
+		Uid:UID,
+		a:"getgooded"
+	},
+	success:function(res){
+//		console.log(res);
+		var nums=0;
+		for(var i=0;i<res.length;i++){
+			nums+=parseInt(res[i].Num);
+			var goodinfo=JSON.parse(res[i].GoodInfo);
+			$('.shopData').append('<li class="shopinfo clearfix">'+
+								'<div>'+
+									'<a href=""><img src="'+goodinfo.firstImg+'" /></a>'+
+								'</div>'+
+								'<div>'+
+									'<a href=""><span class="infoHover">'+goodinfo.goodName+'</span></a>'+
+									'<p><span>￥20.0</span>&nbsp;x&nbsp;<span class="goodsnums">'+res[i].Num+'</span><b class="dele" id="'+res[i].GID+'">删除</b></p>'+
+								'</div>'+
+							'</li>')				
+		}
+		$(".littlegoodnum").text(nums);
+		if(nums==0){			
+		   $('.loadingImg').show ();
+		}else{
+			 $('.loadingImg').hide();
+		}
+		$(this).parent().parent().parent().remove();
+		
+		$('.dele').click(function(){
+			$(this).css({'cursor':'pointer'});
+			var gid=$(this).attr('id');
+			var num1=parseInt($(this).prev().text());
+			var num=parseInt($(".littlegoodnum").text());
+			$(this).parent().parent().parent().remove();
+
+			$.ajax({
+				type:"post",
+				url:"http://115.28.227.1/projects/xa/php/php08/common.php",
+				async:true,
+				data:{
+					type:"getShopCarCon",
+					Uid:UID,
+					a:"aaaaa",
+					Gid:gid
+				},
+				success:function(res){
+					console.log(res);
+					if(res.err==0){						
+						$(".littlegoodnum").text(num-num1);
+					}
+				}
+			});
+		})
+	}
+});
+}
+
+$('.goods_buyCar').on("click",function(){
+	$('.shopData').html("");
+	carnum();
+})

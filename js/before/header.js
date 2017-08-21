@@ -1,0 +1,276 @@
+if(sessionStorage.getItem('currentUser') == null) {
+
+} else {
+	var currentUser = JSON.parse(window.sessionStorage.currentUser);
+}
+
+// =========================== 如果已经登录header显示内容 ==================================
+if(currentUser) {
+	var currentUser = JSON.parse(window.sessionStorage.currentUser);
+	var userId = currentUser.Uid.split("'")[1];
+	$.ajax({
+		type: "get",
+		url: "http://115.28.227.1/projects/xa/php/php08/common.php",
+		async: true,
+		data: {
+			type: "currentHeadImg",
+			UID: userId
+
+		},
+		success: function(res) {
+			var username = res[0].NickName;
+			$(".l_header_left").html("<span class='afterLogin_nickname'>" + username + "</span> 欢迎您回来！<span class='quit'>退出</span>");
+			// ================= 个人中心跳转 ===================
+
+			$(".afterLogin_nickname").eq(0).on('click', function() {
+				urlTo = "user.html";
+				indexUrl();
+			});
+			$('.quit').click(function() {
+				window.sessionStorage.removeItem("currentUser");
+				$(".l_header_left").html("<span>欢迎光临本店!&nbsp;</span><span>请登录&nbsp;</span><span>免费注册</span>");
+				urlTo = "login.html";
+				indexUrl();
+			})
+		}
+	})
+
+}
+
+//判断是否有人登录
+var UID = '';
+if(sessionStorage.getItem("currentUser") != null) {
+	UID = JSON.parse(sessionStorage.getItem("currentUser")).Uid.split("'")[1];
+}
+
+//右侧购物车
+if(UID) {
+	carnum();
+}
+
+function carnum() {
+	$.ajax({
+		type: "post",
+		url: "http://115.28.227.1/projects/xa/php/php08/common.php",
+		async: true,
+		data: {
+			type: "getShopCarCon",
+			Uid: UID,
+			a: "getgooded"
+		},
+		success: function(res) {
+			var nums = 0;
+			for(var i = 0; i < res.length; i++) {
+				nums += parseInt(res[i].Num);
+				var goodinfo = JSON.parse(res[i].GoodInfo);
+				$('.shopData').append('<li class="shopinfo clearfix">' +
+					'<div>' +
+					'<a href="public/goods_details.html?id='+res[i].ID+'"><img src="' + goodinfo.firstImg + '" /></a>' +
+					'</div>' +
+					'<div>' +
+					'<a href="public/goods_details.html?id='+res[i].ID+'"><span class="infoHover">' + goodinfo.goodName + '</span></a>' +
+					'<p><span>￥20.0</span>&nbsp;x&nbsp;<span class="goodsnums">' + res[i].Num + '</span><b class="dele" id="' + res[i].GID + '">删除</b></p>' +
+					'</div>' +
+					'</li>')
+			}
+			$(".littlegoodnum").text(nums);
+			if(nums == 0) {
+				$('.loadingImg').show();
+			} else {
+				$('.loadingImg').hide();
+			}
+			$(this).parent().parent().parent().remove();
+
+			$('.dele').click(function() {
+				$(this).css({
+					'cursor': 'pointer'
+				});
+				var gid = $(this).attr('id');
+				var num1 = parseInt($(this).prev().text());
+				var num = parseInt($(".littlegoodnum").text());
+				$(this).parent().parent().parent().remove();
+				$.ajax({
+					type: "post",
+					url: "http://115.28.227.1/projects/xa/php/php08/common.php",
+					async: true,
+					data: {
+						type: "getShopCarCon",
+						Uid: UID,
+						a: "aaaaa",
+						Gid: gid
+					},
+					success: function(res) {
+						if(res.err == 0) {
+							$(".littlegoodnum").text(num - num1);
+						}
+					}
+				});
+			})
+		}
+	});
+}
+
+
+////////////////////////////////////  ------页面跳转--------- ///////////////////////////////////////////////
+// ========================= 登录注册跳转 ===================================
+var urlTo = 0;
+$(".l_header_left").find("span").each(function(n, obj) {
+	$(this).click(function() {
+		var navText = $(this).text();
+		if(navText == "免费注册") {
+			urlTo = "regist.html";
+		} else if(navText == "请登录 ") {
+			urlTo = "login.html";
+		} else {
+			urlTo = "index.html";
+		}
+		indexUrl();
+	})
+})
+
+// ================ logo向首页跳转 ===================
+$(".l_main").find("img:eq(0)").css({
+	"cursor": "pointer"
+})
+$(".l_main").find("img:eq(0)").click(function() {
+		urlTo = "index.html";
+		indexUrl();
+	})
+// ============= 商家入驻logo向首页跳转 =================
+$(".header").find("img").css({
+	"cursor":"pointer"
+})
+$(".header").find("img").click(function(){
+	urlTo = "index.html";
+	indexUrl();
+})
+	// ===================== banner nav 跳转 ============
+$(".macth_xv_nav").find("li").find("a").each(function(n, obj) {
+		$(this).click(function() {
+			var navText = $(this).text();
+			if(navText == "首页") {
+				urlTo = "index.html";
+			} else if(navText == "店铺街") {
+				urlTo = "stores.html"
+			} else {
+				urlTo = "index.html";
+			}
+			indexUrl();
+		})
+	})
+	// ============== 未登录个人中心 ========================
+$(".l_login").find("span:eq(1)").click(function() {
+		urlTo = "regist.html";
+		indexUrl();
+	})
+	// ==================== 登录之后个人中心跳转 ================
+var urla;
+if(currentUser) {
+	$(".enterPerZone").click(function() {
+		urlTo = "user.html",
+			indexUrl();
+	})
+	$(".navSpan").each(function(n, obj) {
+		obj.index = n;
+			$(obj).click(function() {
+		if(n==2){
+			
+		}else{
+			console.log(obj.index);
+			urlTo = "user.html?ob="+obj.index;
+				indexUrl();
+			}
+		
+})
+		})
+	}
+		// ----------------------- 商家入驻 --------------------------------
+		
+	$(".teil_two").click(function() {
+			urlTo = "apply.html";
+			indexUrl();			
+	
+		})
+	$(".teil_two1").click(function() {
+			urlTo = "../application/index.html";
+			indexUrl();	
+			
+		})
+		// ---------------------- 商家入驻注册 -------------------------------
+	$(".header_menu").click(function() {
+		urlTo = "storeregister.html";
+		indexUrl();
+	})
+	$(".content_two").css({
+		"cursor":"pointer"
+	})
+	$(".content_two").find("span:eq(0)").click(function() {
+		urlTo = "storeregister.html";
+		indexUrl();
+	})
+
+//首页头部点击事件
+	var url = decodeURI(location.href);
+	var STR = url.split('/');
+	var str_ = STR[STR.length - 1];
+	var qq = str_.substr(0, 10);
+
+		$('.ico-text').on("click",function(){
+			if(currentUser){
+				if(qq == "index.html") {
+						window.location.href = "public/shopcar.html";
+				}else{
+					window.location.href = "shopcar.html";
+				}			
+			}else{
+				$('.userLogin').show('fast');
+			}			
+		})
+
+
+
+
+function indexUrl() {
+	var url = decodeURI(location.href);
+	var STR = url.split('/');
+	var str_ = STR[STR.length - 1];
+	var qq = str_.substr(0, 10);
+	var indexUrlSplitJoint = "../SourceCode/public/";
+	var indexUrlJump = "../";
+	var jumpUrl = 0;
+	if(qq == "index.html") {
+		if(urlTo == "index.html") {
+			jumpUrl = urlTo;
+		} else {
+			jumpUrl = indexUrlSplitJoint + urlTo;
+		}
+	} else {
+		if(urlTo == "index.html") {
+			jumpUrl = indexUrlJump + urlTo;
+		} else {
+			jumpUrl = urlTo;
+		}
+	}
+	window.location.href = jumpUrl;
+}
+
+//搜索跳转
+$('.searchbtns').click(function() {
+		if($('.searchcon').val() != "") {
+			var classes = $('.searchcon').val()
+			localStorage.setItem('class4', classes);
+			localStorage.removeItem('class1');
+			localStorage.removeItem('class2');
+			localStorage.removeItem('class3');
+			window.location.href = "public/goods_itemize.html";
+		}
+	})
+	// ============ 购物车 提交订单 logo跳转 =============================
+$(".left").find("img").css({
+	"cursor": "pointer"
+})
+$(".left").find("img").click(function() {
+	console.log(1);
+	urlTo = "index.html";
+	indexUrl();
+})

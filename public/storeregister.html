@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>商家注册信息填写</title>
+		<link rel="stylesheet" type="text/css" href="../css/public/bootstrap.min.css" />
+		<link rel="stylesheet" type="text/css" href="../css/before/storeregister.css" />
+		<link rel="stylesheet" type="text/css" href="../css/before/header.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/before/index.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/before/footer.css"/>
+	</head>
+
+	<body>
+		<!--头部导航-->
+		<div class="l_header">
+			<div class="container">
+				<div class="l_header_left">
+					<span>欢迎光临本店!&nbsp;</span>
+					<span>请登录&nbsp;</span>
+					<span>免费注册</span>
+				</div>
+				<div class="l_header_right">
+					<div class="navSpan">
+						<span class="ico-text">我的信息</span>
+						<span class="userinfo-ico"></span>
+						<ul class="navSpanHover">
+							<li><a href="">已买到的宝贝</a></li>
+							<li><a href="">我的地址管理</a></li>
+						</ul>
+					</div>
+					<div class="navSpan">
+						<span class="att-shop"></span>
+						<span class="ico-text">我关注的店铺</span>
+					</div>
+					<div class="navSpan">
+						<span class="shop-car"></span>
+						<span class="ico-text">购物车</span>
+					</div>
+					<div class="navSpan">
+						<span class="ico-text">收藏夹</span>
+						<span class="userinfo-ico"></span>
+						<ul class="navSpanHover">
+							<li><a href="">收藏的宝贝</a></li>
+							<li><a href="">收藏的店铺</a></li>
+						</ul>
+					</div>
+					<div class="navSpan">
+						<span class="ico-text">手机版</span>
+					</div>
+					<div class="navSpan">
+						<span class="ico-text">商家支持</span>
+						<span class="userinfo-ico"></span>
+						<ul class="navSpanHover">
+							<p>商家：</p>
+							<li><a href="">售后流程</a></li>
+							<li><a href="">购物流程</a></li>
+							<li><a href="">订购方式</a></li>
+							<li><a href="">常见问题</a></li>
+							<p>帮助：</p>						
+							<li><a href="">帮助中心</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="top">
+			<div class="container" style="min-width: 992px;">
+				<!--头部左边-->
+				<div class="left">
+					<!--<div id="logo">-->
+					<img src="../img/123.jpg" />
+					<!--</div>-->
+				</div>
+				<!--头部右边-->
+				<div class="right">
+					<div id="process">
+						<table border="0" cellspacing="" cellpadding="">
+							<tr>
+								<td>
+									<div class="firststep">1</div>
+								</td>
+								<td>
+									<div class="secondstep">2</div>
+								</td>
+								<td>
+									<div class="thirdstep"><span class="done"></span></div>
+								</td>
+							</tr>
+							<tr>
+								<th class="headers">开始入驻</th>
+								<th class="headers">入驻信息认证</th>
+								<th class="headers">等待审核</th>
+							</tr>
+
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="container">
+			<div class="upmsg">
+				<i></i>以下所需要上传的电子版资质文件仅支持JPG\GIF\PNG格式图片，大小请控制在200K之内。
+			</div>
+			<div class="msgtable">
+				<table border="0" cellspacing="20" cellpadding="10">
+					<thead>
+						<tr>
+							<th>请按照提示填写本人真实的资料</th>
+						</tr>
+					</thead>
+					<form action="" id="form" >
+					<tbody class="tbs">
+						<tr>
+							<th><i>*</i>店铺名称：</th>
+							<td><input type="text" name="storeName" class="onlyname"/></td>
+						</tr>
+						<tr>
+							<th><i>*</i>密码：</th>
+							<td><input type="password" name="password" id="password"/></td>
+						</tr>
+							<tr>
+							<th><i>*</i>店铺类型：</th>
+							<td><select name="kind" class="storestyle">
+								<option value="技术服务" name="kind" >技术服务</option>
+								<option value="数码" name="kind" >数码</option>
+								<option value="美妆" name="kind" >美妆</option>
+								<option value="母婴" name="kind" >母婴</option>
+								<option value="家装" name="kind" >家装</option>
+								<option value="男人" name="kind" >男人</option>
+								<option value="女人" name="kind" >女人</option>
+								<option value="卫生用品" name="kind" >卫生用品</option>
+							</select></td>
+						</tr>
+						<tr>
+							<th><i>*</i>联系地址：</th>
+							<td>
+								<!--<form class="form-inline">-->
+									<div data-toggle="distpicker">
+										<div class="form-group" style="width: 150px;">
+											<label class="sr-only" for="province">Province</label>
+											<select class="form-control" id="province" name="province"></select>
+										</div>
+										<div class="form-group" style="width: 150px;">
+											<label class="sr-only" for="city">City</label>
+											<select class="form-control" id="city" name="city"></select>
+										</div>
+										<div class="form-group" style="width: 150px;">
+											<label class="sr-only" for="district">District</label>
+											<select class="form-control" id="district" name="county"></select>
+										</div>
+									</div>
+								<!--</form>-->
+							</td>
+						</tr>
+						<tr>
+							<th><i>*</i>详细地址：</th>
+							<td><textarea name="detailAddress" rows="" cols="" style="border: 1px solid lightgray;" id="detailAddress"></textarea></td>
+						</tr>
+						<tr>
+							<th><i>*</i>姓名：</th>
+							<td><input type="text" name="name" id="name"/></td>
+						</tr>
+						<tr>
+							<th><i>*</i>联系人电话：</th>
+							<td><input type="text" name="phoneNum" id="phoneNum"/></td>
+						</tr>
+						<tr>
+							<th><i>*</i>电子邮箱：</th>
+							<td><input type="text" name="email" id="email"/></td>
+						</tr>
+						<tr>
+							<th><i>*</i>店铺LOGO：</th>
+							<td>
+								<div class="logoimg" id="logo1"></div><input type="file" name="" id="uplogo" value="" />
+								<div class="chosefile" id="chosefile1">请选择文件</div>
+							</td>
+						</tr>
+						<tr>
+							<th><i>*</i>店铺头像：</th>
+							<td>
+								<span class="logoimg" id="logo2"></span><input type="file" id="uphimg"/>
+								<div class="chosefile" id="chosefile2">请选择文件</div>
+							</td>
+						</tr>
+					</tbody>
+					</form>
+						<tr>
+							<th></th>
+							<td><button class="btn btn-danger" style="width: 80px;" id="sub">提交</button></td>
+						</tr>
+				</table>
+			</div>
+		</div>
+			<!--页面底部-->
+		<div id="footer" style="margin-top: 30px;padding: 50px;">
+			<div class="container" >
+				<!--网站信息-->
+				<div class="footer-info row">
+					<p>
+						<a href="">关于我们</a><strong>|</strong>
+						<a href="">联系我们</a><strong>|</strong>
+						<a href="">商家入驻</a><strong>|</strong>
+						<a href="">友情链接</a><strong>|</strong>
+						<a href="">站点地图</a><strong>|</strong>
+						<a href="">手机商城</a><strong>|</strong>
+						<a href="">销售联盟</a><strong>|</strong>
+						<a href="">商城社区</a><strong>|</strong>
+						<a href="">企业文化</a><strong>|</strong>
+						<a href="">帮助中心</a><strong>|</strong>
+						<a href="">留言板</a>
+					</p>
+					<p>
+						<a href="javascript:;">© 2005-2017 有吧连锁商城 版权所有，并保留所有权利。</a>
+						<a href="javascript:;">植物园花圃园内 </a>
+						<a href="javascript:;"> Tel: 13369202343 </a>
+						<a href="javascript:;"> E-mail: 397218182@qq.com </a>
+					</p>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script src="http://www.jq22.com/jquery/1.11.1/jquery.min.js"></script>
+	<script src="../js/before/header.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../js/public/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../js/public/distpicker.data.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../js/public/distpicker.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../js/before/storeregister.js" type="text/javascript" charset="utf-8"></script>
+</html>

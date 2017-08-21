@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<meta name="renderer" content="webkit">
+		<title></title>
+		<link rel="stylesheet" href="css/pintuer.css">
+		<link rel="stylesheet" href="css/admin.css">
+		<link rel="stylesheet" type="text/css" href="../../css/public/bootstrap.min.css" />
+		<script src="js/jquery.js"></script>
+		<script src="js/pintuer.js"></script>
+	</head>
+	
+	<body>
+		<!--<form method="post" action="" id="listform">-->
+		<div class="panel admin-panel">
+			<div class="panel-head"><strong class="icon-reorder"> 内容列表</strong>
+				<a href="" style="float:right; display:none;">添加字段</a>
+			</div>
+			<div class="padding border-bottom">
+				<ul class="search" style="padding-left:10px;">
+					<li>
+						<a class="button border-main icon-plus-square-o" href="add.html"> 添加内容</a>
+					</li>					
+				</ul>
+			</div>
+			<table class="table table-hover text-center" id="goodsList">
+				<tr>
+					<th width="100" style="text-align:left; padding-left:20px;">产品编号</th>
+					<th width="10%">产品名</th>
+					<th>产品图片</th>
+					<th>产品类别</th>
+					<th>市场价</th>
+					<th>售价</th>
+					<th>品牌</th>
+					<th>规格</th>
+					<th>库存</th>
+					<th>描述</th>
+					<th width="200">操作</th>
+				</tr>
+				<volist name="list" id="vo">
+					
+					<tr id="alls">					
+						
+					</tr>
+					
+			</table>
+		</div>
+		<!--</form>-->
+
+		<script type="text/javascript">
+			var did = localStorage.getItem("DID");
+			$.ajax({
+				type: "get",
+				url: "http://115.28.227.1/projects/xa/php/php08/Back/backCommon.php",
+				async: true,
+				data: {
+					type: "getgoodinfo",
+					DID: did
+				},
+				success: function(res) {
+//									console.log(res);
+					for(var i = 0; i < res.length; i++) {
+						var gInfo = JSON.parse(res[i].GoodInfo);
+						$("#alls").before('<tr><td>' + res[i].Numbers + '</td><td>' + gInfo.goodName + '</td><td width="10%"><img src="' + gInfo.firstImg + '" alt="" width="70" height="50" /></td><td>' + gInfo.firstsort + '－－' + gInfo.secondsort + '－－' + gInfo.thirdsort + '</td><td>' + gInfo.marketPrice + '</td><td>' + gInfo.price + '</td><td>' + gInfo.brand + '</td><td>' + gInfo.specifications + '</td><td>' + gInfo.stock + '</td><td>' + gInfo.goodsDescribe + '</td> <td><button class="btn btn-info goodChanges" >修改</button><button class="btn btn-danger goodDeletes" >删除</button></td></tr>');
+					}
+					$(".goodDeletes").click(function() {
+						console.log($(this).parent().prevAll().eq($(this).parent().prevAll().length - 1).text());
+						var ids = $(this).parent().prevAll().eq($(this).parent().prevAll().length - 1).text();
+						var r = confirm('确认删除？');
+						if(r == true) {
+							console.log($(this).parent().parent());
+							$(this).parent().parent().remove();
+							$.ajax({
+								type: "get",
+								url: "http://115.28.227.1/projects/xa/php/php08/Back/backCommon.php",
+								async: true,
+								data: {
+									type: "deletegoods",
+									GID: ids
+								},
+								success: function(res) {
+									console.log(res);
+									if(res.err == 0) {
+
+									}
+								}
+							});
+						}
+					});
+					$(".goodChanges").click(function() {
+						var ids = $(this).parent().prevAll().eq($(this).parent().prevAll().length - 1).text();
+						window.location.href="changegood.html?ids="+ids;
+					});
+				}
+			});
+		</script>
+
+	</body>
+
+</html>

@@ -1,0 +1,50 @@
+
+//var swiper = new Swiper('.macth_xv_menu>.swiper-container', {
+//      pagination: '.swiper-pagination',
+//      paginationClickable: true,
+//      autoplay: 2000
+//  });
+//var swiper1 = new Swiper('.l_title>.swiper-container', {
+//      direction: 'vertical',
+//      slidesPerView: 1,
+//      paginationClickable: true,
+//      spaceBetween: 30,
+//      mousewheelControl: true,
+//      autoplay: 2500,
+//      effect : 'fade'
+//  });
+var swiper2 = new Swiper('#floorcontent .swiper-container', {
+        direction: 'vertical',
+        slidesPerView: 1,
+        paginationClickable: true,
+        spaceBetween: 30,
+        mousewheelControl: true,
+        autoplay: 2500
+
+    });
+$(".floorClass").on("mouseenter",function(){
+	$(".floorClass").css({"border":"1px solid lightgray","border-bottom":0});
+	$(this).css({"border":"1px solid #D22B2B","border-bottom":"1px solid white"});
+});
+
+
+
+//公告
+$(".l_teil .l_teil_one span").on("mouseenter",function(){
+	$(".l_teil .l_teil_one span").css({'border-bottom':'0px solid red'});
+	$('.l_teil .l_teil_two').css({'display':'none'});
+	$(this).css({'border-bottom':'2px solid red'});
+	$('.l_teil>.'+$(this).attr("class")).css({'display':'block'});
+
+});
+$('.storelogo img').on("mouseenter",function(){
+	$(this).addClass("animated tada");	
+});
+$('.storelogo img').on("mouseout",function(){
+		var a=$(this);
+	setTimeout(function(){		
+		a.removeClass("animated tada");
+	},800);
+});
+
+

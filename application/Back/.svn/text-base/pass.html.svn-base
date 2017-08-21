@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<meta name="renderer" content="webkit">
+<title></title>
+<link rel="stylesheet" href="css/pintuer.css">
+<link rel="stylesheet" href="css/admin.css">
+<link rel="stylesheet" type="text/css" href="../../css/public/bootstrap.min.css"/>
+<script src="js/jquery.js"></script>
+<script src="js/pintuer.js"></script>
+<style type="text/css">
+	#main{padding: 20px;}
+	.cont{display: block;width: 200px;margin: 20px;}
+	.two{display: none;}
+</style>
+</head>
+<body> 
+	<div id="main">		
+		<div class="Aname">
+			 管理员账号：admin
+		</div>
+		<div class="cont">
+		  <input type="password" id="mpass" placeholder="请输入原始密码" class="form-control"/>       				
+		</div>
+		<div class="cont">		
+		  <input type="password" class="form-control"" id="newpass" placeholder="请输入新密码" />         
+		</div>
+		<div class="cont">		
+		  <input type="password" class="form-control" id="renewpass" size="50" placeholder="请再次输入新密码"  />  
+		  <div class="two">两次密码不相同</div>
+		</div>
+		  <button class="button bg-main icon-check-square-o" type="submit" id="passbtn"> 提交</button>         
+	</div>
+</body>
+<script type="text/javascript">
+	
+	$('#passbtn').on('click',function(){
+		mpass=$('#mpass').val();
+		newpass=$('#newpass').val();
+	 	oldpass=$('#renewpass').val();
+		if(newpass==oldpass){
+			$.ajax({
+			type:"post",
+			url:"http://115.28.227.1/projects/xa/php/php08/Back/backCommon.php",
+			async:true,
+			data:{
+				type:"changepass",
+				oldpass:mpass,
+				newpass:newpass
+			},
+			success:function(res){
+				 	$('.two').hide('fast');
+				if(res.err==0){
+					console.log(res.errmsg);
+				}else{
+					alert(res.errmsg);
+				}
+			}
+		});
+	   }else{
+	   	$('.two').show('fast');
+	   }
+	})
+
+	
+</script>
+</html>
